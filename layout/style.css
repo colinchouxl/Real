@@ -2984,7 +2984,7 @@ body.open-link #new_windows {
   border-bottom: 2px solid #20b0a4; }
 
 /*=============5月10号修改的在操作方式上变化的样式表================*/
-#note_ops .tags.section .custom .add-tag .mod-aff {
+/* #note_ops .tags.section .custom .add-tag .mod-aff {
   display: inline;
   width: 60px;
   height: 22px;
@@ -3007,7 +3007,7 @@ body.open-link #new_windows {
 #note_ops .tags.section .custom .add-tag .mod-aff a.cancel-mod {
   background: url(images/spirit3.png) #20b0a4 -5px -279px;
   border-radius: 8px;
-  right: 35px; }
+  right: 35px; } */
 
 body.img-wall, body.single-mode, body.open-link, body.configuring {
   overflow: hidden; }
