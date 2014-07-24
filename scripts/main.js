@@ -2627,7 +2627,8 @@ jQuery(function($){
                                     
                                     //如果此便签没有任务标签，则为其加上tasks标签
                                     if(!$note.hasClass("task")){
-                                        note.addTag($("#tag_tasks").data("id"),function(feedback){
+                                        note.addTag($("#tag_tasks").data("id"),function(data){
+                                            var feedback = get_json_feedback(data);
                                             if(feedback.status == "ok"){
                                                 notify_user({operation:"add_tag",node:$("#tag_tasks").get(0),effect:"default"});
 
@@ -3603,7 +3604,8 @@ jQuery(function($){
                                 var note = new Note({id:note_id});
                                 
                                 //再添加tag
-                                note.addTag(tag_id,function(feedback){
+                                note.addTag(tag_id,function(data){
+                                    var feedback = get_json_feedback(data);
                                     if(feedback.status == "ok"){
                                         //加标签成功
                                         $(".tags.section .tag[data-id=\""+tag_id+"\"]").addClass("choosed");
@@ -3786,7 +3788,8 @@ jQuery(function($){
                             }
                         }
 
-                        note.addTag(tag_id,function(feedback){
+                        note.addTag(tag_id,function(data){
+                            var feedback = get_json_feedback(data);
                             if(feedback.status == "ok"){
                                 //如果添加的是任务标签
                                 if(that.id == "tag_tasks"){
@@ -4214,7 +4217,8 @@ jQuery(function($){
                             if($(this).data("hit_space_count") == 1){
                                 //如果不是新的便签，则为其添加上任务标签
                                 if(!$(this).hasClass("new")){
-                                    note.addTag($("#tag_tasks").data("id"),function(feedback){
+                                    note.addTag($("#tag_tasks").data("id"),function(data){
+                                        var feedback = get_json_feedback(data);
                                         if(feedback.status == "ok"){
                                             note.deadline = null;
                                             note.setTask(function(data){
@@ -4280,7 +4284,8 @@ jQuery(function($){
                             if(!$(this).hasClass("new")){
                                 var that = this;
                                 var task_id = $("#tag_tasks").data("id");
-                                note.addTag(task_id,function(feedback){
+                                note.addTag(task_id,function(data){
+                                    var feedback = get_json_feedback(data);
                                     if(feedback.status == "ok"){
                                         note.deadline = null;
                                         note.setTask(function(data){
@@ -4552,7 +4557,8 @@ jQuery(function($){
                             //1.在任务面板 因为tasks页面会自动在classify函数中添加tasks标签，所以这里不作操作
                             //2.非任务面板 需手动加上tasks标签
                             if(default_type != "tasks" && $(note_con).hasClass("task")){
-                                note.addTag($("#tag_tasks").data("id"),function(feedback){
+                                note.addTag($("#tag_tasks").data("id"),function(data){
+                                    var feedback = get_json_feedback(data);
                                     if(feedback.status == "ok"){
                                         var color = $("#tag_tasks").data("color");
 
@@ -5211,7 +5217,7 @@ jQuery(function($){
 
         //加载图片标签    2014-6-29
         ImageItem.prototype.get_image_tags(function(data){
-            var tags_con = "<link rel=\"stylesheet\" href=\""+location.origin+"/fonts/ok-icon-fonts/icon-fonts.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/image_wall.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/lightbox.css\">"+ 
+            var tags_con = "<link rel=\"stylesheet\" href=\""+location.origin+"/layout/fonts/ok-icon-fonts/icon-fonts.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/image_wall.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/lightbox.css\">"+ 
                             "<div class=\"wall-header\">"+
                                 "<div class=\"wall-title\">"+
                                    "<h1><span class=\"title\">image-wall</span><span class=\"num\"></span></h1>"+
@@ -5304,7 +5310,7 @@ jQuery(function($){
         var resizedHeight;
         for(var i=0,len=images.length; i<len; i++){
             image = images[i];
-            resizedHeight = (idl.apps.image.initWidth/image.width) * image.height;       //7-24
+            resizedHeight = (idl.apps.image.initWidth/image.width) * image.height;
 
             html += "<div class=\"item loading\" data-id=\""+image.id+"\" data-tagids=\""+image.tag_ids+"\" data-note=\""+image.note_id+"\">" +
                         "<div class=\"mask\">" +
@@ -5320,20 +5326,20 @@ jQuery(function($){
                             "<a href=\""+image.url+"\" class=\"lb\" data-title=\""+image.width+"x"+image.height+"\" data-lightbox=\"image-1\" data-title=\"My caption\"><img src=\""+location.origin+"/layout/images/1px.gif\" width=\""+idl.apps.image.initWidth+"\" height=\""+resizedHeight+"\" data-height=\""+image.height+"\" data-width=\""+image.width+"\" data-src=\""+image.url+"\"/></a>" +
                         "</div>" +
                         "<div class=\"single-op\">" +
-                            "<div class=\"checkbox\"><span class=\"icon-font ok-icon-complete\"></span></div>" +
+                            "<div class=\"checkbox\"></div>" +
                             "<div class=\"operations\">" +
-                                "<a class=\"download\" href=\""+image.url+"\" target=\"_blank\" download=\""+get_filename(image.url)+"\"><span class=\"icon-font ok-icon-download\"></span></a>" +
-                                "<a class=\"delete\" href=\"#\"><span class=\"icon-font ok-icon-del\"></span></a>" +
-                                "<a class=\"share\" href=\"#\"><span class=\"icon-font ok-icon-share\"></span></a>" +
+                                "<a class=\"download\" href=\""+image.url+"\" target=\"_blank\" download=\""+get_filename(image.url)+"\"></a>" +
+                                "<a class=\"delete\" href=\"#\"></a>" +
+                                "<a class=\"share\" href=\"#\"></a>" +
                             "</div>" +
                             "<div class=\"share-component\">" +
-                                 "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"><span class=\"icon-font ok-icon-email-line2\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"><span class=\"icon-font ok-icon-sinaweibo-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"><span class=\"icon-font ok-icon-douban-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"><span class=\"icon-font  ok-icon-qqzone-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"gmail component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"><span class=\"icon-font ok-icon-share\"></span></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"gmail component\"></a></div>" +
+                                "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"></a></div>" +
                             "</div>" +
                         "</div>" +
                     "</div>";
