@@ -1,0 +1,429 @@
+/**
+ * 图片分享页面样式表
+ */
+
+/*
+HTML5 CSS Reset
+Based on Eric Meyer's CSS Reset
+and html5doctor.com HTML5 Reset
+
+Copyright (c) 2011 736 Computing Services Limited
+Released under the MIT license. http://opensource.736cs.com/licenses/mit
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, audio, canvas, details, figcaption,
+figure, footer, header, hgroup, mark, menu, meter, nav,
+output, progress, section, summary, time, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+body {
+	line-height: 1;
+	font-family: Tahoma;
+	background-color: white;
+}
+
+article, aside, dialog, figure, footer, header, 
+hgroup, nav, section, blockquote { 
+	display: block;
+}
+
+nav ul {
+	list-style: none;
+}
+
+ol {
+	list-style: decimal;
+}
+
+ul {
+	list-style: disc;
+}
+
+ul ul {
+	list-style: circle;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+ins {
+	text-decoration: underline;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+mark {
+	background: none;
+}
+
+abbr[title], dfn[title] {
+	border-bottom:1px dotted #000;
+	cursor:help;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input, select, a img {
+	vertical-align: middle;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F7F7F7;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 1px solid white;
+    background: rgba(124, 124, 124, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(124, 124, 124, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active{
+    background: rgba(124, 124, 124, 0.5);
+}
+ 
+.hvr::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+.hvr::-webkit-scrollbar-thumb{
+    background: black;
+    /*background: rgba(124, 124, 124, 0.6);*/
+}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+}
+
+
+/*--------------------------------------*/
+iframe{
+    /*让框架随窗口宽度变化而变化*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+a{
+	text-decoration:none;
+	color: #000;
+}
+
+#wrapper{
+	max-width:940px; 
+	margin:30px auto 0;
+	padding: 0 20px;
+}
+
+#main-con .share-title input{
+	visibility: hidden;
+	color: #20b0a4;
+	font-size: 36px;
+	border: none;
+	margin: 0;
+	width: 100%;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	font-family: Tahoma;
+	outline: none;
+}
+
+#main-con .share-title.hvr,
+#main-con .show-des.hvr,
+#main-con .share-title.editing{
+	outline: 1px dashed #ccc;
+}
+
+#main-con .share-title.editing input{
+	visibility: visible;
+}
+
+#main-con .share-title h1{
+	color: #20b0a4;
+	font-size: 36px;
+	padding:4px 0;
+	font-weight: normal;
+	/*border: 1px dashed transparent;*/
+}
+
+#main-con .share-title.editing h1{
+	visibility: hidden;
+}
+
+#main-con .share-title{
+	position: relative;
+}
+
+#main-con .share-title div.logo{
+	background: url(images/ok-small.png) no-repeat center center;
+	padding: 20px 42px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#main-con .share-title.editing .logo{
+	display: none;
+}
+
+#main-con h2{
+	font-size: 24px;
+	color: #20b0a4;
+	text-align: center;
+	margin-top:10px; 
+}
+
+#header .state div{
+	display: inline-block;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+#header .state div.shear-time{
+	padding-right: 15px;
+	border-right:solid 1px #aaa; 
+}
+
+#header .state div.link{
+	display: block;
+}
+
+#header .editor{
+	margin-top: 5px;
+	font-size: 12px;
+	color: #595757;
+}
+
+#header .description{
+	width: 100%;
+	height: auto;
+	margin-top: 8px;
+}
+
+#header .description div.show-des pre{
+	line-height: 1.4;
+	font-size: 14px;
+	font-family: Tahoma;
+	word-break: break-word;
+	min-height: 1.4em;
+}
+
+#header .description.editing div.show-des{
+	outline: 1px dashed #ccc;
+}
+
+#header .description.editing div.show-des pre{
+	display: none;
+}
+
+#header .description .title{
+	margin-bottom: 5px;
+}
+
+#header .description textarea{
+	display: none;
+	font-family: Tahoma;
+}
+#header .description.editing textarea{
+	display: block;
+	width: 100%;
+	height: auto ;
+	line-height: 1.4;
+	font-size: 14px;
+	border: none;
+	outline: none;
+	padding: 0;
+	resize:none;
+}
+
+#main-con .editor-info a.portrait{
+	
+	display: inline-block;
+	margin: 10px auto;
+}
+
+#main-con .editor-info a.portrait img{
+	border-radius: 40px;
+	border: 2px solid #20b0a4;
+	display: block;
+}
+
+#main-con .editor-info{
+	text-align: center;
+	margin: 5px 0;
+}
+
+#main-con .editor-info .editor{
+	font-size: 18px;
+}
+
+#main-con .editor-info .per-sig{
+	font-size: 14px;
+	display: inline-block;
+	width: 280px;
+	line-height: 1.5;
+	margin-top: 5px;
+}
+
+#main-con .other-share iframe{
+	height:800px;
+	overflow: hidden;
+}
+
+#main-con #share_iframe{
+	margin-top: 15px;
+	background-color: #edeede;
+}
+
+#main-con #share_iframe iframe{
+	min-height: 500px;
+	overflow: hidden;
+}
+
+#main-con .ok-ji .logo{
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+#main-con .ok-ji .logo a{
+	background: url(images/ok-big.png) no-repeat center center;
+	background-size: 200px;
+	padding: 80px 100px;
+	display: inline-block;
+}
+
+#main-con .ok-ji .logo p{
+	color: #20b0a4;
+	font-size: 12px;	
+}
+
+/*分享组件*/
+#main-con .Share-module .bshare-custom a{
+	background: url(images/spirit3.png) no-repeat center;
+	width: 28px;
+	height: 28px;
+	margin-top: 8px;
+	padding-left: 0 !important;
+	margin-right: 3px;
+}
+
+/*First*/
+#main-con .Share-module .bshare-custom a.bshare-sinaminiblog{
+    background-position: -81px -126px;
+}
+
+/*Second*/
+#main-con .Share-module .bshare-custom a.bshare-weixin{
+    background-position: -81px -46px;
+}
+
+/*Third*/
+#main-con .Share-module .bshare-custom a.bshare-qzone{
+    background-position: -81px -86px;
+}
+
+/*Fourth*/
+#main-con .Share-module .bshare-custom a.bshare-renren{
+    background-position: -120px -6px;
+}
+
+/*Fifth*/
+#main-con .Share-module .bshare-custom a.bshare-qqmb{
+    background-position: -81px -206px;
+}
+
+/*Sixth*/
+#main-con .Share-module .bshare-custom a.bshare-douban{
+    background-position: -81px -246px;
+}
+
+/*seventh*/
+#main-con .Share-module .bshare-custom a.bshare-more{
+    background-position: -81px -326px;
+}
+
+#main-con .Share-module .bshare-custom span.BSHARE_COUNT.bshare-share-count{
+	margin-top: 8px;
+}
+
+#bsPanelHolder{
+	display: none;
+}
+
+body.touch-device #bshare_component{
+	display: none;
+}
+
+@media (max-width: 500px){
+	/*小于500px隐藏logo*/
+	body.touch-device #main-con .share-title div.logo{
+		display: none;
+	}
+
+	body.touch-device #main-con #share_iframe{
+		background: none;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,228 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, audio, canvas, details, figcaption,
+figure, footer, header, hgroup, mark, menu, meter, nav,
+output, progress, section, summary, time, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: "微软雅黑";
+}
+
+a{
+	text-decoration:none;
+	color: #000;
+}
+
+#wrapper{
+	max-width:940px; 
+	margin:30px auto 0;
+	padding: 0 20px;
+}
+
+#main-con .share-title input{
+	display: none;
+}
+
+#main-con .share-title.editing input{
+	display: block;
+	color: #20b0a4;
+	font-size: 36px;
+	border: 1px dashed #ccc;
+	outline: none;
+}
+
+#main-con .share-title h1{
+	color: #20b0a4;
+	font-size: 36px;
+	padding:4px 0;
+	font-weight: normal;
+	border: 1px dashed transparent;
+}
+
+#main-con .share-title.editing h1{
+	display: none;
+}
+
+#main-con .share-title{
+	position: relative;
+}
+
+#main-con .share-title div.logo{
+	background: url(images/ok-small.png) no-repeat center center;
+	padding: 20px 42px;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#main-con h2{
+	font-size: 24px;
+	color: #20b0a4;
+	text-align: center;
+	margin-top:10px; 
+}
+
+#header .state div{
+	display: inline-block;
+	font-size: 12px;
+	margin-top: 5px;
+}
+
+#header .state div.shear-time{
+	padding-right: 15px;
+	border-right:solid 1px #aaa; 
+}
+
+#header .state div.link{
+	display: block;
+}
+
+#header .editor{
+	margin-top: 5px;
+	font-size: 12px;
+	color: #595757;
+}
+
+#header .description{
+	width: 100%;
+	height: auto;
+	margin-top: 8px;
+}
+
+#header .description div.show-des{
+	line-height: 1.4;
+	font-size: 14px;
+}
+#header .description.editing div.show-des{
+	display: none;
+}
+
+#header .description textarea{
+	display: none;
+}
+#header .description.editing textarea{
+	display: block;
+	width: 100%;
+	height: auto ;
+	line-height: 1.4;
+	font-size: 14px;
+}
+
+#main-con .editor-info a.portrait{
+	background: url(images/editor-por.png) no-repeat center center;
+	padding: 40px;
+	display: inline-block;
+	margin: 10px auto;
+}
+
+#main-con .editor-info{
+	text-align: center;
+	margin: 5px 0;
+}
+
+#main-con .editor-info .editor{
+	font-size: 18px;
+}
+
+#main-con .editor-info .per-sig{
+	font-size: 14px;
+	display: inline-block;
+	width: 280px;
+	line-height: 1.5;
+	margin-top: 5px;
+}
+
+#main-con .other-share iframe{
+	height:100px;
+}
+
+#main-con #share_iframe{
+	margin-top: 15px;
+	background-color: #edeede;
+}
+
+#main-con #share_iframe iframe{
+	min-height: 500px;
+	overflow: hidden;
+}
+
+#main-con .ok-ji .logo{
+	text-align: center;
+	padding-bottom: 50px;
+}
+
+#main-con .ok-ji .logo a{
+	background: url(images/ok-big.png) no-repeat center center;
+	background-size: 200px;
+	padding: 80px 100px;
+	display: inline-block;
+}
+
+#main-con .ok-ji .logo p{
+	color: #20b0a4;
+	font-size: 12px;	
+}
+
+/*分享组件*/
+#main-con .Share-module .bshare-custom a{
+	background: url(images/spirit3.png) no-repeat center;
+	width: 28px;
+	height: 28px;
+	margin-top: 8px;
+	padding-left: 0 !important;
+	margin-right: 3px;
+}
+
+/*First*/
+#main-con .Share-module .bshare-custom a.bshare-sinaminiblog{
+    background-position: -81px -126px;
+}
+
+/*Second*/
+#main-con .Share-module .bshare-custom a.bshare-weixin{
+    background-position: -81px -46px;
+}
+
+/*Third*/
+#main-con .Share-module .bshare-custom a.bshare-qzone{
+    background-position: -81px -86px;
+}
+
+/*Fourth*/
+#main-con .Share-module .bshare-custom a.bshare-renren{
+    background-position: -120px -6px;
+}
+
+/*Fifth*/
+#main-con .Share-module .bshare-custom a.bshare-qqmb{
+    background-position: -81px -206px;
+}
+
+/*Sixth*/
+#main-con .Share-module .bshare-custom a.bshare-douban{
+    background-position: -81px -246px;
+}
+
+/*seventh*/
+#main-con .Share-module .bshare-custom a.bshare-more{
+    background-position: -81px -326px;
+}
+
+#main-con .Share-module .bshare-custom span.BSHARE_COUNT.bshare-share-count{
+	margin-top: 8px;
+}
+
+#bsPanelHolder{
+	display: none;
+}

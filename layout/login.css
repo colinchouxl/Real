@@ -1,0 +1,179 @@
+html,body{
+    min-height: 100%;
+}
+
+body,h1,ul,li,p,img{
+    padding: 0px;
+    margin: 0px;
+}
+
+#wrapper{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background:#D6D6D6 url(images/login_background.png) no-repeat; 
+    background-position: 50% 50%;
+    background-size: cover;
+    margin: 0 auto;  
+}
+h1.logo_anchor{
+    color: #15BBAE;
+    font-size: 3.2em;
+    text-align: center; 
+    margin-top: 11%; 
+}
+
+.login_part{
+    width: 460px;
+    background: rgba(255,255,255,0.3);
+    margin: 0 auto;
+    padding-bottom: 5%;
+    overflow: hidden;
+}
+
+body.in-frame .login_part,
+body.touch-device .login_part{
+    width: 300px;
+}
+
+.cont{
+    position: relative;
+    margin: auto;
+    padding-top:10%;
+    text-align: center;
+}
+/*登陆表格*/
+.login_part .signup_forms input{
+    width: 260px;
+    height: 32px;
+    border: none;
+    background: #fff; 
+    margin-top: 6px; 
+    padding: 5px;    
+}
+.login_part .signup input{
+    width: 270px;
+    background:#15BBAE;
+    color: #fff;
+    margin-top: 16px; 
+}
+/*保持登陆状态*/
+.keep_login{
+    position: relative;
+    left: 95px;
+    top: 8px;
+}
+.keep_login div.checkbox{
+    width: 10px;
+    height: 10px;
+    border: 1px solid #535353;  
+    float: left; 
+    margin-top: 4px;  
+}
+.keep_login p{
+    color: rgba(162,162,162,0.9); 
+    margin-bottom: 25px;
+    margin-left: 15px;
+    text-align: left;
+}
+
+/*注册新账号链接*/
+.signup_link a{
+    text-decoration: none;
+    color: #15BBAE;  
+}
+
+/*登陆账号说明文字*/
+.account_explain{
+    color: #999;
+    size:0.7em;
+    text-align: center;
+    margin:3% 0px;
+}
+/*下部分享链接部分*/
+.share ul{
+    text-align: center;
+}
+.share li{
+    list-style: none;
+    display: inline-block;  
+}
+.share li.share_link a{
+    width: 18px;   
+    height: 18px; 
+    margin-left: 4%;   
+}
+.share .share_link a{
+    display: inline-block;
+    background:url(images/spirit.png) no-repeat;
+}
+.share .qq a{
+    background-position: -1px -131px;
+}
+.share .zqq a{
+    background-position: -19px -131px;
+}
+.share .tqq a{
+    background-position: -37px -131px;
+}
+.share .douban a{
+    background-position: -55px -131px;
+}
+.share .sina a{
+    background-position: -73px -131px;
+}
+.share .mail a{
+    background-position: -91px -131px;
+}
+.share .whatsapp a{
+    background-position: -109px -131px;
+}
+.share .tumblr a{
+    background-position: -127px -131px;
+}
+.share .twitter a{
+    background-position: -145px -131px;
+}
+.share .facebook a{
+    background-position: -163px -131px;
+}
+.share .google a{
+    background-position: -181px -131px;
+}
+.share .gmail a{
+    background-position: -199px -131px;
+}
+
+#message{
+    position: absolute;
+    min-width: 150px;
+    background: #0ae;
+    padding: 8px 40px;
+    top: 0;
+    display: none;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+    z-index: 999;
+}
+
+#message.success{
+    background: #5BCF19;
+}
+
+#message.error{
+    background: #A8A8A8;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+#message.error.hvr{
+    opacity: .7;
+}
+
+#message.warning{
+    background: #F1AF39;
+}

@@ -1,0 +1,701 @@
+ *{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -o-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+body.img-wall #wrapper {
+    width: 340px;
+}
+a{                           /*7-13*/
+    text-decoration: none;
+}
+
+img{
+    border: none;
+}
+
+body.img-wall body{
+    display: block;
+}
+
+/* body .wall-op{  7-13-icon关闭按钮在style.csss中有样式不在框架中
+    background-color: #F7F7F7;
+    height: 33px;
+    width: 100%;
+    border-bottom: 1px solid #DBDBDB;
+} 
+ body .wall-op a{     
+    display: inline-block;
+    padding: 10px;
+    margin-right: 6px;
+    background: url(images/spirit3.png) no-repeat right center;
+    position: absolute;
+    right: 0px;
+    top: 6px;
+} */
+
+/* body .wall-op a.refresh{ 7-13icon-font
+    right: 28px;   
+} */
+
+/* body .wall-op a:hover{
+    background-color: #20B0A4;
+} */
+
+/* body .wall-op a.refresh{   7-13-icon-font 
+    background-position:-3px -578px;
+}
+body .wall-op a.refresh:hover{
+    background-position: -28px -578px;
+}
+ */
+/* body .wall-op a.close{
+    background-position: -28px -277px;
+}
+body .wall-op a.close:hover{
+    background-position: -3px -277px;
+} *//*=====×îÍâ²ãdiv==end====*/
+
+body .wall-header{
+    margin:10px 0 0 0;
+    /*margin: 0 auto;*/
+}
+
+body .wall-header .unavailable{
+    display: none;
+}
+
+body.scroll .wall-header .wall-title{
+    display: none;
+}
+body.scroll .wall-header .img-tags{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 8px #ccc;
+}
+
+body.scroll #container{
+    margin-top: 44px;
+}
+
+body .image-wall{
+    width: 96%;
+    height: 100%;
+    padding: 0 2%;
+}
+
+body .image-wall.drop-down .wall-title {
+    display: none;
+}
+
+body .wall-header h1 .title{
+    color: #595757;
+    font-size: 35px;
+    margin:5px 0;
+}
+
+body .wall-header h1 .num{
+   color: #595757; 
+   margin-left:10px;
+}
+
+
+body .wall-header .tags-con{
+    background-color: #fff;
+    position: relative;
+}
+body .wall-header .tags-con .fixed-shadow{
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+body .drop-down .wall-header .tags-con{
+    width: 100%;
+    z-index: 999;
+}
+body .wall-header .img-tags div.img-tag{
+    display: inline-block;
+    color: #595757; 
+    margin-top: 4px;
+    margin-right: 5px;
+}
+body .wall-header .img-tags div.img-tag.checked,
+body .wall-header .img-tags div.img-tag:hover{
+    background-color: #20B0A4;
+}
+
+body #container{
+    margin-top: 10px;
+}
+
+body #container div.item{
+    margin: 0 4px 15px;
+    padding: 5px;
+    float: left;
+    background-color: #FFF;
+    box-shadow: -1px 0 4px #ccc,0px -1px 4px #ccc,1px 0 4px #ccc,0 1px 4px #ccc;
+    -webkit-transition: box-shadow .3s,transform .3s;
+    transition: box-shadow .3s, transform .3s;
+    transform-origin: 50% 100%;
+}
+
+body #container div.item.filtered{
+    display: none;
+}
+
+body #container div.item.to-be-exclude{
+    opacity: .3;
+}
+
+body #container div.item.hvr{
+    box-shadow: -1px 0 18px #ccc,0px -1px 18px #ccc,1px 0 18px #ccc,0 1px 18px #ccc;
+    outline: 1px solid #20B0A4;
+    /*transform: scale(1.01);*/
+    z-index: 99;
+}
+
+body.choosing #container div.item{
+    outline: 1px solid #20B0A4;
+}
+
+body.choosing #container div.item .operations{
+    visibility: hidden;
+}
+
+body.choosing #container div.item.hvr .checkbox{
+    border-color: #20B0A4;
+}
+
+body.choosing #container div.item.checked.hvr .checkbox{
+    border-color: #D1D1D1;
+}
+
+body.choosing #container div.item.hvr{
+    box-shadow: none;
+}
+
+body #container div.item img{
+    -webkit-user-drag: none;
+    -o-user-drag: none;
+    -ms-user-drag: none;
+    -moz-user-drag: none;
+    user-drag: none;
+    background: none;
+    transform: scale(1);
+    -webkit-transition: transform .6s linear;
+}
+
+body #container div.item a.lb{
+    overflow: hidden;
+    display: block;
+}
+
+body #container div.item.hvr img{
+    transform: scale(1.2);
+}
+
+/*当用户在图片墙上选中图片或者对图片作某些操作时，则不让其出现抖动(元素放大出现抖动)*/
+body.choosing #container div.item.hvr img,
+body #container #container div.item.delete.hvr img,
+body #container #container div.item.checked.hvr img{
+    -webkit-transition: none;
+    transition: none;
+    transform: none;
+}
+
+body #container div.item.loading img{
+    background: url(images/ajax-loader.gif) no-repeat center center;
+}
+
+body .con-wrap{
+    width: 100%;
+    overflow: auto;
+}
+
+body .wall-header .img-tag a{ 
+    color: #595757;
+    padding: 6px 10px;
+    display: block;
+    text-decoration: none;
+}
+
+body .wall-header .img-tag.checked a,
+body .wall-header .img-tag:hover a{ 
+    color: #fff;  
+}/*==tag==end==*/
+
+
+body .multi-choice{
+    display: none;
+    background-color: #fff;
+    width: inherit;
+    position: relative;
+    z-index: 999;
+    height: 34px;
+    border-bottom: 1px solid #A7A4A4;
+   /* margin: 0 auto;
+    bottom: 5px;*/
+}
+
+body .wall-header.fixed .img-tags,
+body .wall-header.fixed .multi-choice{
+    position: fixed;
+}
+
+body.in-frame.choosing .multi-choice{
+    display: block;
+}
+
+body.in-frame.choosing .img-tags{
+    display: none;
+}
+
+body.in-frame.choosing.scroll .multi-choice{
+    position: fixed;
+    top: 0;
+    box-shadow: 0px 1px 5px #ccc;
+    border-color: transparent;
+}
+
+body.in-frame.choosing.scroll .img-tags{
+    display: none;
+}
+
+
+/*body .image-wall.choosing .multi-choice{
+    display: block;
+}
+
+body .multi-choice .overall{
+    padding-top: 6px;
+}
+
+body .multi-choice .overall a{
+    background-color: #20B0A4;
+    padding: 3px 12px;
+    border-radius: 4px;
+    color: #fff;
+    box-shadow: 2px 2px 4px #aaa;
+}
+body .multi-choice a.all-choice{
+    float: left;
+    cursor: pointer;
+}
+body .multi-choice a.cancel{
+    float: right;
+    cursor: pointer;
+}
+body .multi-choice .footer-op{
+    float: right;
+    display: inline-block;
+    margin-right: 15px;
+}
+body .multi-choice .footer-op a{ 
+    padding: 12px;
+    display: inline-block;
+    background: url(images/spirit3.png) no-repeat;
+}*/
+
+/* body #container .single-op .operations a.active,   7-13
+body .multi-choice .footer-op a.active{
+    background-color: #20B0A4;
+}
+
+body #container .single-op .operations a.share,
+body .multi-choice .footer-op a.share{
+    background-position: -1px -101px;
+}
+
+body #container .single-op .operations a.share.active,
+body .multi-choice .footer-op a.share.active{
+    background-position: -26px -101px;
+}
+
+body #container .single-op .operations a.delete,
+body .multi-choice .footer-op a.delete{
+    background-position: -1px -76px;
+}
+
+body #container .single-op .operations a.delete.active,
+body .multi-choice .footer-op a.delete.active{
+    background-position: -26px -76px;
+}
+
+body #container .single-op .operations a.download,
+body .multi-choice .footer-op a.download{
+    background-position: -1px -451px;
+} */
+
+#post_qrcode{
+    position: absolute;
+    bottom: 23px;
+    left: 25px;
+    display: none;
+}
+
+body #container .single-op .operations a.download.active,
+body .multi-choice .footer-op a.download.active{
+    background-position: -1px -451px;
+}/*===end of multi-choice====*/
+
+body #container .single-op{
+    margin-top: 5px;  /*7-13*/  
+}
+
+body #container .single-op .checkbox{
+    /* padding: 7px; */
+    border: 1px solid #d1d1d1;
+    display: inline-block;
+    cursor: pointer;
+    font-size: 12px;
+}
+body #container .single-op .checkbox span{
+    visibility: hidden;
+}
+
+body #container .single-op .operations{
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    bottom: 1px;
+}
+
+body #container .single-op .operations a{
+/*     background: url(images/spirit3.png) no-repeat center center;
+padding: 12px; */
+    display: inline-block;
+    opacity: .4;
+    color: #333;/*7-13*/
+    padding: 3px;
+}
+body #container .single-op .operations a:hover{
+    opacity: 1;
+}
+
+/*body #container .single-op .operations a.active{
+    background-color: #20B0A4;
+}
+
+body #container .single-op .operations a.share{
+    background-position: -1px -101px;
+}
+
+body #container .single-op .operations a.share.active{
+    background-position: -26px -101px;
+}
+
+body #container .single-op .operations a.delete{
+    background-position: -1px -76px;
+}
+
+body #container .single-op .operations a.delete.active{
+    background-position: -26px -76px;
+}
+
+body #container .single-op .operations a.download{
+    background-position: -1px -451px;
+}
+
+body #container .single-op .operations a.download.active{
+    background-position: -1px -451px;
+}*/
+
+
+body #container .item.checked .single-op div.checkbox span{
+    visibility: visible;
+    color: #fff;
+    /* background: url(images/spirit3.png) no-repeat -55px -156px ;  7-13-icon*/
+}
+
+body #container .item.checked {
+    background-color: #20B0A4;
+}
+body #container .item.sharing.checked .share-component,
+body #container .item.checked .single-op div.operations{
+    visibility: hidden;
+}
+
+body #container .item.sharing .single-op div.operations,
+body #container .item.sharing .single-op div.checkbox{
+    display: none;
+}
+
+body #container .item .share-component div.share-icon{
+    display: none;
+}
+
+body #container .item.sharing .share-component div.share-icon{
+    display: inline-block;
+}
+
+body #container .item.sharing .share-component .share-icon a{
+    
+    /*  background: url(images/spirit3.png) no-repeat;  7-13-icon
+    padding: 12px; 7-13 
+    margin-right: 5.1px; */   
+    display:inline-block;
+    padding: 4px;
+    margin: 0 4px;
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 4px;
+    background: #20B0A4;
+    color: #fff;
+}
+/* body #container .item.sharing .share-component .share-icon a.cancel-share{7-13-icon-font
+    background-position: -83px -369px;
+}
+First
+body #container .item.sharing .share-component .share-icon a.component.qqmail{
+    background-position: -83px -168px;
+}
+
+Second
+body #container .item.sharing .share-component .share-icon a.component.weibo{
+    background-position: -83px -128px;
+}
+
+Third
+body #container .item.sharing .share-component .share-icon a.component.qzone{
+    background-position: -83px -88px;
+}
+
+Fourth
+body #container .item.sharing .share-component .share-icon a.component.douban{
+    background-position: -83px -248px;
+}
+
+Fifth
+body #container .item.sharing .share-component .share-icon a.component.tqq{
+    background-position: -83px -208px;
+}
+
+Sixth
+body #container .item.sharing .share-component .share-icon a.component.gmail{
+    background-position: -83px -48px;
+} *//* ==·ÖÏíÁ´½Ó==end== */
+
+body #container .item .mask div.del-mask,
+body #container .item.delete div.single-op{
+    display: none;
+}
+
+body #container .item.delete div.mask{
+    position: relative;
+    display: block;
+}
+
+body #container .item.delete div.del-mask{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 15, 0.67);;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+body #container .item.delete .del-mask p.warn{
+    text-align: center;
+}
+
+body #container .item.delete .del-mask div{
+    text-align: center;
+    margin-top: 5px;
+}
+body #container .item.delete .del-mask div.del-con{
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+}
+
+body #container .item.delete .del-mask div a.revocation{
+    color: #dcdcdc;
+}
+body #container .item.delete .del-mask .revocation span.icon{
+    display: inline-block;
+    padding: 9px;
+    background: url(images/spirit3.png) no-repeat right center;
+    background-position: -4px -178px;
+    position: relative;
+    bottom: -2px;
+    margin-left: 15px;
+}
+
+
+/* 2014-6-29 */
+.in-frame .multi-choice a{
+   text-decoration: none; 
+}
+
+.in-frame .multi-choice div{
+    display: inline-block;
+}
+
+.in-frame .multi-choice div.gol-op{
+    position: relative;
+    padding-left: 15px;
+    border-left: 1px solid #666;
+}
+.in-frame .multi-choice div.gol-op a{
+    font-size: 18px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.overall .gol-op .tag-con .custom a.tag{
+    font-size: 14px;
+    display: inline-block;
+}
+
+.in-frame .multi-choice div.gol-op a.tag{
+    font-size: 15px;
+}
+
+.in-frame .multi-choice div.gol-op a:hover{
+    color: #20B0A4;
+}
+
+.in-frame .multi-choice div.tag-con{
+    position: absolute;
+    background: #fff;
+    padding: 8px;
+    width: 257px;
+    height: auto;
+    display: none; 
+    box-shadow: 0 0 8px #949494;
+    border: 1px solid #ccc;
+    top: 35px;
+    left: -139px;
+}
+
+.in-frame .multi-choice.show-tags .tag-con{
+    display: inline-block;
+}
+
+.in-frame .multi-choice div.tag-con.active{
+    display: inline-block;
+}
+
+.in-frame .multi-choice div.more-comp{
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.in-frame .multi-choice .more-comp a:hover{
+    color: #20B0A4;
+}
+
+.in-frame .multi-choice div.other-icons{
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    top: 32px;
+    left: -58px;
+    width: 110px;
+    box-shadow: 0 0 8px #949494;
+    border: 1px solid #ccc;
+    display: none;
+    line-height: 2;
+}
+
+.in-frame .multi-choice.show-more .more-comp div.other-icons{
+    display: inline-block;
+}
+
+.in-frame .multi-choice div.other-icons a.icon-other{
+    padding: 10px;
+    display: inline-block;
+    color: #333;
+}
+
+.in-frame .multi-choice .more-comp.active{
+    display: inline-block;
+}
+
+.in-frame .multi-choice .overall .share-con a{
+    font-size: 18px;
+    color: #333;
+    margin-right: 10px;
+}
+
+.in-frame .multi-choice .overall .share-con a:hover{
+    color: #20B0A4;
+}
+
+/* .in-frame .multi-choice a.has-chosen{
+    margin-left: 20px;
+    color: #444;
+} */
+.in-frame .multi-choice .has-chosen span{
+    margin-left: 10px;
+    color: #444;
+    font-size: 14px;
+}
+
+.in-frame .multi-choice a.gol{
+    color: #333;
+    border: 1px solid #2C2C2C;
+    padding: 3px 5px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+.in-frame .multi-choice a.cancel{
+    position: relative;
+    top: -3px;
+}
+
+
+.in-frame .multi-choice a.all-choice{
+    margin-right: 15px;
+}
+
+.in-frame .multi-choice .overall{
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+
+.in-frame .multi-choice .triangle.outside{
+    border-bottom: 12px solid #ccc;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    left: 54px;
+}
+.in-frame .multi-choice .triangle{
+    border-bottom: 11px solid #fff;
+    border-left: 11px solid transparent;
+    border-right: 11px solid transparent;
+    position: absolute;
+    top: 2px;
+    left: -11px;
+}
+
+.in-frame .multi-choice .tag-con .triangle.outside{
+    top: -12px;
+    left: 182px;
+    z-index: 10;
+}
+
+.in-frame .multi-choice .has-chosen{
+    position: absolute;
+    top: 8px;
+}
+
+ 
+/* 字体图标   7-13*/
+
+
+/* 单张图片的分享图标,背景和icon颜色 */
+body #container .item.sharing .share-component .share-icon a{
+    background: #20B0A4;
+    color: #fff;
+}

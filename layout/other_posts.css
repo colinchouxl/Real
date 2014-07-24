@@ -1,0 +1,48 @@
+body{
+ 	margin: 0;
+ 	margin-top: 5px;
+ }
+
+body{
+	height: 800px;
+	overflow: hidden;
+	background: #edeede;
+}
+
+body.touch-device{
+	background: none;
+}
+
+#container{
+	margin: 0 auto;
+}
+
+div.post{
+	margin-bottom: 10px;
+}
+
+.poster{
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
+	position: relative;
+}
+
+a.thumb{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+a.thumb .item-num{
+	position: absolute;
+	bottom: 20%;
+	left: 0;
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	background: rgba(0,0,0,.3);
+	padding: 5px 0;
+}

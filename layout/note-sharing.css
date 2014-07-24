@@ -1,0 +1,688 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, audio, canvas, details, figcaption,
+figure, footer, header, hgroup, mark, menu, meter, nav,
+output, progress, section, summary, time, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family:  "Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+}
+
+body {
+	line-height: 1;
+    font-family: "Microsoft YaHei", "Hiragino Sans GB";
+}
+
+article, aside, dialog, figure, footer, header, 
+hgroup, nav, section, blockquote { 
+	display: block;
+}
+
+nav ul {
+	list-style: none;
+}
+
+ol {
+	list-style: decimal;
+}
+
+ul {
+	list-style: disc;
+}
+
+ul ul {
+	list-style: circle;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+ins {
+	text-decoration: underline;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+mark {
+	background: none;
+}
+
+abbr[title], dfn[title] {
+	border-bottom:1px dotted #000;
+	cursor:help;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input, select, a img {
+	vertical-align: middle;
+}
+
+
+a{
+	text-decoration:none;
+	color: #000;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F7F7F7;
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 1px solid white;
+    background: rgba(124, 124, 124, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(124, 124, 124, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active{
+    background: rgba(124, 124, 124, 0.5);
+}
+ 
+.hvr::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
+
+.hvr::-webkit-scrollbar-thumb{
+    background: black;
+}
+
+#wrapper{
+	background: #efefef;
+}
+
+#header{
+	width: 100%;
+	height: 200px;
+	background:#00cccc;
+	-webkit-transition:height .5s ease-in;
+}
+
+#main-con{
+	max-width:760px; 
+	margin:25px auto 0;
+}
+
+#header .share-title{
+	width: 760px;
+	margin: 0 auto;
+	position: relative;
+	top: 80px;
+}
+
+#header .share-title.editing  input{
+	visibility:visible;
+}
+
+#header .share-title input{
+	visibility: hidden;
+	color: #20b0a4;
+	font-size: 36px;
+	border: none;
+	margin: 0;
+	width: 100%;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	font-family: Tahoma;
+	outline: none;
+}
+
+#header .share-title h1{
+	color: #fff;
+	font-size: 36px;
+	padding:4px 0;
+	font-weight: normal;
+	border: 1px dashed transparent;
+}
+
+#header .share-title.editing h1{
+	display: none;
+}
+
+/*  #header .share-title div.logo{
+	background: url(images/ok-small.png) no-repeat center center;
+	padding: 20px 42px;
+	display: inline-block;
+	position: absolute;
+	top: 5px;
+	right: 0;
+}  */
+
+#main-con h2{
+	font-size: 24px;
+	color: #20b0a4;
+	text-align: center;
+	margin:10px 0; 
+	font-weight: normal;
+}
+
+.state div{
+	font-size: 14px;
+	margin: 5px 0 6px 0;
+}
+
+.state div.shear-time{
+	padding-right: 16px;
+	border-right:solid 1px #aaa; 
+}
+
+.state div.link{
+	display: block;
+}
+
+.editor{
+	margin-top: 5px;
+	font-size: 12px;
+	color: #333;
+	padding: 0 10px;
+}
+
+.state div.read-times{
+	display: inline-block;
+}
+
+.state div.share-op{
+	display: inline-block;
+}
+
+.state div.share-op>span{
+	padding: 0 10px;
+}
+
+.state div.share-op a{
+	padding: 1px 2px;
+	border-radius: 3px;
+}
+
+.state div.share-op a:hover{
+	background: #999;
+	color: #fff;
+}
+
+/* .description{     
+	width: 100%;
+	height: auto;
+	margin-top: 8px;
+} 
+
+ .description div.show-des{
+	line-height: 1.4;
+	font-size: 14px;
+}
+.description.editing div.show-des{
+	display: none;
+}
+
+.description textarea{
+	display: none;
+}
+.description.editing textarea{
+	display: block;
+	width: 100%;
+	height: auto ;
+	line-height: 1.4;
+	font-size: 14px;
+}*/
+
+
+.save-cont{
+	height:48px;
+	margin: 50px 0 15px;
+	text-align: center;
+}
+
+.save-cont a{
+	display: inline-block;
+	padding: 5px 64px;
+	background: #20b0a4;
+	font-size: 20px;
+	color: #fff; 
+	border-radius: 4px;
+}
+
+div.line{
+	border-bottom: 1px solid #20b0a4;
+	margin: 40px auto; 
+	width: 220px;
+}
+
+#main-con .editor-info a.portrait{
+	background: url(images/editor-por.png) no-repeat center center;
+	padding: 40px;
+	display: inline-block;
+	margin: 30px auto 8px;
+}
+
+#main-con .editor-info{
+	text-align: center;
+	margin: 5px 0;
+}
+
+#main-con .editor-info .editor{
+	font-size: 18px;
+}
+
+#main-con .editor-info .per-sig{
+	font-size: 14px;
+	display: inline-block;
+	width: 280px;
+	line-height: 1.5;
+	margin-top: 5px;
+}
+
+#share_cont div.furnish{
+	color: #ccc;
+	font-size: 120px;
+}
+
+#share_cont article{
+	line-height: 1.8;
+	font-size: 18px;
+	color: #333;
+	word-wrap: break-word;
+}
+
+#share_cont article a{
+	border-bottom: 1px dashed transparent;
+	display: inline-block;
+	transition: all .2s;
+}
+
+#share_cont article a:focus,
+#share_cont article a:active{
+	transform: scale(.9);
+}
+
+body.touch-device #share_cont article a,
+#share_cont article.hvr a{
+	border-color: inherit;
+}
+
+#share_cont article.hvr a.hvr{
+	border-color: #0cc;
+	border-style: solid;
+}
+
+#share_cont article .entity{
+	text-align: center;
+}
+
+#share_cont article .entity img{
+	max-width: 100%;
+}
+
+
+/*其他的文章分享*/
+.other-share .item{
+	*display: inline;
+	*zoom: 1;
+	display: inline-block;
+	vertical-align: bottom;
+	width: 175px;
+	height: 150px;
+	background: #AEE5E5;
+	line-height: 23px;
+	margin: 20px 20px 0 0; 
+	position: relative;
+}
+
+.other-share .item .cover{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: none;
+}
+
+.other-share .item .cover.show{
+	display: block;
+}
+
+.other-share .item:nth-child(4n+4){
+	margin-right: 0 ;
+}
+
+.other-share .single-con{
+	width: 145px;
+	margin: 20px 0 0px 20px;
+	color: #00a7a7;
+	position: absolute;
+} 
+
+.other-share .item .furnish{
+	color: #00a7a7;
+	font-size: 40px;
+}
+
+.other-share .item .title h3{
+	font-weight: normal;
+	font-size: 15px;
+	color: #00a7a7;
+	margin: 20px 0 0 0;
+	width: 150px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	
+}
+
+.other-share .item a.block{
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.other-share .content{
+	display: none;
+}
+
+.other-share .item .share-time{
+	font-size: 12px;
+	margin: 15px 0 0 0;
+}
+
+#main-con .ok-ji .logo{
+	text-align: center;
+	padding-bottom: 50px;
+	margin: 50px 0 0 0;
+}
+
+#main-con .ok-ji .logo a{
+	background: url(images/ok-big.png) no-repeat center center;
+	background-size: 200px;
+	padding: 80px 100px;
+	display: inline-block;
+}
+
+#main-con .ok-ji .logo p{
+	color: #20b0a4;
+	font-size: 12px;	
+}
+
+/*分享组件*/
+#main-con .Share-module .bshare-custom a{
+	background: #ccc; 
+	font-size: 20px;
+	width: 20px;
+	height: 20px;
+	padding: 6px !important;
+	margin: 0;
+	border-radius: 3px;
+	margin-top: 15px;
+}
+#main-con .Share-module .bshare-custom a:hover{
+	text-decoration: none;
+}
+
+/* First
+#main-con .Share-module .bshare-custom a.bshare-sinaminiblog{
+    background-position: -81px -126px;
+}
+
+Second
+#main-con .Share-module .bshare-custom a.bshare-weixin{
+    background-position: -81px -46px;
+}
+
+Third
+#main-con .Share-module .bshare-custom a.bshare-qzone{
+    background-position: -81px -86px;
+}
+
+Fourth
+#main-con .Share-module .bshare-custom a.bshare-renren{
+    background-position: -120px -6px;
+}
+
+Fifth
+#main-con .Share-module .bshare-custom a.bshare-qqmb{
+    background-position: -81px -206px;
+}
+
+Sixth
+#main-con .Share-module .bshare-custom a.bshare-douban{
+    background-position: -81px -246px;
+}
+
+seventh
+#main-con .Share-module .bshare-custom a.bshare-more{
+    background-position: -81px -326px;
+}
+
+#main-con .Share-module .bshare-custom span.BSHARE_COUNT.bshare-share-count{
+	margin-top: 8px;
+} */
+
+
+@media screen and (max-width:800px) and (min-width: 640px){
+
+#header{
+		height: 100px;
+		-webkit-transition:height .5s ease-in;
+	}	
+
+#header .share-title{
+	width: 90%;
+	top: 35px;
+	-webkit-transition:top .5s ease-in;
+}
+
+#header .share-title h1{
+	font-size: 24px;
+	-webkit-transition:font-size .5s ease-in;
+}
+#main-con{
+	margin: 0 auto;
+	width: 90%;
+}
+
+.other-share{
+	margin: 0 auto;
+}
+
+.other-share .item{
+	width: 31%;
+	margin-right:3.5%; 
+	-webkit-transition:all .5s ease-in;
+}
+
+.other-share .item:nth-child(4n+4){
+	margin-right: 3.5%;
+}
+
+.other-share .item:nth-child(3n+3){
+	margin: 0;
+}
+
+.other-share .item:nth-child(3n+3){
+	margin: 0;
+}
+}
+
+
+
+ @media screen and (max-width:640px) and (min-width: 475px){
+
+#header{
+		height: 80px;
+	}	
+
+#header .share-title{
+	width: 90%;
+	top: 28px;
+}
+
+#header .share-title h1{
+	font-size: 24px;
+}
+#main-con{
+	margin: 0 auto;
+	width: 90%;
+}
+
+#share_cont div.furnish{
+	font-size: 75px;
+}
+
+.other-share{
+	margin: 0 auto;
+}
+
+.other-share .item{
+	width: 46%;
+	margin-right:8%; 
+	-webkit-transition:all .5s ease-in;
+
+}
+
+.other-share .item:nth-child(2n+2){
+	margin-right: 0;
+}
+
+
+
+} 
+
+/* @media screen and (max-width:580px){
+
+#main-con{
+	margin: 50px auto 0;
+	width: 90%;
+}
+
+#header{
+		top: 0;
+		height: 50px;
+		font-size: 18px;
+	}
+
+#header .share-title{
+	width: 90%;
+	top: 8px;
+	-webkit-transition:top .5s ease-in;
+	margin-right:5%; 
+}
+
+} */
+
+
+
+/* 在手机上, */
+
+@media screen and (max-device-width:380px){
+#header{
+	height: 70px;
+}	
+#header .share-title{
+	top: 24px;
+	width: 90%;
+}
+#header .share-title h1{
+	font-size: 20px;
+}
+
+#main-con{
+	margin: 0 auto;
+	width: 88%;
+}
+
+#share_cont div.furnish{
+	font-size: 80px;
+}
+
+.other-share .item{
+	display: block;
+	width: 100%;
+	margin: 12px auto 0;
+	height: 80px;
+	position: relative;
+}
+
+.other-share .item:nth-child(4n+4){
+	margin-right:4%; 
+}
+
+.other-share .item:nth-child(3n+3){
+	margin-right:4%; 
+}
+
+.other-share .item .single-con{
+	width: 95%;
+	padding: 16px 0 0 0 ;
+	margin: 0;
+	text-overflow:auto; 
+}
+
+.other-share .item .title{
+	padding:0 0 0 60px; 
+}
+.other-share .item .title h3{
+	display: inline-block;
+	margin: 0;
+	width: 100%;
+	height: 36px;
+	white-space: normal;
+}
+
+.other-share .item .furnish{
+	position: absolute;
+	top: 12px;
+	left: 13px;
+	font-size: 42px;
+}
+
+.other-share .item .share-time{
+	margin: 0;
+	text-align: right;
+}
+
+.phone-hidden{
+	display: none;
+}
+
+.line{
+	margin-bottom:0; 
+}
+
+#main-con .editor-info a.portrait{
+	margin-top:0; 
+}
+
+}
