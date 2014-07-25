@@ -193,14 +193,14 @@ a{
 	position: relative;
 }
 
-#main-con .share-title div.logo{
+/* #main-con .share-title div.logo{
 	background: url(images/ok-small.png) no-repeat center center;
 	padding: 20px 42px;
 	display: inline-block;
 	position: absolute;
 	top: 0;
 	right: 0;
-}
+} */
 
 #main-con .share-title.editing .logo{
 	display: none;
