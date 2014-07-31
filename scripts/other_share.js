@@ -31,8 +31,8 @@ jQuery(function($){
 
    function load_wall_event(){
         var parent_div = $("body").get(0),
-            cube_width = ($(window.parent).width() < 500) ? 300 : 200,
-            gutter = 20,
+            cube_width = 100 ,
+            gutter = 10,
             $container = $('#container'),
             ori_ww = $(parent_div).width(),
             con_w = ori_ww - ori_ww%(cube_width+gutter);
@@ -44,7 +44,6 @@ jQuery(function($){
                 cube_width = ori_ww;
             }
 
-        //确定容器高度
         if($container.data("masonry")) $container.removeData("masonry");
         
         $container.width(con_w).masonry({
@@ -53,6 +52,7 @@ jQuery(function($){
           gutter: gutter
         });
 
+        //确定容器高度
         $("iframe#other_share",window.parent.document.body).height($container.height() + 5);
         $("body").height($container.height()).css("overflow","hidden");
 
@@ -60,7 +60,7 @@ jQuery(function($){
             $container.masonry();
 
         });
-        adjust_img(".poster .thumb img",200);
+        adjust_img(".poster .thumb img",100);
         var tmp_ww,tmp_margin;
 
         $(window).on("resize.img_wall",function(event){
@@ -82,6 +82,7 @@ jQuery(function($){
     }
 
     load_wall_event();
+    changemask();
 });
 
 function adjust_img(img_selector,size){
@@ -111,3 +112,19 @@ function adjust_img(img_selector,size){
 
     });
 }
+
+function changemask(){
+    var colors = new Array("#00cccc","#ea49a9","#f39800","#00ccff","#ccff00");
+
+    $(".post").on("mouseover",".mask",function(){
+        var i=Math.random()*4;
+        var j=Math.round(i);
+        var bgcolor=colors[j];
+        $(this).css({ background: bgcolor,opacity :"0.7"});
+    });
+    $(".post").on("mouseout",".mask",function(){
+        $(this).css({background:"none",opacity:"1"});
+    });
+}
+    
+    

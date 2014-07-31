@@ -395,7 +395,7 @@
                     size: 80,
                     color: '#3a3',
                     text: share_url+"&__backsrc=wechat"
-                }).toggle();
+                }).toggle(); 
                 return false;
             }
             window.open(url);

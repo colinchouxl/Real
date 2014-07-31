@@ -211,13 +211,6 @@ div#wrapper {
 
 /*----------- 搜索区域 -----------*/
 #search_area {
-  /*width: 310px;
-  margin: 0 auto;
-  background: #BBDBE9;
-  padding: 5px 0;
-  border-radius: 5px;
-  position: relative;
-  border-bottom: 1px solid #95ADB8;*/
   position: relative;
   width: 100%; }
 
@@ -230,7 +223,6 @@ div#wrapper {
 #search_area div.fixed-shadow {
   display: none; }
 
-/*========2014-05-14-pm*/
 #search_area.fixed div.fixed-shadow {
   display: block;
   position: absolute;
@@ -257,7 +249,6 @@ div#wrapper {
   background: url(images/right-shadow.png) no-repeat left top;
   background-size: 100% 20px; }
 
-/*2014-05-14-pm=======*/
 #search_area .search {
   -webkit-transition: all .4s ease-in-out;
   -moz-transition: all .4s ease-in-out;
@@ -380,11 +371,9 @@ div#wrapper {
   background-image: url(images/up_arrow.png); }
 
 /*标签只有在有自定义的标签的情况下才展示箭头，设备只有在多于4个的时候才展示*/
-/*#advanced_options .tags.option a.expand,*/
 #advanced_options .devices.option a.expand {
   display: none; }
 
-/*#advanced_options .tags.option.has-more a.expand,*/
 #advanced_options .devices.option.has-more a.expand,
 #advanced_options .locs.option a.dropdown,
 #advanced_options .dates.option a.dropdown {
@@ -565,7 +554,7 @@ body.configuring #wrapper, body.single-mode #wrapper {
 .range-title {
   color: #595757; }
 
-#search_results a.img-wall-btn {  /* 7-24 */
+#search_results a.img-wall-btn {
   position: absolute;
   right: 5px;
   bottom: 5px;}
@@ -581,7 +570,7 @@ body.configuring #wrapper, body.single-mode #wrapper {
 #search_area.searching-keywords .by-keywords {
   background: white; }
 
-#search_area .by-tag {/* 7-14 */
+#search_area .by-tag {
   margin-left: 22px;
   position: relative; }
 
@@ -597,14 +586,12 @@ body.configuring #wrapper, body.single-mode #wrapper {
 
 #search_area .by-tag.custom .custom-tags {
   display: block;
-  width: 90%; }
+  width: 92%;}
 
 #search_area .by-tag a.expand-tags .ok-icon-tagBack {
-  /* 7-13-icon */
   display: none; }
 
 #search_area .by-tag.custom a.expand-tags .ok-icon-tagBack {
-  /* 7-13-icon */
   display: block; }
 
 #search_area .by-tag a.expand-tags .ok-icon-tagExpand {
@@ -638,14 +625,12 @@ body.configuring #wrapper, body.single-mode #wrapper {
 #search_area .by-tag .pined-tags div.tag-con {
   width: 45%;
   border-radius: 3px;
-  /*7-12*/
   margin-right: 2px;
-  /*7-12*/
   color: #fff;
   background: #b4b4b4; }
 
 #search_area .by-tag .custom-tags div.tag-con {
-  margin-right: 10px; }
+  margin-right: 6px; }
 
 #search_area .by-tag .custom-tags a.tag span.close {
   position: absolute;
@@ -684,7 +669,6 @@ body.configuring #wrapper, body.single-mode #wrapper {
   box-shadow: 0 2px 2px #cecece; }
 
 #search_area .by-tag.editing .custom-tags a.tag.hvr span {
-  /*7-12*/
   position: absolute;
   right: -6px;
   top: -6px;
@@ -733,19 +717,22 @@ body.configuring #wrapper, body.single-mode #wrapper {
   display: none; }
 
 #search_area .by-tag a.tag.active {
-  /*border-color: #72BBBB;*/
   cursor: default; }
 
 #search_area .by-tag a#edit_tag_finish {
   display: none;
   position: absolute;
   right: 6px;
+  height: 18px;
+  width: 18px;
   top: 31px;
-  opacity: .5;
+  text-align: center;
+  line-height: 18px;
   background: #20b0a4; }
 
 #search_area .by-tag.editing a#edit_tag_finish {
-  display: inline; }
+  display: inline;
+  color: #fff; }
 
 #search_area .by-tag a#edit_tag {
   position: absolute;
@@ -830,13 +817,11 @@ body.configuring #wrapper, body.single-mode #wrapper {
   cursor: pointer; }
 
 #search_area .by-keywords .field-con .ok-icon-search {
-  /*7-13*/
   position: relative;
   top: 9px;
   left: -30px; }
 
 #search_area.fixed .by-keywords .field-con .ok-icon-search {
-  /*7-13*/
   left: -27px; }
 
 #search_area.searching-keywords .field-con {
@@ -977,8 +962,7 @@ body.touch-device.buzz-app {
   height: 27px;
   margin: 0;
   padding: 0 0 0 2%;
-  font-family: Arial, sans-serif;
-  /*background-color: #ccc;*/ }
+  font-family: Arial, sans-serif; }
 
 .set-bynames input.set-byname {
   border: none;
@@ -1041,8 +1025,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   min-width: 300px;
   width: 30%;
   margin: 0 auto 0 auto;
-  display: none;
-  /*overflow: auto;*/ }
+  display: none; }
 
 #note #backtotop {
   position: fixed;
@@ -1159,7 +1142,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0'/></filter></svg>#grayscale");
   filter: gray;
   transition: -webkit-filter .2s;
-  /*max-width: 100%;*/
   border-radius: 5px;
   -webkit-user-drag: none;
   -ms-user-drag: none;
@@ -1201,9 +1183,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note .note-con.task form .field-con {
   padding: 5px 5px 22px 22px; }
 
-/*#note .note-con.task.editing form .field-con{
-    padding-top: 5px;
-}*/
 #note .note-con.task form .deadline {
   position: absolute;
   left: 21px;
@@ -1239,9 +1218,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   display: none; }
 
 #note .note-con form a.minimize-note {
-  padding: 8px;
-  background: url(images/spirit3.png);
-  background-position: -29px -230px;
   opacity: .4;
   display: none;
   margin-left: 6px; }
@@ -1257,7 +1233,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
   right: 35px;
   left: 320px;
-  /*width: 450px;*/
   background-color: #fff;
   min-width: 300px; }
 
@@ -1356,7 +1331,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note div.note.editable a.open.hvr {
   color: #0ae; }
 
-/*modified 20140519*/
 #note div.note.editable a.open.opened {
   background: #AECAF3;
   color: white;
@@ -1367,7 +1341,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note div.note.editable a.open.opened.hvr {
   color: white; }
 
-/*#note div.note.editable a.open:active, modified 20140519*/
 #note div.note.editable a.open:focus {
   color: white;
   background: #AECAF3; }
@@ -1404,11 +1377,9 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   box-shadow: -2px 0 5px #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc; }
 
 #note .note-con.editing #note_ops {
-  /* 2014-6-29 */
   box-shadow: 0 0 0 #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc; }
 
 #note .note-con.editing.maximized #note_ops {
-  /* 2014-6-29 */
   box-shadow: none; }
 
 #note .note-con.editing.maximized form.note {
@@ -1669,21 +1640,6 @@ body.touch-device #note form div.bottom-menu a.more {
   background-position: -336px -56px;
   /**/ }
 
-#note form .checkbox.checked {
-  background: url(images/spirit3.png) no-repeat -32px -158px; }
-
-#note form div.bottom-menu a.tags.hvr {
-  background-image: url(images/one_tag_b.png); }
-
-#note form div.bottom-menu a.share.hvr {
-  background-image: url(images/one_share_b.png); }
-
-#note form div.bottom-menu a.cal.hvr {
-  background-image: url(images/one_timing_b.png); }
-
-#note form div.bottom-menu a.del.hvr {
-  background-image: url(images/one_del_b.png); }
-
 /*-----只有是任务的便签才展示拖拽把手-----*/
 #note #search_results.results-of-tasks .note-con.task.hvr form a.drag_trigger,
 #note .hvr form div.bottom-menu,
@@ -1753,10 +1709,6 @@ body.favicon_on #note form div.note.editable img.favicon {
 #note_ops .section {
   background: white;
   display: none;
-  /*padding-top: 0px;
-  padding-left: 5px;
-  padding-bottom: 5px;
-  padding-right: 5px;*/
   position: relative; }
 
 #note_ops .section.info {
@@ -1776,15 +1728,11 @@ body.favicon_on #note form div.note.editable img.favicon {
 #note_ops .section.info .source a.content {
   word-break: break-all; }
 
-/*#note_ops .share .default{
-    height: 41px;icon + border
-}*/
 #note_ops .del-confirm,
 #note_ops .cal div.cal-con,
 #note_ops .tags div.custom,
 #note_ops .share div.default,
 #note_ops .info div.detail {
-  /*2014-6-29*/
   border-top: 1px solid #ccc;
   margin-left: 22px;
   margin-right: 5px;
@@ -1811,16 +1759,8 @@ body.favicon_on #note form div.note.editable img.favicon {
   height: 35px;
   line-height: 35px; }
 
-/*#note_ops .tags .custom{
-    display: none;
-}
-
-#note_ops.adding-custom .tags .custom{
-    display: block;
-}*/
 .tags.section a.dropdown {
   background: url(images/down_arrow.png) no-repeat center;
-  /*background-position: -192px -72px;*/
   position: absolute;
   top: 40%;
   right: 8px;
@@ -1837,21 +1777,13 @@ body.favicon_on #note form div.note.editable img.favicon {
   color: #666;
   word-break: break-all;
   border-radius: 4px;
-  /* 7-12 */
   padding: 4px 5px;
-  /* 7-12 */
-  margin: 3px 0 0 0;
-  /* 7-12 */ }
+  margin: 3px 0 0 0;}
 
-/*#note_ops .tags .custom a.tag:hover{
-    border-color: #76C3C3;
-}*/
 #note_ops .tags .default a.choosed {
-  /*border-color: #0ae;*/
   color: white; }
 
 #note_ops .tags .custom a.choosed {
-  /*border-color: #76C3C3;*/
   color: white; }
 
 #note_ops .tags .custom a.tag.choosed {
@@ -1897,11 +1829,9 @@ body.favicon_on #note form div.note.editable img.favicon {
 .tags.section .add-tag {
   margin-top: 12px;
   border: 1px solid #8fd7d1;
-  /*2014-05-14-pm*/
   width: 99%;
   cursor: text;
-  position: relative;
-  /*2014-05-14-pm*/ }
+  position: relative;}
 
 .tags.section .add-tag .tag-input {
   padding-right: 60px; }
@@ -1910,9 +1840,7 @@ body.favicon_on #note form div.note.editable img.favicon {
   outline: none;
   border: none;
   width: 98%;
-  /*2014-05-14-pm*/
-  padding-left: 2%;
-  /*2014-05-14-pm*/ }
+  padding-left: 2%; }
 
 .tags.section .add-tag input.submit {
   float: right;
@@ -1953,13 +1881,14 @@ body.favicon_on #note form div.note.editable img.favicon {
   border: 1px solid #20B0A4;
   background: #fff;
   position: relative;
-  /*7-13*/
   top: 0px;
-  /* 7-13 */
   height: 19px;
-  /* 7-13 */
-  border-radius: 3px;
-  /* 7-13 */ }
+  border-radius: 3px; }
+
+#search_area .by-tag div.new-tag-con{
+  vertical-align: top;
+}
+
 
 #search_area .by-tag.adding-tag div.new-tag-con, .tags.section.adding-tag div.new-tag-con {
   display: inline-block;
@@ -1984,17 +1913,12 @@ body.favicon_on #note form div.note.editable img.favicon {
 #search_area .by-tag.adding-tag div.new-tag-con input.submit, .tags.section div.new-tag-con input.submit {
   cursor: pointer;
   background: transparent;
-  /* 7-13 */
   border: none;
-  /* 7-13 */
   padding: 0 10px;
   position: relative;
-  /* 7-13 */
   z-index: 10;
-  /* 7-13 */
   outline: none;
-  margin: 0;
-  /*7-13*/ }
+  margin: 0;}
 
 #search_area .by-tag a.new-btn {
   /*全局tag*/
@@ -2003,15 +1927,14 @@ body.favicon_on #note form div.note.editable img.favicon {
   *display: inline;
   *zoom: 1;
   padding: 1px;
-  /* 7-13 */
   vertical-align: middle;
   border-radius: 8px;
   font-size: 15px;
-  /*7-13*/
   line-height: 1em;
-  /* 7-13 */
-  width: 15px;
-  /* 7-13 */ }
+  width: 15px; 
+  top: -5px;
+  position: relative;
+  height: 15px;}
 
 .tags.section a.new-btn {
   /* 单条tag */
@@ -2019,25 +1942,17 @@ body.favicon_on #note form div.note.editable img.favicon {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  /* padding: 0 4px; */
   vertical-align: middle;
   border-radius: 8px;
-  font-size: 13px;
-  /*7-13*/
+  font-size: 14px;
   line-height: 1em;
-  height: 13px;
-  /*7-13-icon*/
-  padding: 1px;
-  /*7-13*/ }
+  height: 14px;
+  padding: 1px;}
 
 #search_area .by-tag a.new-btn:hover,
 .tags.section a.new-btn:hover {
   color: #fff;
   background: #20B0A4; }
-
-#search_area .by-tag a.new-btn {
-  height: 15px;
-  position: relative; }
 
 #search_area .by-tag.adding-tag a.new-btn,
 #search_area .by-tag.editing a.new-btn,
@@ -2188,11 +2103,9 @@ body.favicon_on #note form div.note.editable img.favicon {
   margin: 0; }
 
 .maximized #note_ops .share.section div.default div.share-icon {
-  /*2014-6-29*/
   width: 36px; }
 
 .maximized #note_ops .cal.section .cal-con .ui-datepicker {
-  /*2014-6-29*/
   width: 330px; }
 
 #note_ops .share.section div.default div.share-icon div {
@@ -2208,7 +2121,6 @@ body.favicon_on #note form div.note.editable img.favicon {
   background-position: 0px -16px; }
 
 #note_ops .share.section a.component .icon-font {
-  /* 7-13 */
   font-size: 20px;
   padding: 2px;
   border: 1px solid #999;
@@ -2226,22 +2138,6 @@ body.favicon_on #note form div.note.editable img.favicon {
 .deleting #note_ops .section.del-confirm {
   display: block; }
 
-/*#note .setting-deadline .bottom-menu .op a.cal,
-#note .sharing .bottom-menu .op a.share,
-#note .adding-tags .bottom-menu .op a.tags,
-#note .showing-info .bottom-menu .op a.info{
-    background-color: #46D4D5;
-    border-radius: 4px 4px 0 0 ;
-}
-*/
-/*#note .bottom-menu .op a.active{
-    background-color: #20B0A4;
-}*/
-/*.hvr.setting-deadline #note_ops .section.cal,
-.hvr.sharing #note_ops .section.share,
-.hvr.adding-tags #note_ops .section.tags{
-    display: block;
-}*/
 div.app-section {
   background: url(images/bg.png);
   /*此规则适用于不支持rgba样式的浏览器*/
@@ -2494,6 +2390,7 @@ div#img_modal a.close {
 #settings label {
   display: inline-block; }
 
+#settings .user .account .account-con,/*7-13*/
 #settings .user .portrait .portrait-con,
 #settings .user .nickname .name-con,
 #settings .user .fancyurl .fancyurl-con,
@@ -2502,17 +2399,26 @@ div#img_modal a.close {
   right: 15px;
   top: 0; }
 
+#settings .user .portrait .portrait-con{
+  top: -7px; /* 为了头像和文字的基本对齐 */
+}
+
 #settings .user .portrait-con {
-  background: url(images/editor-por.png) no-repeat center center;
+  background: url(images/avatar.jpeg) no-repeat center center;
   padding: 20px;
-  background-size: 40px; }
+  background-size: 40px;
+  border-radius: 42px;
+  border: 2px solid #20B0A4; }
 
 #settings .user .nickname .name-con input {
   display: none; }
 
+#settings .user #logout,/*7-13*/
 #settings .user #reset_pwd {
-  padding: 2px 6px;
+  padding: 1px 6px;
   color: #575957;
+  line-height: 22px;
+  font-size: 15px;
   border: 1px solid #20b0a4;
   border-radius: 5px; }
 
@@ -2536,7 +2442,7 @@ div#img_modal a.close {
   right: 13px;
   top: -23px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 5px; }
 
 #settings .user .password .inp-con a.inp {
@@ -2545,11 +2451,13 @@ div#img_modal a.close {
   font-size: 15px;
   cursor: pointer;
   color: #444;
-  border: 1px solid #20b0a4; }
+  border: 1px solid #20b0a4; 
+  line-height: 22px;}
 
 #settings .user .password .inp-con a.inp#reset_pw_btn {
   right: 102px; }
 
+#settings .user #logout:hover,/*7-13*/
 #settings .user #reset_pwd:hover,
 #settings .user .password .inp-con a.inp:hover {
   color: #fff;
@@ -2560,6 +2468,8 @@ div#img_modal a.close {
   outline: 1px solid #20b0a4;
   border: 2px solid transparent; }
 
+#settings .user .signature,/*7-13*/
+#settings .user .account,/*7-13*/
 #settings .user .portrait,
 #settings .user .nickname,
 #settings .user .fancyurl,
@@ -2567,17 +2477,21 @@ div#img_modal a.close {
   position: relative;
   margin-top: 10px; }
 
+#settings .user .signature .signature-con textarea,/*7-13*/
 #settings .user .fancyurl .fancyurl-con input,
 #settings .user .nickname .name-con input {
   display: none;
   outline: none;
   border: none;
+  resize:none;
   border-bottom: 1px solid #575959; }
 
+#settings .user .signature.change-sign .signature-con textarea,/*7-13*/
 #settings .user .fancyurl.change-link .fancyurl-con input,
 #settings .user .nickname.change-name .name-con input {
   display: inline-block; }
 
+#settings .user .signature.change-sign .signature-con a,/*7-13*/
 #settings .user .fancyurl.change-link .fancyurl-con a,
 #settings .user .nickname.change-name .name-con span {
   display: none; }
@@ -2587,6 +2501,14 @@ div#img_modal a.close {
   background: #ebebeb;
   padding: 0 5px;
   cursor: pointer; }
+
+#settings .user .signature .signature-con a{
+    font-size: 14px;
+    color: #595757;}
+
+#settings .user .signature.change-sign .signature-con textarea{/*7-13*/
+    width: 92%;
+    overflow: hidden;}
 
 /*appearance setting*/
 #settings .ui ul.langs-con,
@@ -2600,7 +2522,7 @@ div#img_modal a.close {
   padding: 0 6px;
   color: #575957;
   border: 1px solid #20b0a4;
-  border-radius: 6px;
+  border-radius: 3px;
   position: absolute;
   top: 0px;
   right: 15px; }
@@ -2617,11 +2539,6 @@ div#img_modal a.close {
   position: relative;
   margin-top: 10px; }
 
-/* #settings .ui ul.langs-con li,
-#settings .ui ul.fonts-con li,
-#settings .ui ul.size-con li,
-#settings .ui ul.theme-con li,
-#settings .ui ul.unfold-con li */
 #settings .ui ul li {
   display: none; }
 
@@ -2643,24 +2560,13 @@ div#img_modal a.close {
 #settings .ui ul li.choosed span.ok-pull-down {
   display: inline-block; }
 
-/* #settings .ui ul.langs-con:hover li,
-#settings .ui ul.fonts-con:hover li,
-#settings .ui ul.size-con:hover li,
-#settings .ui ul.theme-con:hover li,
-#settings .ui ul.unfold-con:hover li */
 #settings .ui ul:hover li {
   display: block; }
 
-/* #settings .ui ul.langs-con li.choosed,
-#settings .ui ul.fonts-con li.choosed,
-#settings .ui ul.size-con li.choosed,
-#settings .ui ul.theme-con li.choosed,
-#settings .ui ul.unfold-con li.choosed */
 #settings .ui ul li.choosed {
   display: block;
   line-height: 1.4; }
 
-/* #settings .ui .favicon div.checkbox */
 #settings div.checkbox {
   display: inline-block;
   padding: 6px;
@@ -2818,6 +2724,101 @@ div#img_modal a.close {
   color: #ccc !important;
   text-decoration: line-through; }
 
+
+  /*7-13---------------------------*/
+#settings .update{
+    color: #333;
+}
+
+#settings .feedback-con{
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+#settings .about.fbk .feedback-con{
+    display: block;    
+    width: 240px;
+    height: 240px;
+    box-shadow: 0 0 5px #444;
+    margin: 12px 0 0 0;
+    position: relative;
+    border-radius: 2px;
+/*     -webkit-transform-origin:50% 0%;
+transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
+}
+
+#settings .feedback-con .close{
+    position: absolute;
+    right: 2px;
+    top: 4px;
+    font-size: 15px;
+    width: 14px;
+    height: 14px;
+    text-align: center;
+    line-height: 10px;
+}
+
+#settings .feedback-con a.close:hover{
+    background: #20B0A4;
+    border-radius: 10px;
+    color: #fff;
+}
+
+#settings .feedback-con .close span{
+    color: #595757;
+} 
+ 
+#settings .feedback-con .close:hover span{
+    color: #fff;
+} 
+
+
+#settings .feedback-con form{
+    margin: 0px auto;
+    width: 85%;
+    padding: 24px 0 0 0;
+} 
+
+#settings .feedback-con form p{
+    padding: 5px 0;
+    font-size: 12px;
+    color: #888;
+}
+
+#settings .feedback-con textarea{
+    height: 131px;
+    width: 96%;
+    padding: 2%;
+    margin: 0;
+    resize:none;
+    overflow: hidden;
+}
+
+#settings .feedback-con form .user-contact{
+    padding: 3px 0 3px 5px;
+    width: 197px;
+}
+
+#settings .feedback-con form input#submit{
+    margin: 8px 0;
+    outline: none;
+    border: none;
+    background: none; 
+    color: #20B0A4;  
+    position: relative;
+    left: 167px;
+    border: 1px solid #20B0A4; 
+    border-radius: 2px;
+}
+
+#settings .feedback-con form input#submit:hover{
+    background: #20B0A4;
+    color: #fff;
+}
+/*7-3-------------------------------------------------------------结束------*/
+
+
 /*------------------------------------------------------*/
 /*用户反馈*/
 #feedback {
@@ -2853,8 +2854,6 @@ div#img_modal a.close {
 
 .feedback-hint {
   text-align: center;
-  /* border: 1px solid #9FE2A2; */
-  /* background: #DAF6E1; */
   color: #AAA;
   padding: 2px;
   font-size: .8em;
@@ -2878,14 +2877,6 @@ body.touch-device #feedback {
 body.in-frame.configuring #settings {
   left: 0;
   right: 0; }
-
-body.in-frame.configuring #settings header {
-  /*left: 20px;
-  right: 28px;
-  padding-top: 25px;*/ }
-
-body.in-frame.configuring #settings .sections {
-  /*margin-top: 85px;*/ }
 
 body.in-frame.configuring #settings .settings-wrapper {
   padding: 10px;
@@ -2916,20 +2907,6 @@ body.configuring #settings {
 body.open-link #wrapper {
   width: 310px; }
 
-/*修改于 2014-05-20 将打开连接窗口变大*/
-/*#new_windows{
-    background: white;
-    display: none;
-    position: fixed;
-    left: 360px;
-    right: 30px;
-    top: 6%;
-    overflow: hidden;
-    height: 88%;
-    z-index: 10;
-    border: 1px solid #ccc;
-    box-shadow: -2px 0 5px #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;
-}*/
 #new_windows {
   background: white;
   position: fixed;
@@ -2985,30 +2962,6 @@ body.open-link #new_windows {
   border-bottom: 2px solid #20b0a4; }
 
 /*=============5月10号修改的在操作方式上变化的样式表================*/
-/* #note_ops .tags.section .custom .add-tag .mod-aff {
-  display: inline;
-  width: 60px;
-  height: 22px;
-  background-color: #8fd7d1;
-  position: absolute;
-  top: 0px;
-  right: 0px; }
-
-#note_ops .tags.section .custom .add-tag .mod-aff a {
-  padding: 8px;
-  display: inline-block;
-  position: absolute;
-  top: 3px; }
-
-#note_ops .tags.section .custom .add-tag .mod-aff a.sure-mod {
-  background: url(images/spirit3.png) #20b0a4 -5px -254px;
-  border-radius: 8px;
-  right: 8px; }
-
-#note_ops .tags.section .custom .add-tag .mod-aff a.cancel-mod {
-  background: url(images/spirit3.png) #20b0a4 -5px -279px;
-  border-radius: 8px;
-  right: 35px; } */
 
 body.img-wall, body.single-mode, body.open-link, body.configuring {
   overflow: hidden; }
@@ -3025,7 +2978,6 @@ body.img-wall #image_wall {
   display: block; }
 
 #image_wall {
-  /*background-color: #eeeeef;*/
   display: none;
   min-width: 300px;
   position: fixed;
@@ -3034,16 +2986,12 @@ body.img-wall #image_wall {
   right: 0px;
   top: 0%;
   height: 100%;
-  z-index: 10;
-  /*border: 1px solid #ccc;*/
-  /*box-shadow: -2px 0 5px #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;*/ }
+  z-index: 10; }
 
 #image_wall .wall-op {
-  /*background-color: #F7F7F7;*/
   height: 33px;
   width: 100%;
-  display: inline;
-  /*border-bottom: 1px solid #DBDBDB;*/ }
+  display: inline; }
 
 #image_wall .wall-op a {
   display: inline-block;
@@ -3054,37 +3002,11 @@ body.img-wall #image_wall {
   right: 0px;
   top: 6px; }
 
-/*#image_wall .wall-op a.refresh{
-    right: 28px;   
-}*/
-/*#image_wall .wall-op a:hover{
-    background-color: #20B0A4;
-}*/
-/*#image_wall .wall-op a.refresh{
-    background-position:-3px -578px;
-}
-#image_wall .wall-op a.refresh:hover{
-    background-position: -28px -578px;
-}*/
-/*#image_wall .wall-op a.close{
-    background-position: -28px -277px;
-}
-#image_wall .wall-op a.close:hover{
-    background-position: -3px -277px;
-}*/
 /*=====×îÍâ²ãdiv==end====*/
 #image_wall .wall-header {
   margin-top: 10px;
   margin: 0 auto; }
 
-/*#image_wall .image-wall{
-    width: 96%;
-    height: 100%;
-    padding: 0 2%;
-}*/
-/*#image_wall .image-wall.drop-down .wall-title {
-    display: none;
-}*/
 #image_wall .wall-header h1 .title {
   color: #595757;
   font-size: 35px;
@@ -3094,11 +3016,7 @@ body.img-wall #image_wall {
   color: #595757;
   margin-left: 10px; }
 
-/*#image_wall .wall-header .img-tags{
-    margin-top: 6px;
-}*/
 #image_wall .wall-header .tags-con {
-  /*background-color: #eeeeef;*/
   position: relative; }
 
 #image_wall .wall-header .tags-con .fixed-shadow {
@@ -3124,7 +3042,6 @@ body.img-wall #image_wall {
 
 #image_wall #container {
   margin: 0 auto;
-  /*margin-top: 10px;*/
   display: block;
   width: 100%;
   height: 100%; }
@@ -3166,7 +3083,6 @@ body.img-wall #image_wall {
 
 /*==tag==end==*/
 #image_wall .multi-choice {
-  /*visibility: hidden;*/
   background-color: #eeeeef;
   width: inherit;
   position: absolute;
@@ -3192,58 +3108,11 @@ body.img-wall #image_wall {
 #image_wall .multi-choice .overall {
   padding: 0 5px; }
 
-/*#image_wall .multi-choice .overall a{
-    background-color: #20B0A4;
-    padding: 3px 12px;
-    border-radius: 4px;
-    color: #fff;
-    box-shadow: 2px 2px 4px #aaa;
-}
-#image_wall .multi-choice a.all-choice{
-    float: left;
-    cursor: pointer;
-}
-#image_wall .multi-choice a.cancel{
-    float: right;
-    cursor: pointer;
-}*/
 #image_wall .multi-choice .footer-op {
   float: right;
   display: inline-block;
   margin-right: 15px; }
 
-/*#image_wall .multi-choice .footer-op a{ 
-    padding: 12px;
-    display: inline-block;
-    background: url(images/spirit3.png) no-repeat;
-}*/
-#image_wall #container .single-op .operations a.active,
-#image_wall .multi-choice .footer-op a.active {
-  background-color: #20B0A4; }
-
-#image_wall #container .single-op .operations a.share,
-#image_wall .multi-choice .footer-op a.share {
-  background-position: -1px -101px; }
-
-#image_wall #container .single-op .operations a.share.active,
-#image_wall .multi-choice .footer-op a.share.active {
-  background-position: -26px -101px; }
-
-#image_wall #container .single-op .operations a.delete,
-#image_wall .multi-choice .footer-op a.delete {
-  background-position: -1px -76px; }
-
-#image_wall #container .single-op .operations a.delete.active,
-#image_wall .multi-choice .footer-op a.delete.active {
-  background-position: -26px -76px; }
-
-#image_wall #container .single-op .operations a.download,
-#image_wall .multi-choice .footer-op a.download {
-  background-position: -1px -451px; }
-
-#image_wall #container .single-op .operations a.download.active,
-#image_wall .multi-choice .footer-op a.download.active {
-  background-position: -1px -451px; }
 
 /*===end of multi-choice====*/
 #image_wall #container .single-op {
@@ -3270,36 +3139,6 @@ body.img-wall #image_wall {
 #image_wall #container .single-op .operations a:hover {
   opacity: 1; }
 
-/*#image_wall #container .single-op .operations a.active{
-    background-color: #20B0A4;
-}
-
-#image_wall #container .single-op .operations a.share{
-    background-position: -1px -101px;
-}
-
-#image_wall #container .single-op .operations a.share.active{
-    background-position: -26px -101px;
-}
-
-#image_wall #container .single-op .operations a.delete{
-    background-position: -1px -76px;
-}
-
-#image_wall #container .single-op .operations a.delete.active{
-    background-position: -26px -76px;
-}
-
-#image_wall #container .single-op .operations a.download{
-    background-position: -1px -451px;
-}
-
-#image_wall #container .single-op .operations a.download.active{
-    background-position: -1px -451px;
-}*/
-#image_wall #container .item.checked .single-op div.checkbox {
-  background: url(images/spirit3.png) no-repeat -55px -156px; }
-
 #image_wall #container .item.checked {
   background-color: #20B0A4; }
 
@@ -3316,38 +3155,10 @@ body.img-wall #image_wall {
   display: inline-block; }
 
 #image_wall #container .item.sharing .share-component .share-icon a {
-  padding: 12px;
   display: inline-block;
-  background: url(images/spirit3.png) no-repeat;
   margin-right: 2px;
   border-radius: 4px; }
 
-#image_wall #container .item.sharing .share-component .share-icon a.cancel-share {
-  background-position: -83px -369px; }
-
-/*First*/
-#image_wall #container .item.sharing .share-component .share-icon a.component.qqmail {
-  background-position: -83px -168px; }
-
-/*Second*/
-#image_wall #container .item.sharing .share-component .share-icon a.component.weibo {
-  background-position: -83px -128px; }
-
-/*Third*/
-#image_wall #container .item.sharing .share-component .share-icon a.component.qzone {
-  background-position: -83px -88px; }
-
-/*Fourth*/
-#image_wall #container .item.sharing .share-component .share-icon a.component.douban {
-  background-position: -83px -248px; }
-
-/*Fifth*/
-#image_wall #container .item.sharing .share-component .share-icon a.component.tqq {
-  background-position: -83px -208px; }
-
-/*Sixth*/
-#image_wall #container .item.sharing .share-component .share-icon a.component.gmail {
-  background-position: -83px -48px; }
 
 /* ==·ÖÏíÁ´½Ó==end== */
 #image_wall #container .item .mask div.del-mask,
@@ -3565,14 +3376,6 @@ body.in-frame #notes_con .inner-wrapper {
   /*打开设置页面*/
   body.configuring #settings {
     left: 0; }
-
-  body.configuring #settings header {
-    /*left: 20px;
-    right: 10px;
-    padding-top: 25px;*/ }
-
-  body.configuring #settings .sections {
-    /*margin-top: 85px;*/ }
 
   body.configuring #settings .settings-wrapper {
     padding: 20px;

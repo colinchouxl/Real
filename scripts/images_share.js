@@ -25,7 +25,7 @@ jQuery(function($){
         else $("body").addClass("attr-dl");
 
         //如果是移动设备则不添加web分享组件
-        if(!$("body").hasClass("touch-device")){
+       /* if(!$("body").hasClass("touch-device")){
             var bshare_js = document.createElement("script");
             bshare_js.type = "text/javascript";
             bshare_js.charset = "utf-8";
@@ -40,7 +40,7 @@ jQuery(function($){
             };
 
             document.body.appendChild(bshare_js);
-        }
+        }*/
     })();
 
     if(__items && __items.length > 0){
@@ -153,6 +153,62 @@ jQuery(function($){
 	}
 
 
+    // 分享组件
+    $(".share-custom").on("click","a",function(){
+        var newwin_height = 500,
+            newwin_width = 800,
+            newwin_top = (window.screen.height - newwin_height) / 2,
+            newwin_left = (window.screen.width - newwin_width) / 2;
+
+        var that = this;
+        var url="";
+        var img_url=""
+        var content = "来自ok记得分享";
+        var share_url = location.href;
+        var str = share_url.split("?")[1];
+        var last_post_id = str.split("&")[0];
+
+        var append_share_source = "&__sharesource=okmemo";
+
+            // var extra = "&__sharesource=okmemo&__sharepost="+last_post_id+"&__posttype=image";
+            // var share_url = window.parent.location.origin+"/image/share?"+last_post_id;
+
+            if($(that).hasClass("share-weibo")){
+                url = weibo_share(content,img_url,share_url,append_share_source);
+            }else if($(that).hasClass("share-douban")){
+                url = douban_share(content,img_url,"分享自:Ok记("+share_url+")",append_share_source);
+            }else if($(that).hasClass("email")){
+                //分享到QQ邮箱
+                url = qqmail_share(content,img_url,"",share_url,document.title,append_share_source);
+            }else if($(that).hasClass("share-qzone")){
+                url = qzone_share(content,img_url,"",share_url,document.title,append_share_source);
+            }else if($(that).hasClass("share-qqwb")){
+                url = qt_share(content,img_url,share_url,append_share_source);
+            }else if($(that).hasClass("share-google")){
+                url = gmail_share(content);
+            }else if($(that).hasClass("share-weixin")){
+                if(feedback.status == "ok"){
+                    //生成一个二维码
+                    $("#post_qrcode").find("canvas").remove().end().qrcode({
+                        size: 80,
+                        color: '#3a3',
+                        text: share_url+"&__backsrc=wechat"
+                    }).toggle();
+                }else{
+                    //提示用户分享失败
+                    showMessage({type:"error",msg:"抱歉微信分享失败"});
+                }
+            }else if($(that).hasClass("share-twitter")){
+                url = twitter_share(content,share_url,"okmemo",extra);
+            }else if($(that).hasClass("share-facebook")){
+                url = fb_share(content,share_url,extra);
+            }else if($(that).hasClass("share-tumblr")){
+                url = tb_share(content,share_url,extra);
+            }
+             window.open(url);
+    });
+
+
 	var ifr = document.getElementById("images_pad"),
 		__initWidth = ($(window).width() < 500) ? 300 : 200;
         
@@ -221,11 +277,18 @@ jQuery(function($){
 
                 //title,description,feature_img{url,width,height}
                 posts_html += "<div class=\"post\">"+
-                              "<div class=\"poster\">"+ //thumbnail宽高是固定的，超过的部分用css隐藏
-                              "<a class=\"thumb\" href=\""+post.url+"\" ><img data-width=\""+post.feature_img.width+"\" data-height=\""+post.feature_img.height+"\" src=\""+post.feature_img.url+"\">"+
-                              "<span class=\"item-num\">"+post.items_count+"张</span>"+//图片多少张，用户会对数字比较敏感
-                              "</a>"+
-                              "</div>"+
+                                  "<div class=\"poster\">"+ //thumbnail宽高是固定的，超过的部分用css隐藏
+                                   "<a class=\"thumb\" href=\""+post.url+"\" >"+
+                                        "<div class=\"mask\">"+
+                                            "<div class=\"share-info\">"+
+                                                "<span class=\"item-num\">"+post.items_count+"张</span>"+//图片多少张，用户会对数字比较敏感
+                                                "<span class=\"title\">"+title+"</span>"+
+                                                "<p class=\"read-times\">阅读次数:"+"200"+"</span>"+
+                                            "</div>"+
+                                        "</div>"+
+                                        "<img data-width=\""+post.feature_img.width+"\" data-height=\""+post.feature_img.height+"\" src=\""+post.feature_img.url+"\">"+     
+                                    "</a>"+
+                                  "</div>"+
                               "</div>";
             }
 
@@ -257,11 +320,7 @@ jQuery(function($){
             };
     }
 
-
-
-
-
-
+    $("#header")
 
 
 

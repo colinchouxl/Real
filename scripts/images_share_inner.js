@@ -123,7 +123,7 @@ jQuery(function($){
         }else{
             var rect = $(el).offset();
         }
-
+        
         return (
                rect.top    >= 0
             && rect.left   >= 0
@@ -139,14 +139,21 @@ jQuery(function($){
             ori_ww = $(parent_div).width(),
             con_w = ori_ww - ori_ww%(cube_width+gutter);
             
-            //如果是移动设备窗口宽度小于图片宽度,则gutter=0
-            if($("body").hasClass("touch-device") && ori_ww < cube_width+gutter){
-                gutter = 0;
-                con_w = ori_ww;
-                cube_width = ori_ww;
-            }
+            $("#wrapper",window.parent.document.body).width(con_w);  //cube_width是单张图片的宽度   
+                                                                         //gutter 图片间的间距
+                                                                        //con_w是容器的宽度
 
-            
+             $("#header .share-title",window.parent.document.body).width(con_w);//确保标题的宽度和#wrapper相等且居中
+        //如果是移动设备窗口宽度小于图片宽度,则gutter=0
+        if($("body").hasClass("touch-device") && ori_ww < cube_width+gutter){
+            gutter = 0;
+            con_w = ori_ww;
+            cube_width = ori_ww;
+        }
+
+        $("#wrapper",window.parent.document.body).width(con_w);
+        $("#header .share-title",window.parent.document.body).width(con_w);
+
         //确定容器高度
         if($container.data("masonry")) $container.removeData("masonry");
         
@@ -165,16 +172,19 @@ jQuery(function($){
 
         var tmp_ww,tmp_margin;
 
-        $(window).on("resize.img_wall",function(event){
+        $(window.parent).on("resize.img_wall",function(event){
             tmp_ww = $(parent_div).width();
             con_w = parseInt(tmp_ww/(cube_width+gutter)) * (cube_width+gutter);
-
+            
             //如果是移动设备窗口宽度小于图片宽度,则gutter=0
             if($("body").hasClass("touch-device") &&tmp_ww < cube_width+gutter){
                 gutter = 0;
                 con_w = ori_ww;
                 cube_width = ori_ww;
             }
+
+            $("#wrapper",window.parent.document.body).width(con_w);
+            $("#header .share-title",window.parent.document.body).width(con_w);
             
             $container.width(con_w);
             $("iframe#images_pad",window.parent.document.body).height($container.height() + 5);
@@ -189,3 +199,5 @@ jQuery(function($){
 
     load_wall_event();
 });
+
+
