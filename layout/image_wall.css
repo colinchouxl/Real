@@ -8,6 +8,7 @@
 
 body.img-wall #wrapper {
     width: 340px;
+    font-family: "微软雅黑";
 }
 a{                           /*7-13*/
     text-decoration: none;
@@ -19,6 +20,7 @@ img{
 
 body.img-wall body{
     display: block;
+    font-family: "微软雅黑";
 }
 
 /* body .wall-op{  7-13-icon关闭按钮在style.csss中有样式不在框架中
@@ -64,8 +66,8 @@ body .wall-header{
     /*margin: 0 auto;*/
 }
 
-body .wall-header .unavailable{
-    display: none;
+body .wall-header .unavailable{/*
+    display: none;*/
 }
 
 body.scroll .wall-header .wall-title{
@@ -193,6 +195,7 @@ body #container div.item img{
 body #container div.item a.lb{
     overflow: hidden;
     display: block;
+    background-color: #fff;/*png选中后背景色问题*/
 }
 
 body #container div.item.hvr img{
@@ -236,8 +239,8 @@ body .multi-choice{
     width: inherit;
     position: relative;
     z-index: 999;
-    height: 34px;
-    border-bottom: 1px solid #A7A4A4;
+    height: 34px;/*
+    border-bottom: 1px solid #A7A4A4;*/
    /* margin: 0 auto;
     bottom: 5px;*/
 }
@@ -333,9 +336,25 @@ body .multi-choice .footer-op a.download{
 
 #post_qrcode{
     position: absolute;
-    bottom: 23px;
-    left: 25px;
+    top: 29px;
+    background: #FFF;
+    width: 176px;
+    height: 176px;
+    border: 1px solid #ccc;
     display: none;
+    box-shadow: 0 0 8px rgba(0,0,0,0.36);
+}
+
+#post_qrcode canvas{
+    margin: 12px 28px 0;
+}
+
+#post_qrcode p.description{
+    margin: 4px 0 5px 28px;
+    font-size: 12px;
+    line-height: 16px;
+    position: absolute;
+    bottom: 0;
 }
 
 body #container .single-op .operations a.download.active,
@@ -348,7 +367,6 @@ body #container .single-op{
 }
 
 body #container .single-op .checkbox{
-    /* padding: 7px; */
     border: 1px solid #d1d1d1;
     display: inline-block;
     cursor: pointer;
@@ -535,31 +553,111 @@ body #container .item.delete .del-mask .revocation span.icon{
 
 .in-frame .multi-choice div{
     display: inline-block;
+    line-height: 30px;
 }
 
 .in-frame .multi-choice div.gol-op{
-    position: relative;
+    position: relative;/*
     padding-left: 15px;
-    border-left: 1px solid #666;
+    border-left: 1px solid #666;*/
+    margin-left: 15px;
 }
-.in-frame .multi-choice div.gol-op a{
-    font-size: 18px;
-    margin-right: 10px;
-    color: #333;
+.in-frame .multi-choice div.gol-op>a{
+   padding: 5px 10px;
+   width: 36px;
+   display: inline-block;
+   text-align: center;
 }
 
 .overall .gol-op .tag-con .custom a.tag{
     font-size: 14px;
     display: inline-block;
+    padding: 0px 5px;
+    line-height: 24px;
+    border-radius: 3px;
+    margin: 3px 3px 0 0;
+    color: #575757;
+}
+
+.overall .gol-op .tag-con .custom a.tag.active{
+    color: #fff;
+    background: #5a5a5a;
+}
+
+.overall .gol-op .tag-con .custom a:hover{
+    background: #dbdbdb;
 }
 
 .in-frame .multi-choice div.gol-op a.tag{
     font-size: 15px;
 }
 
-.in-frame .multi-choice div.gol-op a:hover{
-    color: #20B0A4;
+
+/*图片墙添加tag*/
+.tag-con div.new-tag-con {
+  display: none;
+  border: 1px solid #20B0A4;
+  background: #fff;
+  position: relative;
+  top: 0px;
+  height: 22px;
+  border-radius: 3px; 
 }
+
+.tag-con div.new-tag-con input.tag-name {
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 0 0 0 5px;
+  color: #666;
+  font-size: 13px;
+  height: 19px; }
+
+  .tag-con div.new-tag-con input.submit {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0 10px 6px;
+  position: relative;
+  z-index: 10;
+  outline: none;
+  margin: 0;
+ line-height: 16px;}
+
+.tag-con div.new-tag-con span {
+  position: absolute;
+  font-size: 16px;
+  color: #20B0A4;
+  top: 0;
+  right: 0px;
+  padding: 2px 1px 4px 4px;
+  background: #fff;
+  border-left: 1px solid #20B0A4;
+  z-index: 0;
+  border-radius: 0 2px 2px 0; }
+
+  .tag-con a.new-btn {
+  color: #595757;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1em;
+  height: 14px;
+  padding: 1px;}
+
+.multi-choice.adding-tag .tag-con .new-tag-con{
+    display: inline-block;
+}
+
+.multi-choice.adding-tag .tag-con a.new-btn{
+    display: none;
+}
+
+/*.in-frame .multi-choice div.gol-op a:hover{
+    color: #20B0A4;
+}*/
 
 .in-frame .multi-choice div.tag-con{
     position: absolute;
@@ -571,7 +669,7 @@ body #container .item.delete .del-mask .revocation span.icon{
     box-shadow: 0 0 8px #949494;
     border: 1px solid #ccc;
     top: 35px;
-    left: -139px;
+    right: 0;
 }
 
 .in-frame .multi-choice.show-tags .tag-con{
@@ -585,24 +683,20 @@ body #container .item.delete .del-mask .revocation span.icon{
 .in-frame .multi-choice div.more-comp{
     position: relative;
     display: inline-block;
-    margin-right: 10px;
-}
-
-.in-frame .multi-choice .more-comp a:hover{
-    color: #20B0A4;
+    /*margin-right: 10px;*/
 }
 
 .in-frame .multi-choice div.other-icons{
     position: absolute;
     background-color: #fff;
-    padding: 10px;
-    top: 32px;
-    left: -58px;
-    width: 110px;
-    box-shadow: 0 0 8px #949494;
+    padding: 20px 0 20px;
+    top: 31px;
+    right: 0;
+    width: 181px;
+    box-shadow: 0 0 0 #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;
     border: 1px solid #ccc;
+    border-top: none;
     display: none;
-    line-height: 2;
 }
 
 .in-frame .multi-choice.show-more .more-comp div.other-icons{
@@ -610,23 +704,33 @@ body #container .item.delete .del-mask .revocation span.icon{
 }
 
 .in-frame .multi-choice div.other-icons a.icon-other{
-    padding: 10px;
+    padding: 6px;
     display: inline-block;
     color: #333;
+    background:none;
+    border: none;
 }
 
 .in-frame .multi-choice .more-comp.active{
     display: inline-block;
 }
-
+.in-frame .multi-choice .overall .gol-op>a,
 .in-frame .multi-choice .overall .share-con a{
-    font-size: 18px;
-    color: #333;
-    margin-right: 10px;
+    font-size: 14px;
+    color: #575757;
+    background: #f3f3f3;
+    padding: 5px;
+    border: 1px solid #e5e5e5;
+    border-left: none;
 }
 
-.in-frame .multi-choice .overall .share-con a:hover{
-    color: #20B0A4;
+.in-frame .multi-choice .overall .gol-op>a:first-child,
+.in-frame .multi-choice .overall .share-con>a:first-child{
+    border-left: 1px solid #e5e5e5;  
+}
+
+.in-frame .multi-choice .overall a:hover{
+   opacity: .75;
 }
 
 /* .in-frame .multi-choice a.has-chosen{
@@ -640,26 +744,26 @@ body #container .item.delete .del-mask .revocation span.icon{
 }
 
 .in-frame .multi-choice a.gol{
-    color: #333;
-    border: 1px solid #2C2C2C;
-    padding: 3px 5px;
-    border-radius: 6px;
-    font-size: 13px;
+    color: #575757;
+    border: 1px solid #dedede;
+    padding: 6px 10px;
+    background: #f3f3f3;
+    border-radius: 2px;
+    font-size: 12px;
 }
-.in-frame .multi-choice a.cancel{
-    position: relative;
-    top: -3px;
+.in-frame .multi-choice .choose-number{
+    font-size: 12px;
+    margin-left: 15px;
 }
 
 
 .in-frame .multi-choice a.all-choice{
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .in-frame .multi-choice .overall{
     position: absolute;
     right: 0;
-    top: 8px;
 }
 
 .in-frame .multi-choice .triangle.outside{
@@ -686,8 +790,8 @@ body #container .item.delete .del-mask .revocation span.icon{
 }
 
 .in-frame .multi-choice .has-chosen{
-    position: absolute;
-    top: 8px;
+    /*position: absolute;
+    top: 8px;*/
 }
 
  

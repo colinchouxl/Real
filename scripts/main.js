@@ -5217,7 +5217,7 @@ jQuery(function($){
 
         //加载图片标签    2014-6-29
         ImageItem.prototype.get_image_tags(function(data){
-            var tags_con = "<link rel=\"stylesheet\" href=\""+location.origin+"/layout/fonts/ok-icon-fonts/icon-fonts.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/image_wall.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/lightbox.css\">"+ 
+            var tags_con = "<link rel=\"stylesheet\" href=\""+location.origin+"/fonts/ok-icon-fonts/icon-fonts.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/image_wall.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/lightbox.css\">"+ 
                             "<div class=\"wall-header\">"+
                                 "<div class=\"wall-title\">"+
                                    "<h1><span class=\"title\">image-wall</span><span class=\"num\"></span></h1>"+
@@ -5241,7 +5241,11 @@ jQuery(function($){
                                    "</div>"+
                                "</div>"+
                                " <div class=\"multi-choice\">"+             
-                                            "<div class=\"has-chosen\"><a href=\"#\" class=\"all-choice gol\">全选</a><span class=\"choose-number\">已选 <span class=\"chosen-num\"></span></span></div>"+
+                                            "<div class=\"has-chosen\">"+
+                                                "<a href=\"#\" class=\"all-choice gol\">全选</a>"+
+                                                "<a class=\"cancel gol\" href=\"#\">取消</a>"+
+                                            "</div>"+
+                                            "<div class=\"choose-number\">已选 <span class=\"chosen-num\"></span></div>"+
                                         "<div class=\"overall\">"+
                                             "<div class=\"share-con\">"+
                                                 "<a href=\"#\" class=\"comp weibo\"><span class=\"icon-item ok-icon-sinaweibo-line\"></span></a>"+
@@ -5249,44 +5253,43 @@ jQuery(function($){
                                                 "<a href=\"#\" class=\"comp wechat\"><span class=\"icon-item ok-icon-wechat-line\"></span></a>"+
                                                 "<a href=\"#\" class=\"comp douban\"><span class=\"icon-item ok-icon-douban-line\"></span></a>"+
                                                 "<a href=\"#\" class=\"comp qq\"><span class=\"icon-item ok-icon-QQfriend-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line\"></span></a>"+
-                                                "<div id=\"post_qrcode\"></div>"+
-                                            "</div>"+
-                                            "<div class=\"more-comp\">"+
-                                                "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-more\"></span></a>"+
-                                                "<div class=\"other-icons\">"+
-                                                    "<div class=\"triangle outside\">"+
-                                                        "<div class=\"triangle\"></div>"+
+                                                "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line2\"></span></a>"+
+                                                "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-down\"></span></a>"+
+                                                "<div class=\"more-comp\">"+
+                                                    "<div class=\"other-icons\">"+
+                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-sinaweibo-line\"></span></a>"+
+                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-tencentweibo-line\"></span></a>"+
+                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-wechat-line\"></span></a>"+
+                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-douban-line\"></span></a>"+
+                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-QQfriend-line\"></span></a>"+
+                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-email-line2\"></span></a>"+
                                                     "</div>"+
-                                                    "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-sinaweibo-line\"></span></a>"+
-                                                    "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-tencentweibo-line\"></span></a>"+
-                                                    "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-wechat-line\"></span></a>"+
-                                                    "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-douban-line\"></span></a>"+
-                                                    "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-QQfriend-line\"></span></a>"+
-                                                    "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-email-line\"></span></a>"+
                                                 "</div>"+
+                                                "<div id=\"post_qrcode\"><p class=\"dsecription\">请使用微信扫描<br/>分享给微信好友或朋友圈</p></div>"+
                                             "</div>"+
+                                            
                                             "<div class=\"gol-op\">"+
+                                                "<a class=\"tags unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-tag\"></span><span class=\"icon-item  ok-icon-down\"></span></a>"+
                                                 "<a class=\"download\" href=\"#\"><span class=\"icon-item  ok-icon-download\"></span></a>"+
-                                                "<a class=\"tags unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-tag\"></span></a>"+
                                                 "<a class=\"delete unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-del\"></span></a>"+
                                                 "<div class=\"tag-con\">"+
-                                                    "<div class=\"triangle outside\">"+
-                                                        "<div class=\"triangle\"></div>"+
-                                                    "</div>"+
                                                     "<div class=\"custom\">"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">亦如尘埃</a>"+
+                                                        "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                        "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
+                                                        "<div class=\"new-tag-con\">"+
+                                                            "<input name=\"tag_name\" class=\"tag-name\" size=\"3\" placeholder=\"    ,    \" type=\"text\" /><input class=\"submit\" value=\"\" type=\"button\" /><span class=\"ok-icon-complete icon-font\"></span>"+
+                                                        "</div>"+
+                                                        "<a href=\"#\" class=\"new-btn\"><span class=\"ok-icon-submit\"></span></a>"
                                                     "</div>"+
                                                 "</div>"+
                                             "</div>"+
-                                            "<div><a class=\"cancel gol\" href=\"#\">取消</a></div>"+
+                                            
                                         "</div>"+  
                                "</div>"+
                                
@@ -5312,7 +5315,7 @@ jQuery(function($){
             image = images[i];
             resizedHeight = (idl.apps.image.initWidth/image.width) * image.height;
 
-            html += "<div class=\"item loading\" data-id=\""+image.id+"\" data-tagids=\""+image.tag_ids+"\" data-note=\""+image.note_id+"\">" +
+           html += "<div class=\"item loading\" data-id=\""+image.id+"\" data-tagids=\""+image.tag_ids+"\" data-note=\""+image.note_id+"\">" +
                         "<div class=\"mask\">" +
                             "<div class=\"del-mask\">" +
                                 "<p class=\"warn\">已在图片墙排除了这张照片</p>" +
@@ -5326,21 +5329,21 @@ jQuery(function($){
                             "<a href=\""+image.url+"\" class=\"lb\" data-title=\""+image.width+"x"+image.height+"\" data-lightbox=\"image-1\" data-title=\"My caption\"><img src=\""+location.origin+"/layout/images/1px.gif\" width=\""+idl.apps.image.initWidth+"\" height=\""+resizedHeight+"\" data-height=\""+image.height+"\" data-width=\""+image.width+"\" data-src=\""+image.url+"\"/></a>" +
                         "</div>" +
                         "<div class=\"single-op\">" +
-                            "<div class=\"checkbox\"></div>" +
+                            "<div class=\"checkbox\"><span class=\"icon-font ok-icon-complete\"></span></div>" +
                             "<div class=\"operations\">" +
-                                "<a class=\"download\" href=\""+image.url+"\" target=\"_blank\" download=\""+get_filename(image.url)+"\"></a>" +
-                                "<a class=\"delete\" href=\"#\"></a>" +
-                                "<a class=\"share\" href=\"#\"></a>" +
+                                "<a class=\"download\" href=\""+image.url+"\" target=\"_blank\" download=\""+get_filename(image.url)+"\"><span class=\"icon-font ok-icon-download\"></span></a>" +
+                                "<a class=\"delete\" href=\"#\"><span class=\"icon-font ok-icon-del\"></span></a>" +
+                                "<a class=\"share\" href=\"#\"><span class=\"icon-font ok-icon-share\"></span></a>" +
                             "</div>" +
-                            "<div class=\"share-component\">" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"></a></div>" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"></a></div>" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"></a></div>" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"></a></div>" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"></a></div>" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"gmail component\"></a></div>" +
-                                "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"></a></div>" +
-                            "</div>" +
+                            "<div class=\"share-component\">" +  //添加了字体图标   7-13-icon-font
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"><span class=\"icon-font ok-icon-email-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"><span class=\"icon-font ok-icon-sinaweibo-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"><span class=\"icon-font ok-icon-douban-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"><span class=\"icon-font  ok-icon-qqzone-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"gmail component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"><span class=\"icon-font ok-icon-share\"></span></a></div>" +
+                                "</div>" +
                         "</div>" +
                     "</div>";
         }
