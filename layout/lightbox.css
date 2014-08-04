@@ -25,6 +25,75 @@ body:after {
   font-weight: normal;
 }
 
+.lightbox .lb-des-con{
+  min-width: 200px;
+  max-width: 680px;
+}
+
+/*添加图片描述*/
+.lb-description .img-des{
+  position: relative;
+  margin: 10px 0 35px;
+}
+
+.lb-description .img-des .button{
+  width: 100%;
+  background: #fff;
+  text-align: right;
+  height: 27px;
+}
+
+.lb-description .img-des .button span{
+  background: #f3f3f3;
+  display: none;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin: 0 20px 5px 0;
+  cursor: pointer;
+}
+
+.lb-description .img-des .button span{
+  display: inline-block;
+}
+
+.lb-description .img-des textarea{
+  width: 100%;
+  min-height: 45px;
+  padding: 5px;
+  outline: none;
+  resize: none;
+  border:none;
+  margin: 0;
+}
+
+.lb-description .img-des .triangle.outside{
+  border-top: 45px solid #ccc;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  position: absolute;
+  bottom: -45px;
+  left: 70%;
+  z-index: 10;
+  display: none;
+}
+
+.lb-description .img-des .triangle{
+  border-top: 45px solid #fff;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  position: absolute;
+  bottom: 0;
+  left: -9px;
+}
+
+.lb-description.show-triangle .img-des .triangle.outside{
+  display: block;
+}
+
+
+
+
 .lightbox .lb-image {
   display: block;
   height: auto;
@@ -44,9 +113,7 @@ body:after {
   position: relative;
   background-color: white;
   *zoom: 1;
-  padding-bottom: 30px;/* 2014-6-29 */
-  width: 250px;
-  height: 250px;
+  padding-bottom: 40px;/* 2014-6-29 */
   margin: 0 auto;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -55,6 +122,7 @@ body:after {
   border-radius: 4px;
 }
 
+
 .lb-outerContainer:after {
   content: "";
   display: table;
@@ -62,7 +130,7 @@ body:after {
 }
 
 .lb-container {
-  padding: 4px 4px 0 4px;
+  padding: 8px 8px 0 8px;
   height: 100%;
   position: relative;
 }
@@ -193,7 +261,7 @@ body:after {
   position: fixed;
   right: 20px;
   top: 20px;
-
+  word-break: break-all;
   /* display: block;2014-6-29
   float: right; */
   width: 30px;
@@ -216,25 +284,73 @@ body:after {
 }
 
 
-/* 2014-6-29 */
 #lightbox .lb-op-con{
-  font-size: 21px;
-  color: #20b0a4;
+  font-size: 14px;
+  color: #575757;
+  margin-top: 6px;
+}
+
+#lightbox .lb-op-con span.icon-item{
+  /*background: #f3f3f3;*/
+  padding: 2px;
+  margin-right: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  /*border: 1px solid #ccc;*/
+}
+
+#lightbox .lb-op-con .share-con{
   float: right;
-  margin-top: 3px;
+  margin-right: 5px;
 }
-#lightbox .lb-op-con .share-con span.icon-item{
-  margin-right: 9px;
+
+/*#lightbox .lb-op-con .share-con span{
+  border-left: none;
+}*/
+
+#lightbox .lb-op-con .share-con span:first-child{
+  /*border-left: 1px solid #ccc;*/
+  /*border-radius: 2px 0 0 2px;*/
 }
+
+#lightbox .lb-op-con .state{
+  float: left;
+  margin-left: 8px;
+}
+/*#lightbox .lb-op-con .state span:first-child{
+  margin-left: 4px;*/
+  /*border-right:none; */
+  /*border-left: 1px solid #ccc;*/
+  /*border-radius: 2px 0 0 2px;*/
+}
+
+/*#lightbox .lb-op-con .state span:last-child{
+  border-radius: 0 2px 2px 0;
+}*/
+
+/*#lightbox .lb-op-con .share-con span.icon-item:last-child{
+  padding-left: 6px;
+  border-left: 1px solid #ccc;
+}*/
+
+/*#lightbox .lb-op-con .share-con span.icon-item:nth-child(6){
+  border-radius: 0 2px 2px 0; 
+}*/
+
+#lightbox .lb-op-con span.icon-item:hover{
+  background-color: #00cccc;
+  color: #fff;
+}
+
 #lightbox .lb-des-con .note-con div.note{
   height: 100px;
   line-height: 1.2;
   color: #ccc;
   text-align: left;
+  word-break: break-all;
 }
 
 #lightbox .lb-des-con div.note.editable a.open{
-    word-break: break-all;
     color: inherit;
     text-decoration: underline;
     -webkit-transition: background .3s;

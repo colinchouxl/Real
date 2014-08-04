@@ -5265,7 +5265,7 @@ jQuery(function($){
                                                         "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-email-line2\"></span></a>"+
                                                     "</div>"+
                                                 "</div>"+
-                                                "<div id=\"post_qrcode\"><p class=\"dsecription\">请使用微信扫描<br/>分享给微信好友或朋友圈</p></div>"+
+                                                "<div id=\"post_qrcode\"><p class=\"description\">请使用微信扫描<br/>分享给微信好友或朋友圈</p></div>"+
                                             "</div>"+
                                             
                                             "<div class=\"gol-op\">"+

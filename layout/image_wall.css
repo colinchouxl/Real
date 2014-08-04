@@ -336,13 +336,12 @@ body .multi-choice .footer-op a.download{
 
 #post_qrcode{
     position: absolute;
-    top: 29px;
+    top: 28px;
     background: #FFF;
     width: 176px;
     height: 176px;
-    border: 1px solid #ccc;
     display: none;
-    box-shadow: 0 0 8px rgba(0,0,0,0.36);
+    box-shadow: 0 5px 10px 1px rgba(0,0,0,0.36);
 }
 
 #post_qrcode canvas{
@@ -666,9 +665,8 @@ body #container .item.delete .del-mask .revocation span.icon{
     width: 257px;
     height: auto;
     display: none; 
-    box-shadow: 0 0 8px #949494;
-    border: 1px solid #ccc;
-    top: 35px;
+    box-shadow: 0 5px 10px 1px rgba(0,0,0,0.36);
+    top: 26px;
     right: 0;
 }
 
@@ -690,11 +688,10 @@ body #container .item.delete .del-mask .revocation span.icon{
     position: absolute;
     background-color: #fff;
     padding: 20px 0 20px;
-    top: 31px;
+    top: 8px;
     right: 0;
-    width: 181px;
-    box-shadow: 0 0 0 #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;
-    border: 1px solid #ccc;
+    width: 176px;
+    box-shadow: 0 5px 10px 1px rgba(0,0,0,0.36);
     border-top: none;
     display: none;
 }
