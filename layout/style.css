@@ -2328,7 +2328,7 @@ div#img_modal a.close {
   min-width: 310px;
   margin: 0 auto;
   padding-bottom: 50px;
-  background: white;
+  background: #717171;
   display: none;
   position: fixed;
   left: 310px;
@@ -2337,55 +2337,75 @@ div#img_modal a.close {
   overflow: scroll;
   height: 100%; }
 
-#settings header h2.main-title {
+/*#settings header h2.main-title {
   font-size: 22px;
   padding-left: 2%;
   display: inline-block;
   font-weight: normal;
-  color: #20b0a4; }
+  color: #20b0a4; }*/
 
-#settings header h2 .ok-config2 {
+#settings h2 {
   font-size: 18px;
-  padding-right: 4px; }
+  margin: 15px 0 0 0 ;
+  color: #fff;
+  padding-left: 1%; }
 
 #settings header {
-  padding-top: 20px;
+  padding: 20px 0;
+  margin: 0 auto;
+  width: 98%;
+  border-bottom: 1px solid #ccc;
   position: relative; }
 
+
+
+#settings header div.logo{
+  background:  url(images/ok-small.png) no-repeat center center;
+  height: 65px;     
+}
 #settings header a {
   position: absolute;
-  top: 21px;
-  right: 2%;
-  border: 1px solid #20b0a4;
-  border-radius: 5px;
-  padding: 4px 6px;
-  font-size: 15px;
-  color: #444; }
+  top: 20px;
+  left: 0;
+  font-size: 12px;
+  padding: 4px;
+  color: #fff; }
 
 #settings header a:hover {
-  color: #fff;
-  border: none;
   background: #20b0a4; }
 
 /*global*/
 #settings .sections section {
-  width: 96%;
+  width: 98%;
   height: auto;
   margin: 20px auto;
   background-color: #fff;
-  box-shadow: 0px 0 5px #cbcbcb; }
+  box-shadow: 0px 0 5px 2px rgba(0,0,0,.16); }
 
 #settings h3 {
-  color: #20b0a4;
+  color: #00cccc;
   padding: 8px 0 8px 8px;
-  border-bottom: 1px solid #ccc;
-  font-size: 18px;
+  border-bottom: 1px solid #b8b8b8;
+  font-size: 16px;
   font-weight: normal; }
 
+#settings p.description{
+  font-size: 12px;
+  color: #b9b9b9;
+  line-height: 1.5;
+  padding-bottom: 5px;
+}
+
+#settings p.versions.description{
+  padding-top: 5px;/*让描述的语言离按钮远点*/
+}
+
 #settings .inner-con {
-  margin: 8px 0 8px 20px;
+  margin: 8px 8px 8px 20px;
   line-height: 1.8;
-  padding-bottom: 20px; }
+  padding-bottom: 20px;
+  position: relative; 
+  color: #404040;}
 
 /*=====account setting=====*/
 #settings label {
@@ -2394,10 +2414,9 @@ div#img_modal a.close {
 #settings .user .account .account-con,/*7-13*/
 #settings .user .portrait .portrait-con,
 #settings .user .nickname .name-con,
-#settings .user .fancyurl .fancyurl-con,
 #settings .user .password .password-con {
   position: absolute;
-  right: 15px;
+  right: 5px;
   top: 0; }
 
 #settings .user .portrait .portrait-con{
@@ -2413,15 +2432,6 @@ div#img_modal a.close {
 
 #settings .user .nickname .name-con input {
   display: none; }
-
-#settings .user #logout,/*7-13*/
-#settings .user #reset_pwd {
-  padding: 1px 6px;
-  color: #575957;
-  line-height: 22px;
-  font-size: 15px;
-  border: 1px solid #20b0a4;
-  border-radius: 5px; }
 
 #settings .user .password form {
   display: none; }
@@ -2447,23 +2457,28 @@ div#img_modal a.close {
   padding: 5px; }
 
 #settings .user .password .inp-con a.inp {
-  padding: 0 6px;
-  right: 14px;
-  font-size: 15px;
-  cursor: pointer;
-  color: #444;
-  border: 1px solid #20b0a4; 
-  line-height: 22px;}
+  right: 15px;
+  height: 20px;
+  line-height: 20px;}
 
 #settings .user .password .inp-con a.inp#reset_pw_btn {
   right: 102px; }
 
-#settings .user #logout:hover,/*7-13*/
+#settings .user .password .inp-con a.inp,
+#settings .user #logout,/*7-13*/
+#settings .user #reset_pwd {
+  padding: 3px 10px;
+  color: #404040;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px; }
+
+#settings .user #logout:hover,
 #settings .user #reset_pwd:hover,
 #settings .user .password .inp-con a.inp:hover {
-  color: #fff;
-  background-color: #20b0a4;
-  border: none; }
+  border: 1px solid #b8b8b8;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1);  }
 
 #settings .user .password .inp-con input:focus {
   outline: 1px solid #20b0a4;
@@ -2478,24 +2493,45 @@ div#img_modal a.close {
   position: relative;
   margin-top: 10px; }
 
-#settings .user .signature .signature-con textarea,/*7-13*/
+#settings .user .signature .signature-con textarea,
 #settings .user .fancyurl .fancyurl-con input,
 #settings .user .nickname .name-con input {
   display: none;
   outline: none;
   border: none;
+  padding: 0;
+  margin: 0;
   resize:none;
   border-bottom: 1px solid #575959; }
 
-#settings .user .signature.change-sign .signature-con textarea,/*7-13*/
-#settings .user .fancyurl.change-link .fancyurl-con input,
 #settings .user .nickname.change-name .name-con input {
-  display: inline-block; }
+  display: inline-block;}
+#settings .user .nickname.change-name .name-con span {
+  display: none;}
 
-#settings .user .signature.change-sign .signature-con a,/*7-13*/
+
+#settings .user .signature .signature-con ,
+#settings .user .fancyurl .fancyurl-con {
+  position: relative;
+}
+
+#settings .user .signature.change-sign .signature-con textarea,
+#settings .user .fancyurl.change-link .fancyurl-con input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  font-size: 14px;
+  line-height: 31px;
+  width: 100%;
+  height: 31px;
+  font-family: "微软雅黑";
+  color: #595757; }
+
+/*#settings .user .signature.change-sign .signature-con a,
 #settings .user .fancyurl.change-link .fancyurl-con a,
 #settings .user .nickname.change-name .name-con span {
-  display: none; }
+  display: none; }*/
 
 #settings .user .fancyurl .fancyurl-con a:hover,
 #settings .user .nickname .name-con span:hover {
@@ -2505,10 +2541,10 @@ div#img_modal a.close {
 
 #settings .user .signature .signature-con a{
     font-size: 14px;
+    line-height: 31px;
     color: #595757;}
 
-#settings .user .signature.change-sign .signature-con textarea{/*7-13*/
-    width: 92%;
+#settings .user .signature.change-sign .signature-con textarea{
     overflow: hidden;}
 
 /*appearance setting*/
@@ -2520,15 +2556,32 @@ div#img_modal a.close {
 #settings .ui ul.show-choose {
   background-color: #fff;
   display: inline-block;
-  padding: 0 6px;
-  color: #575957;
-  border: 1px solid #20b0a4;
-  border-radius: 3px;
+  color: #404040;
+  font-size: 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
   position: absolute;
   top: 0px;
-  right: 15px; }
+  right: 5px; }
+
+#settings .ui .current-state{
+    padding-left: 10px;
+    color: #00cccc;
+    cursor: pointer;
+  }
+
+#settings .ui .current-state a{
+  color: #404040;
+}
+
+#settings .ui .current-state span{
+  padding: 0 5px;
+  color: #404040;
+}
 
 #settings .ui ul:hover {
+  border: 1px solid #b0b0b0;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.34);
   z-index: 100; }
 
 #settings .ui div.favicon,
@@ -2545,37 +2598,47 @@ div#img_modal a.close {
 
 #settings .ui ul li a {
   color: #444;
-  font-size: 15px; }
+  font-size: 15px; 
+  display: block;
+  padding: 0 10px;}
 
 #settings .ui ul li a.hvr {
-  color: #20b0a4; }
+  color: #fff;
+  background-color: #00cccc; }
 
 #settings .ui ul li.choosed a.hvr {
-  color: #444;
-  cursor: default;
-  pointer-events: none; }
+  /*color: #444;
+  cursor: default;*/
+ /* pointer-events: none;*/ }
 
-#settings .ui ul li span.ok-pull-down {
+/*#settings .ui ul li span.ok-pull-down {
   display: none; }
 
 #settings .ui ul li.choosed span.ok-pull-down {
-  display: inline-block; }
+  display: inline-block; }*/
 
 #settings .ui ul:hover li {
   display: block; }
 
-#settings .ui ul li.choosed {
+/*#settings .ui ul li.choosed {
   display: block;
-  line-height: 1.4; }
+  line-height: 1.4; }*/
 
 #settings div.checkbox {
   display: inline-block;
-  padding: 6px;
   border: 1px solid #aaa;
+  line-height: 0;
+  font-size: 12px;
+  color: transparent;
   cursor: pointer; }
 
 #settings .on div.checkbox {
-  background: url(images/checkmark-settings.png) no-repeat center center; }
+  color: #404040;
+  }
+
+#settings .prefsession div.checkbox.checked{
+  color: #404040;
+}
 
 #settings .ui .favicon p {
   display: inline-block; }
@@ -2600,28 +2663,97 @@ div#img_modal a.close {
   color: #ccc; }
 
 /*synchronization setting*/
-#settings .accounts p.status {
-  font-size: 12px;
-  color: #aaa;
-  margin-left: 18px; }
+#settings .accounts .backups,
+#settings .accounts .open-app{
+  padding-bottom: 10px;
+}
 
+#settings .accounts .open-app.weibo,
+#settings .accounts .open-app.twitter{
+  position: relative;
+  padding: 10px 0 0 0;
+}
+
+#settings .accounts .collect div.btn{
+  position: absolute;
+  top: 10px ;
+  right: 0 ;
+}
+
+#settings .accounts .open-app.gtask,
+#settings .accounts .backups{
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#settings div.btn{
+  display: inline-block;
+  padding: 1px 10px;
+  color: #404040;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+#settings div.btn:hover {
+  border: 1px solid #b8b8b8;
+  box-shadow: 0 1px 0 rgba(0,0,0,.1);  }
+
+
+#settings p.status {
+  font-size: 12px;
+  color: #5a5a5a;}
+
+#settings p.status a{
+  color: #5a5a5a;}
+
+#settings .task-eater span.on,
 #settings .accounts span.on {
   display: none; }
 
+#settings .task-eater span.off,
 #settings .accounts span.off {
   display: inline-block; }
 
+#settings .task-eater .on span.on,
 #settings .accounts .on span.off {
   display: none; }
 
+#settings .task-eater .on span.on,
 #settings .accounts .on span.on {
   display: inline-block; }
 
+#settings .task-eater .defeat,
+#settings .task-eater .reassociation,
+#settings .accounts .defeat,
+#settings .accounts .reassociation{
+  display: none;
+  color: #E60012;
+}
+
+#settings .task-eater .error .reassociation,
+#settings .accounts .error .reassociation{
+text-decoration: underline;
+}
+
+#settings .task-eater .error .defeat,
+#settings .task-eater .error .reassociation,
+#settings .accounts .error .defeat,
+#settings .accounts .error .reassociation{
+  display: inline-block;
+}
+
+#settings .task-eater .error .safe,
+#settings .accounts .error .safe{
+  display: none;
+}
+
+
 /*other setting*/
-#settings p.desc {
+/*#settings p.desc {
   color: #888;
   font-size: 12px;
-  width: 95%; }
+  width: 100%; }*/
 
 #settings input[type="range"] {
   -webkit-appearance: none;
@@ -2666,75 +2798,91 @@ div#img_modal a.close {
   pointer-events: all;
   background: #20b0a4; }
 
-#settings .other-set a.checkbox {
+/*#settings .task-eater a.checkbox {
   display: inline-block;
   padding: 6px;
   border: 1px solid #aaa;
-  margin-right: 5px; }
+  margin-right: 5px; }*/
 
-#settings .other-set .on a.checkbox {
+#settings .task-eater .on a.checkbox {
   background: url(images/checkmark.png) no-repeat center center; }
-
-#settings .other-set span.sent-choose,
-#settings .other-set .status-title,
-#settings .other-set .geo-set span.loca,
-#settings .other-set .status p span {
+/*
+#settings .task-eater span.sent-choose,*/
+#settings .task-eater .status-title,
+#settings .task-eater .geo-set span.loca,
+#settings .task-eater .status p span {
   font-size: 14px;
   color: #353535; }
 
-#settings .equipment a.clear-pass {
-  font-size: 10px; }
+
+
+/*#settings .equipment a.clear-pass {
+  font-size: 10px; }*/
 
 #settings .equipment .device {
   display: inline-block;
+  font-size: 14px;
   width: 158px; }
 
-#settings .get-info {
-  display: inline-block;
-  border: 1px solid #20b0a4;
-  border-radius: 6px;
-  background-color: #ebebeb;
-  margin-left: 15px;
-  font-size: 12px; }
+#settings .get-info.btn{
+  padding: 0;}
 
 #settings .pic-wall .get-info {
   margin-left: 0; }
+
+.picture .pic-download .status .set-addr{
+  outline: none;
+  border: none;
+}
+
+.picture .pic-download .status .set-addr:hover{
+  outline: 1px solid #d9d9d9;
+}
 
 #settings div.placeholder {
   height: 15px;
   width: 100%; }
 
+#settings section span.clock,
+#settings section span.size{
+  display: inline-block;
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid #d9d9d9;
+  padding: 2px 0;
+  width: 58px;
+  text-align: center;
+  font-size: 13px;
+}
+#settings section span.add,
 #settings section span.reduce {
-  padding: 5px 4px;
-  border-right: 1px solid #20b0a4;
   cursor: pointer;
-  display: inline-block; }
-
-#settings section span.add {
+  display: inline-block;
   padding: 5px 4px;
-  border-left: 1px solid #20b0a4;
-  cursor: pointer;
-  display: inline-block; }
+ }
 
-#settings span.get-info .clock {
+/*#settings span.get-info .clock {
   padding: 0 2px;
-  color: #444; }
+  color: #444; }*/
 
 #settings .unavailable * {
   pointer-events: none;
   color: #ccc !important;
   text-decoration: line-through; }
-
-
   /*7-13---------------------------*/
+#settings .update.btn a{
+  color: #404040;
+}
+
 #settings .update{
-    color: #333;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 #settings .feedback-con{
-    display: none;
+   /* display: none;
     height: 0;
-    width: 0;
+    width: 0;*/
 }
 
 #settings .about.fbk .feedback-con{
@@ -2749,7 +2897,7 @@ div#img_modal a.close {
 transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
 }
 
-#settings .feedback-con .close{
+/*#settings .feedback-con .close{
     position: absolute;
     right: 2px;
     top: 4px;
@@ -2772,13 +2920,15 @@ transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
  
 #settings .feedback-con .close:hover span{
     color: #fff;
-} 
+} */
 
 
 #settings .feedback-con form{
     margin: 0px auto;
-    width: 85%;
-    padding: 24px 0 0 0;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.18);
+    border-radius: 2px;
+    padding:5px 0 24px 0;
+    width: 100%;
 } 
 
 #settings .feedback-con form p{
@@ -2788,34 +2938,36 @@ transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
 }
 
 #settings .feedback-con textarea{
-    height: 131px;
-    width: 96%;
-    padding: 2%;
+    height: 110px;
+    width: 98%;
+    padding: 1%;
     margin: 0;
+    border: none;
+    outline: none; 
     resize:none;
     overflow: hidden;
 }
 
-#settings .feedback-con form .user-contact{
+/*#settings .feedback-con form .user-contact{
     padding: 3px 0 3px 5px;
     width: 197px;
-}
+}*/
 
 #settings .feedback-con form input#submit{
-    margin: 8px 0;
     outline: none;
     border: none;
-    background: none; 
-    color: #20B0A4;  
-    position: relative;
-    left: 167px;
-    border: 1px solid #20B0A4; 
+    background: #00cccc; 
+    color: #fff;  
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 25px;
+    padding: 3px 10px;
     border-radius: 2px;
 }
 
 #settings .feedback-con form input#submit:hover{
-    background: #20B0A4;
-    color: #fff;
+    box-shadow: 0 1px 1px 1px rgba(0,0,0,.23);
 }
 /*7-3-------------------------------------------------------------结束------*/
 
