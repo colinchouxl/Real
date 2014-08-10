@@ -44,7 +44,7 @@ body.img-wall body{
 } */
 
 /* body .wall-op a:hover{
-    background-color: #20B0A4;
+    background-color: #00cccc;
 } */
 
 /* body .wall-op a.refresh{   7-13-icon-font 
@@ -128,7 +128,7 @@ body .wall-header .img-tags div.img-tag{
 }
 body .wall-header .img-tags div.img-tag.checked,
 body .wall-header .img-tags div.img-tag:hover{
-    background-color: #20B0A4;
+    background-color: #00cccc;
 }
 
 body #container{
@@ -156,13 +156,13 @@ body #container div.item.to-be-exclude{
 
 body #container div.item.hvr{
     box-shadow: -1px 0 18px #ccc,0px -1px 18px #ccc,1px 0 18px #ccc,0 1px 18px #ccc;
-    outline: 1px solid #20B0A4;
+    outline: 1px solid #00cccc;
     /*transform: scale(1.01);*/
     z-index: 99;
 }
 
 body.choosing #container div.item{
-    outline: 1px solid #20B0A4;
+    outline: 1px solid #00cccc;
 }
 
 body.choosing #container div.item .operations{
@@ -170,7 +170,7 @@ body.choosing #container div.item .operations{
 }
 
 body.choosing #container div.item.hvr .checkbox{
-    border-color: #20B0A4;
+    border-color: #00cccc;
 }
 
 body.choosing #container div.item.checked.hvr .checkbox{
@@ -279,7 +279,7 @@ body .multi-choice .overall{
 }
 
 body .multi-choice .overall a{
-    background-color: #20B0A4;
+    background-color: #00cccc;
     padding: 3px 12px;
     border-radius: 4px;
     color: #fff;
@@ -306,7 +306,7 @@ body .multi-choice .footer-op a{
 
 /* body #container .single-op .operations a.active,   7-13
 body .multi-choice .footer-op a.active{
-    background-color: #20B0A4;
+    background-color: #00cccc;
 }
 
 body #container .single-op .operations a.share,
@@ -395,7 +395,7 @@ body #container .single-op .operations a:hover{
 }
 
 /*body #container .single-op .operations a.active{
-    background-color: #20B0A4;
+    background-color: #00cccc;
 }
 
 body #container .single-op .operations a.share{
@@ -430,7 +430,7 @@ body #container .item.checked .single-op div.checkbox span{
 }
 
 body #container .item.checked {
-    background-color: #20B0A4;
+    background-color: #00cccc;
 }
 body #container .item.sharing.checked .share-component,
 body #container .item.checked .single-op div.operations{
@@ -461,7 +461,7 @@ body #container .item.sharing .share-component .share-icon a{
     text-decoration: none;
     font-size: 13px;
     border-radius: 4px;
-    background: #20B0A4;
+    background: #00cccc;
     color: #fff;
 }
 /* body #container .item.sharing .share-component .share-icon a.cancel-share{7-13-icon-font
@@ -595,7 +595,7 @@ body #container .item.delete .del-mask .revocation span.icon{
 /*图片墙添加tag*/
 .tag-con div.new-tag-con {
   display: none;
-  border: 1px solid #20B0A4;
+  border: 1px solid #00cccc;
   background: #fff;
   position: relative;
   top: 0px;
@@ -626,12 +626,12 @@ body #container .item.delete .del-mask .revocation span.icon{
 .tag-con div.new-tag-con span {
   position: absolute;
   font-size: 16px;
-  color: #20B0A4;
+  color: #00cccc;
   top: 0;
   right: 0px;
   padding: 2px 1px 4px 4px;
   background: #fff;
-  border-left: 1px solid #20B0A4;
+  border-left: 1px solid #00cccc;
   z-index: 0;
   border-radius: 0 2px 2px 0; }
 
@@ -655,7 +655,7 @@ body #container .item.delete .del-mask .revocation span.icon{
 }
 
 /*.in-frame .multi-choice div.gol-op a:hover{
-    color: #20B0A4;
+    color: #00cccc;
 }*/
 
 .in-frame .multi-choice div.tag-con{
@@ -797,6 +797,6 @@ body #container .item.delete .del-mask .revocation span.icon{
 
 /* 单张图片的分享图标,背景和icon颜色 */
 body #container .item.sharing .share-component .share-icon a{
-    background: #20B0A4;
+    background: #00cccc;
     color: #fff;
 }

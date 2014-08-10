@@ -40,17 +40,17 @@ body:after {
   width: 100%;
   background: #fff;
   text-align: right;
-  height: 27px;
+  height: 30px;
 }
 
 .lb-description .img-des .button span{
-  background: #f3f3f3;
+  background: #00cccc;
   display: none;
-  padding: 10px 14px;
-  border: 1px solid #ddd;
+  padding: 12px 16px;
   border-radius: 2px;
-  margin: 0 20px 5px 0;
+  margin: 3px 15px 5px 0;
   cursor: pointer;
+  color: #fff;
 }
 
 .lb-description .img-des .button span{

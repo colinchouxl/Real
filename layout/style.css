@@ -30,6 +30,9 @@ body {
   line-height: 1;
   font-family: "Microsoft YaHei", "Hiragino Sans GB"; }
 
+.icon-font{-webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 2px;}/*字体图标抗锯齿处理*/
+
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section, blockquote {
   display: block; }
@@ -483,7 +486,8 @@ body.note-app #wrapper .main-header {
   padding: 0;
   border: none;
   outline: none;
-  min-height: 32px;
+  min-height: 32px; 
+  max-height: 90px;
   overflow: hidden; }
 
 #wrapper header #blank_sheet, #wrapper header .menu {
@@ -507,7 +511,8 @@ body.configuring #wrapper, body.single-mode #wrapper {
   z-index: 999; }
 
 #blank_sheet .note-con.editing .field-con {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.168), inset 1px 1px 1px rgba(0, 0, 0, 0.168); }
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.22);
+ }
 
 #blank_sheet .note-con form {
   position: relative; }
@@ -528,10 +533,13 @@ body.configuring #wrapper, body.single-mode #wrapper {
   font-family: cursive,sans-serif; }
 
 #blank_sheet .note-con form .bottom a.submit {
-  background: url(images/spirit3.png) no-repeat -51px -123px;
-  padding: 12px;
   float: right;
-  margin-left: 10px; }
+  margin: 0 5px 3px;
+  background: #00cccc;
+  color: #fff;
+  padding: 2px 10px;
+  font-size: 14px;
+  border-radius: 2px; }
 
 #search_results h2 {
   font-weight: normal;
@@ -1031,15 +1039,19 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   position: fixed;
   right: 10%;
   bottom: 20px;
-  padding: 16px;
-  display: none;
-  background: url(images/backtotop.png) no-repeat center; }
+  padding: 5px;
+  /*display: none;*/
+  border-radius: 25px;
+  color: #fff;
+  opacity: .88;
+  font-size: 32px;
+  background: #00cccc; }
 
 #note #backtotop.show {
   display: inline; }
 
 #note .note-con {
-  margin: 10px auto; }
+  margin: 15px auto; }
 
 #note .note-con.outline {
   outline: 1px solid orange; }
@@ -1199,31 +1211,36 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   position: absolute; }
 
 #note .note-con form div.top-ops a {
-  border-bottom: 2px solid transparent; }
+ /* border-bottom: 2px solid transparent; */}
 
 #note .note-con form div.top-ops a.hvr {
-  border-bottom: 2px solid #20B0A4; }
+ /* border-bottom: 2px solid #20B0A4;*/ }
 
+#note .note-con form a.clear-link,
 #note .note-con form a.maximize-note {
   display: none; }
 
+#note .note-con.editing form a.clear-link{
+  display: inline-block;
+  margin-right: 5px;
+}
 #note .note-con.editing form a.maximize-note {
   display: inline-block; }
 
 #note .note-con.maximized form a.maximize-note {
   display: none; }
 
-/*任务不需要最大化*/
+/*任务不需要最大化,和清楚链接*/
+#note .note-con.task.editing form a.clear-link,
 #note .note-con.task.editing form a.maximize-note {
   display: none; }
 
 #note .note-con form a.minimize-note {
-  opacity: .4;
   display: none;
   margin-left: 6px; }
 
-#note .note-con form a.minimize-note:hover {
-  opacity: .8; }
+#note .note-con form .top-ops a:hover {
+  color: #00cccc; }
 
 #note .note-con.maximized form a.minimize-note {
   display: inline-block; }
@@ -1247,13 +1264,13 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note .note-con.maximized.fixed {
   position: fixed;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.4); }
-
+/*
 #note .note-con.hvr.maximized.fixed a.pin,
 #note .note-con.maximized.fixed a.pin {
-  display: none; }
-
+  display: none; }*/
+/*
 #note .note-con.maximized.fixed a.unpin {
-  display: inline-block; }
+  display: inline-block; }*/
 
 #note .note-con.maximized .note.editable {
   min-height: 520px;
@@ -1274,7 +1291,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   color: #ccc; }
 
 #blank_sheet .note-con form .field-con {
-  padding: 5px 5px 25px 5px;
+  padding: 5px 5px 26px 5px;
   background: white; }
 
 #blank_sheet .note-con.task form .field-con {
@@ -1373,11 +1390,19 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   cursor: pointer; }
 
 /*在编辑时添加四边阴影*/
+#note .note-con.editing{/*
+  position: relative;
+  z-index: 10000000;*/
+  border: 1px dashed #00cccc;
+}
+
 #note .note-con.editing form.note {
-  box-shadow: -2px 0 5px #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc; }
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.22);
+  /*box-shadow: -2px 0 5px #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;*/ }
 
 #note .note-con.editing #note_ops {
-  box-shadow: 0 0 0 #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc; }
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.22);
+  /*box-shadow: 0 0 0 #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;*/ }
 
 #note .note-con.editing.maximized #note_ops {
   box-shadow: none; }
@@ -1509,11 +1534,12 @@ body.touch-device #wrapper {
   padding: 1px; }
 
 /*----------桌面版便签底部便签图标------------*/
-#note form div.bottom-menu a {
-  border-bottom: 2px solid transparent; }
+/*#note form div.bottom-menu a {
+  border-bottom: 2px solid transparent; }*/
 
-#note form div.bottom-menu a:hover {
-  border-bottom: 2px solid #20B0A4; }
+#note form div.bottom-menu .op a:hover span{
+  color: #00cccc;
+  /*border-bottom: 2px solid #20B0A4; */}
 
 #note form div.bottom-menu a.active {
   border: none; }
@@ -1526,7 +1552,7 @@ body.touch-device #wrapper {
 
 #note .bottom-menu .op a.active {
   /* 选中状态下背景颜色 */
-  background-color: #20B0A4; 
+  background-color: #00cccc; 
   border-radius: 2px;}
 
 /*----------------*/
@@ -1659,7 +1685,8 @@ body.touch-device #note form div.bottom-menu a.more {
 
 /*鼠标放上便签时不让其太显眼，鼠标放在bottom-menu上时才让其不透明*/
 #note .hvr form div.bottom-menu {
-  opacity: .2; }
+  /*opacity: .2; */
+  opacity: 1;}
 
 #note .hvr form div.bottom-menu.hvr,
 #note .setting-deadline .bottom-menu,
@@ -2104,6 +2131,7 @@ body.favicon_on #note form div.note.editable img.favicon {
   margin: 0; }
 
 .maximized #note_ops .share.section div.default div.share-icon {
+  margin-right: 10px;
   width: 36px; }
 
 .maximized #note_ops .cal.section .cal-con .ui-datepicker {
@@ -2372,7 +2400,7 @@ div#img_modal a.close {
   color: #fff; }
 
 #settings header a:hover {
-  background: #20b0a4; }
+  background: #00cccc; }
 
 /*global*/
 #settings .sections section {
@@ -2649,13 +2677,16 @@ div#img_modal a.close {
   display: inline-block; }
 
 #settings .share div.show-icon span.item {
-  color: #20b0a4; }
+  background: #00cccc; }
 
 #settings .share span.item {
-  font-size: 24px;
-  color: #ccc;
+  font-size: 20px;
+  color: #fff;
   line-height: 1.5;
-  padding: 0 4px 0 4px;
+  margin: 0 3px 0 3px;
+  padding: 2px;
+  border-radius: 3px;
+ background: #ccc;
   cursor: move; }
 
 #settings .share span.item.ready_replace {
@@ -2832,11 +2863,12 @@ text-decoration: underline;
 
 .picture .pic-download .status .set-addr{
   outline: none;
-  border: none;
+  border: 1px solid transparent;
+  padding: 2px;
 }
 
 .picture .pic-download .status .set-addr:hover{
-  outline: 1px solid #d9d9d9;
+  border: 1px solid #d9d9d9;
 }
 
 #settings div.placeholder {
@@ -3109,11 +3141,11 @@ body.open-link #new_windows {
 #new_windows .operations a {   /* 7-24 */
   display: inline-block;
   margin-right: 6px;
-  border-bottom: 2px solid transparent; }
+  /*border-bottom: 2px solid transparent; */}
 
-#new_windows .operations a:hover {
+/*#new_windows .operations a:hover {
   border-bottom: 2px solid #20b0a4; }
-
+*/
 /*=============5月10号修改的在操作方式上变化的样式表================*/
 
 body.img-wall, body.single-mode, body.open-link, body.configuring {

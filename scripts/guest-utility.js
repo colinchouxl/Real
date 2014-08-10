@@ -4182,6 +4182,7 @@ Note.prototype = {
             }
 
             var top_menu_html = "<div class=\"top-ops\">"+
+                                    "<a href=\"#\" class=\"clear-link\"><span class=\"ok-icon-link icon-font\"></span></a>" +
                                     "<a href=\"#\" class=\"maximize-note\"><span class=\"ok-icon-maximize-note icon-font\"></span></a>"+
                                     "<a href=\"#\" class=\"minimize-note\"><span class=\"ok-icon-minimize-note icon-font\"></span></a>"+
                                 "</div>";//7-13-删除了固定页面的按钮

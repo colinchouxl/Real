@@ -4065,6 +4065,7 @@ jQuery(function($){
                                 "<div class=\"op hidden\"><a href=\"#\" class=\"info\"><span class=\"ok-icon-info icon-font\"></span></a></div>" + 
                             "</div>" + 
                             "<div class=\"top-ops\">" + 
+                                "<a href=\"#\" class=\"clear-link\"><span class=\"ok-icon-link icon-font\"></span></a>" +
                                 "<a href=\"#\" class=\"maximize-note\"><span class=\"ok-icon-maximize-note icon-font\"></span></a>" +
                                 "<a href=\"#\" class=\"minimize-note\"><span class=\"ok-icon-minimize-note icon-font\"></span></a>" +
                             "</div>" +
