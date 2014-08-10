@@ -4507,6 +4507,7 @@ jQuery(function($){
                                 "<div class=\"op hidden\"><a href=\"#\" class=\"info\"><span class=\"ok-icon-info icon-font\"></span></a></div>" + 
                             "</div>" + 
                             "<div class=\"top-ops\">" + 
+                                "<a href=\"#\" class=\"clear-link\"><span class=\"ok-icon-link icon-font\"></span></a>" +
                                 "<a href=\"#\" class=\"maximize-note\"><span class=\"ok-icon-maximize-note icon-font\"></span></a>" +
                                 "<a href=\"#\" class=\"minimize-note\"><span class=\"ok-icon-minimize-note icon-font\"></span></a>" +
                             "</div>" +
@@ -5253,8 +5254,8 @@ jQuery(function($){
                                                 "<a href=\"#\" class=\"comp wechat\"><span class=\"icon-item ok-icon-wechat-line\"></span></a>"+
                                                 "<a href=\"#\" class=\"comp douban\"><span class=\"icon-item ok-icon-douban-line\"></span></a>"+
                                                 "<a href=\"#\" class=\"comp qq\"><span class=\"icon-item ok-icon-QQfriend-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line2\"></span></a>"+
-                                                "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-down\"></span></a>"+
+                                                "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line\"></span></a>"+
+                                                "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-more\"></span></a>"+
                                                 "<div class=\"more-comp\">"+
                                                     "<div class=\"other-icons\">"+
                                                         "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-sinaweibo-line\"></span></a>"+
@@ -5269,7 +5270,7 @@ jQuery(function($){
                                             "</div>"+
                                             
                                             "<div class=\"gol-op\">"+
-                                                "<a class=\"tags unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-tag\"></span><span class=\"icon-item  ok-icon-down\"></span></a>"+
+                                                "<a class=\"tags unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-tag\"></span><span class=\"icon-item  ok-icon-more\"></span></a>"+
                                                 "<a class=\"download\" href=\"#\"><span class=\"icon-item  ok-icon-download\"></span></a>"+
                                                 "<a class=\"delete unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-del\"></span></a>"+
                                                 "<div class=\"tag-con\">"+
