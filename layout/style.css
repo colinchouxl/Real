@@ -1116,10 +1116,10 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   background: white;
   padding: 5px 5px 22px 22px;
   padding-top: 5px;
-  transition: padding .5s;
-  -webkit-transition: padding .5s;
-  -o-transition: padding .5s;
-  -moz-transition: padding .5s; }
+  transition: padding .35s;
+  -webkit-transition: padding .35s;
+  -o-transition: padding .35s;
+  -moz-transition: padding .35s; }
 
 #note .note-con form .field-con .entities-con .img-entity {
   text-align: center;
@@ -1185,10 +1185,10 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 
 #note .note-con.editing form .field-con {
   padding-top: 25px;
-  transition: padding .5s;
-  -webkit-transition: padding .5s;
-  -o-transition: padding .5s;
-  -moz-transition: padding .5s;
+  transition: padding .35s;
+  -webkit-transition: padding .35s;
+  -o-transition: padding .35s;
+  -moz-transition: padding .35s;
   filter: none; }
 
 /*任务才有多余的padding*/
@@ -1248,8 +1248,8 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note .note-con.maximized {
   position: absolute;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-  right: 35px;
-  left: 320px;
+  right: 50px;
+  left: 360px;
   background-color: #fff;
   min-width: 300px; }
 
@@ -3074,8 +3074,9 @@ body.in-frame.configuring #wrapper {
 
 /*在插件侧栏中放大单条编辑时*/
 body.in-frame.single-mode {
-  background: rgba(255, 255, 255, 0.7); }
+  background: rgba(0, 0, 0, 0.7); }
 
+body.in-frame.single-pic #wrapper,/*单挑memo有图片的，点击展开看大图*/
 body.in-frame.single-mode #wrapper {
   background: #F7F7F7;
   width: 310px; }
@@ -3095,7 +3096,7 @@ body.open-link #wrapper {
 #new_windows {
   background: white;
   position: fixed;
-  left: 320px;
+  left: 360px;
   right: 50px;/* 7-24 */
   top: 0;
   width: 0;
@@ -3103,7 +3104,7 @@ body.open-link #wrapper {
   overflow: hidden;
   z-index: 10;
   border: none;
-  box-shadow: -2px 0 5px #ccc,0 -2px 5px #ccc,0 2px 5px #ccc,2px 0 5px #ccc;
+  box-shadow: 0px 0 5px 2px rgba(0,0,0,.16);
   /*需要优化，只有在支持transform的才使用此css规则，可能需要借用modernizer*/
   transform: scale(0.7);
   transition: transform .1s ease-in-out; }
@@ -3151,6 +3152,7 @@ body.open-link #new_windows {
 body.img-wall, body.single-mode, body.open-link, body.configuring {
   overflow: hidden; }
 
+body.single-memo-pic #wrapper,
 body.configuring #wrapper,
 body.open-link #wrapper,
 body.single-mode #wrapper,
@@ -3402,7 +3404,7 @@ body.img-wall #app_wrapper {
   background-color: #F1F1F1; }
 
 body.open-link {
-  background-color: rgba(255, 255, 255, 0.75); }
+  background-color: rgba(0, 0, 0, 0.75); }
 
 #image_wall .multi-choice div {
   display: inline-block; }
