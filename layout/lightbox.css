@@ -15,6 +15,13 @@ body:after {
   display: none;
 }
 
+.note-app .lightboxOverlay{
+  left: 310px;
+}
+.note-app .lightbox {
+  width: calc(100% - 310px);   /*在单条中显示的便签图片的处理*/
+}
+
 .lightbox {
   position: absolute;
   left: 0;
@@ -40,20 +47,20 @@ body:after {
   width: 100%;
   background: #fff;
   text-align: right;
-  height: 30px;
+  height: 40px;
 }
 
 .lb-description .img-des .button span{
   background: #00cccc;
   display: none;
-  padding: 12px 16px;
+  padding: 12px 18px;
   border-radius: 2px;
-  margin: 3px 15px 5px 0;
+  margin: 7px 8px 5px 0;
   cursor: pointer;
   color: #fff;
 }
 
-.lb-description .img-des .button span{
+.lb-description .img-des textarea:focus+.button span{
   display: inline-block;
 }
 

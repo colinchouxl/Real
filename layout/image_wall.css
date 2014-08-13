@@ -7,7 +7,7 @@
 }
 
 .icon-font{-webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: 2px;}/*字体图标抗锯
+            -webkit-text-stroke-width: 0.2px;}/*字体图标抗锯
 
 body.img-wall #wrapper {
     width: 340px;
@@ -23,7 +23,19 @@ img{
 
 body.img-wall body{
     display: block;
-    font-family: "微软雅黑";
+}
+
+
+body{
+    font-family: "Source Han Sans CN","noto sans","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    padding: 0;
+    margin: 0;
+    min-width: 706px;
+}
+
+a{
+    text-decoration: none;
+    color: #404040;
 }
 
 /* body .wall-op{  7-13-icon关闭按钮在style.csss中有样式不在框架中
@@ -65,9 +77,32 @@ body .wall-op a.close:hover{
 } *//*=====×îÍâ²ãdiv==end====*/
 
 body .wall-header{
-    margin:10px 0 0 0;
+    margin: 0;
+    background: #fff;
     /*margin: 0 auto;*/
 }
+
+
+body .wall-header .wall-op{
+    position: fixed;
+    right: 10px;
+    top: 8px;
+    font-size: 40px;
+    text-decoration: none;
+    z-index: 999999;
+}
+
+body .wall-header .wall-title h1{
+    margin: 0;
+    padding: 15px 0 0 15px;
+}
+
+body .wall-header .multi-choice,
+body .wall-header .img-tags{
+    padding: 15px 0 15px 15px;
+    z-index: 9999;
+}
+
 
 body .wall-header .unavailable{/*
     display: none;*/
@@ -77,10 +112,10 @@ body.scroll .wall-header .wall-title{
     display: none;
 }
 body.scroll .wall-header .img-tags{
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 1px 8px #ccc;
+    /*box-shadow: 0 2px 6px rgba(0, 0, 0, 0.54);*/
 }
 
 body.scroll #container{
@@ -110,32 +145,41 @@ body .wall-header h1 .num{
 
 
 body .wall-header .tags-con{
-    background-color: #fff;
     position: relative;
 }
-body .wall-header .tags-con .fixed-shadow{
-    position: absolute;
+body .wall-header .wall-tag-con-bg{
     width: 100%;
-    z-index: 999;
+}
+
+body.scroll .wall-header .wall-tag-con-bg{
+    z-index: 9999;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    background: #fff;
+}
+
+body.scroll .wall-header .wall-tag-con-bg{
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.54);
 }
 
 body .drop-down .wall-header .tags-con{
     width: 100%;
-    z-index: 999;
+    z-index: 9999;
 }
 body .wall-header .img-tags div.img-tag{
     display: inline-block;
     color: #595757; 
-    margin-top: 4px;
-    margin-right: 5px;
+    margin-right: 4px;
 }
 body .wall-header .img-tags div.img-tag.checked,
 body .wall-header .img-tags div.img-tag:hover{
     background-color: #00cccc;
 }
 
+
 body #container{
-    margin-top: 10px;
+    margin: 10px 0 0 12px;
 }
 
 body #container div.item{
@@ -263,9 +307,9 @@ body.in-frame.choosing .img-tags{
 
 body.in-frame.choosing.scroll .multi-choice{
     position: fixed;
-    top: 0;
+    top: 0;/*
     box-shadow: 0px 1px 5px #ccc;
-    border-color: transparent;
+    border-color: transparent;*/
 }
 
 body.in-frame.choosing.scroll .img-tags{
@@ -342,17 +386,17 @@ body .multi-choice .footer-op a.download{
     top: 28px;
     background: #FFF;
     width: 176px;
-    height: 176px;
+    height: 186px;
     display: none;
     box-shadow: 0 5px 10px 1px rgba(0,0,0,0.36);
 }
 
 #post_qrcode canvas{
-    margin: 12px 28px 0;
+    margin: 12px 22px 0;
 }
 
 #post_qrcode p.description{
-    margin: 4px 0 5px 28px;
+    margin: 4px 0 5px 22px;
     font-size: 12px;
     line-height: 16px;
     position: absolute;
@@ -460,12 +504,20 @@ body #container .item.sharing .share-component .share-icon a{
     margin-right: 5.1px; */   
     display:inline-block;
     padding: 4px;
-    margin: 0 4px;
+    margin: 0 6px 0 0;
     text-decoration: none;
-    font-size: 13px;
-    border-radius: 4px;
-    background: #00cccc;
-    color: #fff;
+    border-radius: 2px;
+    background: #e6e6e6;
+    color: #404040;
+}
+
+body #container .item.sharing .share-component .share-icon:last-child a{
+    margin: 0 ; 
+}
+
+body #container .item.sharing .share-component .share-icon a:hover{
+    color: #000000;
+    opacity: .75;
 }
 /* body #container .item.sharing .share-component .share-icon a.cancel-share{7-13-icon-font
     background-position: -83px -369px;
@@ -704,7 +756,7 @@ body #container .item.delete .del-mask .revocation span.icon{
 }
 
 .in-frame .multi-choice div.other-icons a.icon-other{
-    padding: 6px;
+    padding: 6px 5px 6px 6px;
     display: inline-block;
     color: #333;
     background:none;
@@ -714,12 +766,19 @@ body #container .item.delete .del-mask .revocation span.icon{
 .in-frame .multi-choice .more-comp.active{
     display: inline-block;
 }
-.in-frame .multi-choice .overall .gol-op>a,
-.in-frame .multi-choice .overall .share-con a{
+.in-frame .multi-choice .overall .gol-op>a{
     font-size: 14px;
     color: #575757;
     background: #f3f3f3;
     padding: 5px;
+    border: 1px solid #e5e5e5;
+    border-left: none;
+}
+.in-frame .multi-choice .overall .share-con a{
+    font-size: 14px;
+    color: #575757;
+    background: #f3f3f3;
+    padding:2px 5px;
     border: 1px solid #e5e5e5;
     border-left: none;
 }
@@ -746,7 +805,7 @@ body #container .item.delete .del-mask .revocation span.icon{
 .in-frame .multi-choice a.gol{
     color: #575757;
     border: 1px solid #dedede;
-    padding: 6px 10px;
+    padding: 3px 10px;
     background: #f3f3f3;
     border-radius: 2px;
     font-size: 12px;
@@ -800,6 +859,6 @@ body #container .item.delete .del-mask .revocation span.icon{
 
 /* 单张图片的分享图标,背景和icon颜色 */
 body #container .item.sharing .share-component .share-icon a{
-    background: #00cccc;
-    color: #fff;
+    background: #e6e6e6;
+    color: #404040;
 }

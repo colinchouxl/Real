@@ -951,7 +951,7 @@ function process_sharetext(content,type){
     return content;
 }
 
-function gplus_share(share_url,extra){
+function gplus_share(content,share_url,extra){
     //https://twitter.com/intent/tweet?url=http://alistapart.com/article/designing-web-registration-forms-for-kids&text=Designing+Web+Registration+Processes+for+Kids&via=alistapart
     if(share_url.indexOf("?") == -1){
         share_url += "?__backsrc=gplus";
@@ -960,6 +960,7 @@ function gplus_share(share_url,extra){
     }
 
     var url = "https://plus.google.com/share?url="+encodeURIComponent(share_url)+extra;
+    return url;
 }
 
 function fb_share(content,share_url,extra){
@@ -974,7 +975,7 @@ function fb_share(content,share_url,extra){
         share_url += "&__backsrc=facebook";
     }
     content = content.replace(" ","+");
-    var url = "http:s//wwww.facebook/sharer/sharer.php?u="+share_url+"&t="+content+extra;
+    var url = "https://wwww.facebook/sharer/sharer.php?u="+share_url+"&t="+content+extra;
     return url
 }
 

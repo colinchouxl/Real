@@ -3294,9 +3294,9 @@ jQuery(function($){
             //     }
             // });
 
-
-
-            //点击分享组件弹出分享窗口，同时生成分享网页，当蚊子数目超过140字时，则在分享内容中加上链接
+            
+            // 主界面单条memo下的分享
+            //点击分享组件弹出分享窗口，同时生成分享网页，当文字数目超过140字时，则在分享内容中加上链接
             $("#note_ops").on("click",".share .component",function(event){
                 event = EventUtil.getEvent(event);
                 EventUtil.preventDefault(event);
@@ -3360,6 +3360,7 @@ jQuery(function($){
                         url = weibo_share(content,img_url,share_url,append_share_source);
                     }else if($(that).hasClass("douban")){
                         url = douban_share(content,img_url,"分享自:Ok记("+share_url+")",append_share_source);
+                        console.log(url);
                     }else if($(that).hasClass("qqmail")){
                         //分享到QQ邮箱
                         url = qqmail_share(content,img_url,"",share_url,document.title,append_share_source);
@@ -3371,7 +3372,14 @@ jQuery(function($){
                         url = gmail_share(content);
                     }else if($(that).hasClass("qqim")){
                         url = qqim_share(content,img_url,share_url,title,document.title,extra);
-                    }else if($(that).hasClass("wechat")){
+                    }
+
+                    else if($(that).hasClass("gplus")){
+                        url = gplus_share(content,share_url);
+                        console.log(url);
+                    }
+
+                    else if($(that).hasClass("wechat")){
                         if(feedback.status == "ok"){
                             //生成一个二维码
                             $("#post_qrcode").find("canvas").remove().end().qrcode({
@@ -3384,12 +3392,12 @@ jQuery(function($){
                             showMessage({type:"error",msg:"抱歉微信分享失败"});
                         }
                     }else if($(that).hasClass("twitter")){
-                        url = twitter_share(content,share_url,"okmemo",extra);
+                        url = twitter_share(content,share_url,"okmemo");
+
                     }else if($(that).hasClass("facebook")){
-                        url = fb_share(content,share_url,extra);
-                    }else if($(that).hasClass("gplus")){
-                        url = gplus_share(share_url,extra);
+                        url = fb_share(content,share_url);
                     }
+
                     $note_con.find(".op a.share").trigger("click");
                     if(!$(that).hasClass("wechat") && share_win){
                         //改变分享窗口的url
@@ -5220,14 +5228,15 @@ jQuery(function($){
         ImageItem.prototype.get_image_tags(function(data){
             var tags_con = "<link rel=\"stylesheet\" href=\""+location.origin+"/fonts/ok-icon-fonts/icon-fonts.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/image_wall.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/lightbox.css\">"+ 
                             "<div class=\"wall-header\">"+
-                                "<div class=\"wall-title\">"+
-                                   "<h1><span class=\"title\">image-wall</span><span class=\"num\"></span></h1>"+
-                               "</div>"+
+                                "<div class=\"wall-op\"> <a href=\"#\" class=\"close\"><span class=\"ok-icon-undefinded02 icon-font\"></span></a></div>"+
+
+                                "<div class=\"wall-title\"><h1><span class=\"title\">image-wall</span><span class=\"num\"></span></h1></div>"+
+                            "<div class=\"wall-tag-con-bg\">"+
                                "<div class=\"img-tags\">"+
                                    "<div class=\"tags-con\">"+
 
-                                   //默认选中的所有标签
-                                   "<div class=\"img-tag checked\"><a href=\"#\">ALL</a></div>";
+                                       //默认选中的所有标签
+                                       "<div class=\"img-tag checked\"><a href=\"#\">ALL</a></div>";
                                        
             var tags = get_json_feedback(data);
             var tag = null;
@@ -5238,63 +5247,62 @@ jQuery(function($){
                 tags_con += "<div class=\"img-tag\"><a href=\"#\" data-id=\""+tag.id+"\">"+tag.tag_name+"</a></div>";
             }
 
-            tags_con += "<div class=\"fixed-shadow\"><div class=\"left-shadow\"></div><div class=\"middle-shadow\"></div><div class=\"right-shadow\"></div></div>"+
-                                   "</div>"+
-                               "</div>"+
-                               " <div class=\"multi-choice\">"+             
-                                            "<div class=\"has-chosen\">"+
-                                                "<a href=\"#\" class=\"all-choice gol\">全选</a>"+
-                                                "<a class=\"cancel gol\" href=\"#\">取消</a>"+
+            tags_con += "</div>"+
+                        "</div>"+
+                       " <div class=\"multi-choice\">"+             
+                                    "<div class=\"has-chosen\">"+
+                                        "<a href=\"#\" class=\"all-choice gol\">全选</a>"+
+                                        "<a class=\"cancel gol\" href=\"#\">取消</a>"+
+                                    "</div>"+
+                                    "<div class=\"choose-number\">已选 <span class=\"chosen-num\"></span></div>"+
+                                "<div class=\"overall\">"+
+                                    "<div class=\"share-con\">"+
+                                        "<a href=\"#\" class=\"comp weibo\"><span class=\"icon-item ok-icon-sinaweibo-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp tt\"><span class=\"icon-item ok-icon-tencentweibo-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp wechat\"><span class=\"icon-item ok-icon-wechat-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp douban\"><span class=\"icon-item ok-icon-douban-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp qq\"><span class=\"icon-item ok-icon-QQfriend-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-more\"></span></a>"+
+                                        "<div class=\"more-comp\">"+
+                                            "<div class=\"other-icons\">"+
+                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-facebook-line\"></span></a>"+
+                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-google\"></span></a>"+
+                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-tumblr-line\"></span></a>"+
+                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-evernote-line\"></span></a>"+
+                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-qqzone-line\"></span></a>"+
+                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-twitter-line\"></span></a>"+
                                             "</div>"+
-                                            "<div class=\"choose-number\">已选 <span class=\"chosen-num\"></span></div>"+
-                                        "<div class=\"overall\">"+
-                                            "<div class=\"share-con\">"+
-                                                "<a href=\"#\" class=\"comp weibo\"><span class=\"icon-item ok-icon-sinaweibo-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp tt\"><span class=\"icon-item ok-icon-tencentweibo-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp wechat\"><span class=\"icon-item ok-icon-wechat-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp douban\"><span class=\"icon-item ok-icon-douban-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp qq\"><span class=\"icon-item ok-icon-QQfriend-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line\"></span></a>"+
-                                                "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-more\"></span></a>"+
-                                                "<div class=\"more-comp\">"+
-                                                    "<div class=\"other-icons\">"+
-                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-sinaweibo-line\"></span></a>"+
-                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-tencentweibo-line\"></span></a>"+
-                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-wechat-line\"></span></a>"+
-                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-douban-line\"></span></a>"+
-                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-QQfriend-line\"></span></a>"+
-                                                        "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-email-line2\"></span></a>"+
-                                                    "</div>"+
+                                        "</div>"+
+                                        "<div id=\"post_qrcode\"><p class=\"description\">请使用微信扫描<br/>分享给微信好友或朋友圈</p></div>"+
+                                    "</div>"+
+                                    
+                                    "<div class=\"gol-op\">"+
+                                        "<a class=\"tags unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-tag\"></span><span class=\"icon-item  ok-icon-more\"></span></a>"+
+                                        "<a class=\"download\" href=\"#\"><span class=\"icon-item  ok-icon-download\"></span></a>"+
+                                        "<a class=\"delete unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-del\"></span></a>"+
+                                        "<div class=\"tag-con\">"+
+                                            "<div class=\"custom\">"+
+                                                "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
+                                                "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
+                                                "<div class=\"new-tag-con\">"+
+                                                    "<input name=\"tag_name\" class=\"tag-name\" size=\"3\" placeholder=\"    ,    \" type=\"text\" /><input class=\"submit\" value=\"\" type=\"button\" /><span class=\"ok-icon-complete icon-font\"></span>"+
                                                 "</div>"+
-                                                "<div id=\"post_qrcode\"><p class=\"description\">请使用微信扫描<br/>分享给微信好友或朋友圈</p></div>"+
+                                                "<a href=\"#\" class=\"new-btn\"><span class=\"ok-icon-submit\"></span></a>"
                                             "</div>"+
-                                            
-                                            "<div class=\"gol-op\">"+
-                                                "<a class=\"tags unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-tag\"></span><span class=\"icon-item  ok-icon-more\"></span></a>"+
-                                                "<a class=\"download\" href=\"#\"><span class=\"icon-item  ok-icon-download\"></span></a>"+
-                                                "<a class=\"delete unavailable\" href=\"#\"><span class=\"icon-item  ok-icon-del\"></span></a>"+
-                                                "<div class=\"tag-con\">"+
-                                                    "<div class=\"custom\">"+
-                                                        "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag \" href=\"#\">#亦如尘埃</a>"+
-                                                        "<a class=\"tag active\" href=\"#\">#亦如尘埃</a>"+
-                                                        "<div class=\"new-tag-con\">"+
-                                                            "<input name=\"tag_name\" class=\"tag-name\" size=\"3\" placeholder=\"    ,    \" type=\"text\" /><input class=\"submit\" value=\"\" type=\"button\" /><span class=\"ok-icon-complete icon-font\"></span>"+
-                                                        "</div>"+
-                                                        "<a href=\"#\" class=\"new-btn\"><span class=\"ok-icon-submit\"></span></a>"
-                                                    "</div>"+
-                                                "</div>"+
-                                            "</div>"+
-                                            
-                                        "</div>"+  
-                               "</div>"+
-                               
-                            "</div>";
+                                        "</div>"+
+                                    "</div>"+
+                                    
+                                "</div>"+  
+                       "</div>"+
+                     "</div>"+ 
+                "</div>";
 
             //$("#image_wall .img-tags .tags-con").html(html);
             var container = document.getElementById("container").contentWindow.document.body;
@@ -5342,7 +5350,7 @@ jQuery(function($){
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"><span class=\"icon-font ok-icon-douban-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"><span class=\"icon-font  ok-icon-qqzone-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"gmail component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"wechat component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"><span class=\"icon-font ok-icon-share\"></span></a></div>" +
                                 "</div>" +
                         "</div>" +

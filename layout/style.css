@@ -28,10 +28,10 @@ output, progress, section, summary, time, video {
 
 body {
   line-height: 1;
-  font-family: "Microsoft YaHei", "Hiragino Sans GB"; }
+  font-family: "Source Han Sans CN","noto sans","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
 
 .icon-font{-webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: 2px;}/*字体图标抗锯齿处理*/
+            -webkit-text-stroke-width: .1px;}/*字体图标抗锯齿处理*/
 
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section, blockquote {
@@ -175,7 +175,7 @@ body {
   height: 100%;
   margin: 0;
   background-color: #F7F7F7;
-  font-family: "Microsoft YaHei", "Hiragino Sans GB"; }
+  font-family: "Source Han Sans CN","noto sans","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif; }
 
 body.firefox {
   width: 100%;
@@ -466,7 +466,7 @@ body.note-app #wrapper .main-header {
   *zoom: 1;
   float: right;
   padding-top: 3px;
-  font-size: 15px; }
+  font-size: 12px; }
 
 #wrapper header .menu div.user-info .email {
   color: #B5B5B6; }
@@ -474,7 +474,7 @@ body.note-app #wrapper .main-header {
 #wrapper header .menu a.refresh {
   border: none;
   float: right;
-  margin-right: 5px; }
+  margin-right: 4%; }
 
 #wrapper header .menu a.member {
   background: url(images/user_w.png) no-repeat center center; }
@@ -486,7 +486,7 @@ body.note-app #wrapper .main-header {
   padding: 0;
   border: none;
   outline: none;
-  min-height: 32px; 
+  min-height: 60px; 
   max-height: 90px;
   overflow: hidden; }
 
@@ -510,40 +510,45 @@ body.configuring #wrapper, body.single-mode #wrapper {
   width: 100%;
   z-index: 999; }
 
-#blank_sheet .note-con.editing .field-con {
+#blank_sheet .note-con.editing .input-con{
   box-shadow: 0 7px 15px rgba(0, 0, 0, 0.22);
+ }
+#blank_sheet .note-con.editing form .bottom{
+  display: block;
  }
 
 #blank_sheet .note-con form {
   position: relative; }
 
 #blank_sheet .note-con form .bottom {
-  position: absolute;
+  position: relative;
   bottom: 0;
-  right: 0; }
+  right: 0;
+  height: 45px;
+  display: none;
+  background-color: #fff; }
 
 #notes_con .note-con form .bottom {
   display: none; }
 
-#blank_sheet .note-con form .bottom span.hint {
+#blank_sheet .note-con form .bottom p.hint {
   font-size: 12px;
   color: #ccc;
-  float: right;
-  padding-top: 9px;
-  font-family: cursive,sans-serif; }
+ width: calc(100% - 100px);
+  padding: 12px 0 0 7px;}
 
 #blank_sheet .note-con form .bottom a.submit {
   float: right;
-  margin: 0 5px 3px;
+  margin:10px 10px 0 3px;
   background: #00cccc;
   color: #fff;
-  padding: 2px 10px;
+  padding: 6px 24px;
   font-size: 14px;
-  border-radius: 2px; }
+  border-radius: 4px; }
 
 #search_results h2 {
   font-weight: normal;
-  margin: 20px 0 15px 0; }
+  margin: 10px 0 15px 0; }
 
 #search_results .by-tag .tag-result {
   display: none; }
@@ -736,7 +741,7 @@ body.configuring #wrapper, body.single-mode #wrapper {
   top: 31px;
   text-align: center;
   line-height: 18px;
-  background: #20b0a4; }
+  background: #00cccc; }
 
 #search_area .by-tag.editing a#edit_tag_finish {
   display: inline;
@@ -1037,7 +1042,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 
 #note #backtotop {
   position: fixed;
-  right: 10%;
+  left: 235px;
   bottom: 20px;
   padding: 5px;
   /*display: none;*/
@@ -1051,6 +1056,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   display: inline; }
 
 #note .note-con {
+  box-shadow: 0 1px 1px rgba(0,0,0,.15);
   margin: 15px auto; }
 
 #note .note-con.outline {
@@ -1120,6 +1126,19 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   -webkit-transition: padding .35s;
   -o-transition: padding .35s;
   -moz-transition: padding .35s; }
+
+#note .note-con form .field-con .linear-gradient{
+    background: -webkit-linear-gradient(top,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.85) 50%,#FFF);
+    height: 27px;
+    width: 100%;
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+  }
+
+#note .note-con form .field-con div.expand0-600 + div.linear-gradient{
+  display: none ;
+}
 
 #note .note-con form .field-con .entities-con .img-entity {
   text-align: center;
@@ -1214,7 +1233,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
  /* border-bottom: 2px solid transparent; */}
 
 #note .note-con form div.top-ops a.hvr {
- /* border-bottom: 2px solid #20B0A4;*/ }
+ /* border-bottom: 2px solid #00cccc;*/ }
 
 #note .note-con form a.clear-link,
 #note .note-con form a.maximize-note {
@@ -1291,7 +1310,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   color: #ccc; }
 
 #blank_sheet .note-con form .field-con {
-  padding: 5px 5px 26px 5px;
+  padding: 5px;
   background: white; }
 
 #blank_sheet .note-con.task form .field-con {
@@ -1341,7 +1360,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 
 #note .note-con.editing div.note.editable a.selected,
 #note .note-con.editing div.note.editable a.selected:hover {
-  background: #20B0A4;
+  background: #00cccc;
   color: white; }
 
 /*2014-07-18*/
@@ -1370,8 +1389,8 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   margin: 0px auto 0 auto;
   display: block;
   padding: 0;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 15px;
+  line-height: 24px;
   background-color: #fff;
   outline: none;
   overflow: hidden;
@@ -1392,8 +1411,8 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 /*在编辑时添加四边阴影*/
 #note .note-con.editing{/*
   position: relative;
-  z-index: 10000000;*/
-  border: 1px dashed #00cccc;
+  z-index: 10000000;*//*
+  border: 1px dashed #00cccc;*/
 }
 
 #note .note-con.editing form.note {
@@ -1426,16 +1445,16 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 
 .note-con form .checkbox {
   position: absolute;
-  top: 8px;
+  top: 12px;
   left: 5px;
   width: 10px;
   height: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #595757;
   cursor: pointer;
   display: none; }
 
-.note-con form .checkbox.hvr {
-  border-color: #595757; }
+/*.note-con form .checkbox.hvr {
+  border-color: #595757; }*/
 
 #note form a.drag_trigger {
   position: absolute;
@@ -1539,7 +1558,7 @@ body.touch-device #wrapper {
 
 #note form div.bottom-menu .op a:hover span{
   color: #00cccc;
-  /*border-bottom: 2px solid #20B0A4; */}
+  /*border-bottom: 2px solid #00cccc; */}
 
 #note form div.bottom-menu a.active {
   border: none; }
@@ -1761,7 +1780,7 @@ body.favicon_on #note form div.note.editable img.favicon {
 #note_ops .tags div.custom,
 #note_ops .share div.default,
 #note_ops .info div.detail {
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #f3f3f3;
   margin-left: 22px;
   margin-right: 5px;
   padding: 5px 0; }
@@ -1883,19 +1902,19 @@ body.favicon_on #note form div.note.editable img.favicon {
 .tags.section div.new-tag-con span {
   position: absolute;
   font-size: 16px;
-  color: #20B0A4;
+  color: #00cccc;
   top: 0;
   right: 0px;
   padding: 0 1px 3px 4px;
   background: #fff;
-  border-left: 1px solid #20B0A4;
+  border-left: 1px solid #00cccc;
   z-index: 0;
   border-radius: 0 2px 2px 0; }
 
 #search_area .by-tag div.new-tag-con input:hover + span,
 .tags.section div.new-tag-con input:hover + span {
   color: #fff;
-  background: #20B0A4; }
+  background: #00cccc; }
 
 .tags.section .add-tag input.submit:hover {
   background: #ccc; }
@@ -1906,7 +1925,7 @@ body.favicon_on #note form div.note.editable img.favicon {
 
 #search_area .by-tag div.new-tag-con, .tags.section div.new-tag-con {
   display: none;
-  border: 1px solid #20B0A4;
+  border: 1px solid #00cccc;
   background: #fff;
   position: relative;
   top: 0px;
@@ -1980,7 +1999,7 @@ body.favicon_on #note form div.note.editable img.favicon {
 #search_area .by-tag a.new-btn:hover,
 .tags.section a.new-btn:hover {
   color: #fff;
-  background: #20B0A4; }
+  background: #00cccc; }
 
 #search_area .by-tag.adding-tag a.new-btn,
 #search_area .by-tag.editing a.new-btn,
@@ -2115,17 +2134,17 @@ body.favicon_on #note form div.note.editable img.favicon {
 
 #note_ops .share.section div.default {
   font-size: 0;
-  padding: 10px 0 2px; }
+  padding: 15px 0 10px; }
 
 #note_ops .share.section div.default div.share-icon {
   display: inline-block;
   *display: inline;
   *zoom: 1;
   width: 26px;
-  margin-right: 4.9095607%; }
+  margin-right: 4.18561%; }
 
 #note_ops .share.section a.component span.icon-font {
-  color: #5a5a5a; }
+  color: #404040; }
 
 #note_ops .share.section div.default div.share-icon.last {
   margin: 0; }
@@ -2150,14 +2169,15 @@ body.favicon_on #note form div.note.editable img.favicon {
   background-position: 0px -16px; }
 
 #note_ops .share.section a.component .icon-font {
-  font-size: 20px;
-  padding: 2px;
-  border: 1px solid #999;
+  font-size: 16px;
+  padding: 6px;
+  background-color: #e6e6e6;
   border-radius: 3px; }
 
 #note_ops .share.section a.component .icon-font:hover {
-  border: 1px solid #20B0A4;
-  color: #20B0A4; }
+  opacity: 0.75;
+  color: #000;
+   }
 
 /*---- 对应编辑状态下得对应组件出现 ------*/
 .setting-deadline #note_ops .section.cal,
@@ -2370,13 +2390,19 @@ div#img_modal a.close {
   padding-left: 2%;
   display: inline-block;
   font-weight: normal;
-  color: #20b0a4; }*/
+  color: #00cccc; }*/
 
 #settings h2 {
   font-size: 18px;
-  margin: 15px 0 0 0 ;
+  margin: 20px 0 8px 0;
   color: #fff;
   padding-left: 1%; }
+
+#settings h2 a{
+  color: #fff;
+  float: right;
+  margin-right: 1%;
+}
 
 #settings header {
   padding: 20px 0;
@@ -2385,28 +2411,28 @@ div#img_modal a.close {
   border-bottom: 1px solid #ccc;
   position: relative; }
 
-
-
 #settings header div.logo{
   background:  url(images/ok-small.png) no-repeat center center;
   height: 65px;     
 }
 #settings header a {
   position: absolute;
-  top: 20px;
-  left: 0;
-  font-size: 12px;
-  padding: 4px;
+  top: 48px;
+  right: 0;
+  font-size: 16px;
+  padding: 2px;
   color: #fff; }
 
 #settings header a:hover {
-  background: #00cccc; }
+  -webkit-transform:rotate(180deg);
+  -webkit-transform-origin:50% 48%;
+   -webkit-transition: transform .2s ease-in;}
 
 /*global*/
 #settings .sections section {
   width: 98%;
   height: auto;
-  margin: 20px auto;
+  margin: 0 auto 20px;
   background-color: #fff;
   box-shadow: 0px 0 5px 2px rgba(0,0,0,.16); }
 
@@ -2456,7 +2482,7 @@ div#img_modal a.close {
   padding: 20px;
   background-size: 40px;
   border-radius: 42px;
-  border: 2px solid #20B0A4; }
+  border: 2px solid #00cccc; }
 
 #settings .user .nickname .name-con input {
   display: none; }
@@ -2509,7 +2535,7 @@ div#img_modal a.close {
   box-shadow: 0 1px 0 rgba(0,0,0,.1);  }
 
 #settings .user .password .inp-con input:focus {
-  outline: 1px solid #20b0a4;
+  outline: 1px solid #00cccc;
   border: 2px solid transparent; }
 
 #settings .user .signature,/*7-13*/
@@ -2520,6 +2546,11 @@ div#img_modal a.close {
 #settings .user .password {
   position: relative;
   margin-top: 10px; }
+
+#settings .user .portrait{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
 
 #settings .user .signature .signature-con textarea,
 #settings .user .fancyurl .fancyurl-con input,
@@ -2612,6 +2643,13 @@ div#img_modal a.close {
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.34);
   z-index: 100; }
 
+#settings .ui ul:hover li a{
+  padding: 0 20px;
+}
+
+#settings .ui ul:hover div{
+  display: none;}
+
 #settings .ui div.favicon,
 #settings .ui div.langs,
 #settings .ui div.fonts,
@@ -2664,8 +2702,13 @@ div#img_modal a.close {
   color: #404040;
   }
 
-#settings .prefsession div.checkbox.checked{
+#settings .prefsession div.checkbox{
   color: #404040;
+}
+
+#settings .prefsession div.login-info.checked{
+  color: transparent;
+  display: none;
 }
 
 #settings .ui .favicon p {
@@ -2673,7 +2716,7 @@ div#img_modal a.close {
 
 /*social share*/
 #settings .share div.show-icon {
-  border: 1px #20b0a4 dashed;
+  border: 1px #00cccc dashed;
   display: inline-block; }
 
 #settings .share div.show-icon span.item {
@@ -2790,7 +2833,7 @@ text-decoration: underline;
   -webkit-appearance: none;
   outline: none;
   margin-top: 2px;
-  background-color: #20b0a4;
+  background-color: #00cccc;
   border-radius: 15px;
   width: 210px;
   height: 2px; }
@@ -2803,7 +2846,7 @@ text-decoration: underline;
   background: none repeat scroll 0 0 #fff; }
 
 #settings input[type="range"]::-webkit-slider-thumb:hover {
-  border: 2px solid #20b0a4; }
+  border: 2px solid #00cccc; }
 
 #settings .send-mail p.status-title {
   color: #ccc; }
@@ -2817,7 +2860,7 @@ text-decoration: underline;
   color: #444; }
 
 #settings .send-mail.on p.status-title span {
-  border-color: #20b0a4;
+  border-color: #00cccc;
   color: #444;
   pointer-events: all; }
 
@@ -2827,7 +2870,7 @@ text-decoration: underline;
 
 #settings .send-mail.on input[type="range"] {
   pointer-events: all;
-  background: #20b0a4; }
+  background: #00cccc; }
 
 /*#settings .task-eater a.checkbox {
   display: inline-block;
@@ -2877,6 +2920,7 @@ text-decoration: underline;
 
 #settings section span.clock,
 #settings section span.size{
+  color: #a4a4a4;
   display: inline-block;
   border-left: 1px solid #d9d9d9;
   border-right: 1px solid #d9d9d9;
@@ -2941,7 +2985,7 @@ transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
 }
 
 #settings .feedback-con a.close:hover{
-    background: #20B0A4;
+    background: #00cccc;
     border-radius: 10px;
     color: #fff;
 }
@@ -2959,7 +3003,7 @@ transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
     margin: 0px auto;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.18);
     border-radius: 2px;
-    padding:5px 0 24px 0;
+    padding:5px 0 40px 0;
     width: 100%;
 } 
 
@@ -2992,15 +3036,37 @@ transition: height .5s cubic-bezier(0.34, 1.21, 0.4, 1); */
     color: #fff;  
     cursor: pointer;
     position: absolute;
-    right: 10px;
-    bottom: 25px;
-    padding: 3px 10px;
+    right: 6px;
+    bottom: 0px;
+    padding: 5px 20px;
     border-radius: 2px;
+}
+
+#settings .feedback-con form div.feedback-icon{
+  position: absolute;
+  width: 100%;
+  bottom: 27px;
+  display: none;
+}
+
+#settings .feedback-con form div.feedback-icon a span{
+  color: #494949;
+  margin: 0 0 0 8px; 
+}
+
+
+ 
+
+#settings .feedback-con form textarea:focus+div.feedback-icon{
+  display: block;
 }
 
 #settings .feedback-con form input#submit:hover{
     box-shadow: 0 1px 1px 1px rgba(0,0,0,.23);
 }
+
+
+
 /*7-3-------------------------------------------------------------结束------*/
 
 
@@ -3145,7 +3211,7 @@ body.open-link #new_windows {
   /*border-bottom: 2px solid transparent; */}
 
 /*#new_windows .operations a:hover {
-  border-bottom: 2px solid #20b0a4; }
+  border-bottom: 2px solid #00cccc; }
 */
 /*=============5月10号修改的在操作方式上变化的样式表================*/
 
@@ -3169,7 +3235,7 @@ body.img-wall #image_wall {
   min-width: 300px;
   position: fixed;
   overflow: hidden;
-  left: 330px;
+  left: 310px;
   right: 0px;
   top: 0%;
   height: 100%;
@@ -3225,7 +3291,7 @@ body.img-wall #image_wall {
 
 #image_wall .wall-header .img-tags div.img-tag.checked,
 #image_wall .wall-header .img-tags div.img-tag:hover {
-  background-color: #20B0A4; }
+  background-color: #00cccc; }
 
 #image_wall #container {
   margin: 0 auto;
@@ -3327,7 +3393,7 @@ body.img-wall #image_wall {
   opacity: 1; }
 
 #image_wall #container .item.checked {
-  background-color: #20B0A4; }
+  background-color: #00cccc; }
 
 #image_wall #container .item.sharing.checked .share-component,
 #image_wall #container .item.checked .single-op div.operations {
@@ -3455,8 +3521,8 @@ body.open-link {
   margin-right: 8px; }
 
 #image_wall .multi-choice .overall span:hover {
-  color: #20B0A4;
-  border: 1px solid #20B0A4; }
+  color: #00cccc;
+  border: 1px solid #00cccc; }
 
 #image_wall .multi-choice a.has-chosen {
   margin-left: 20px;
@@ -3516,13 +3582,13 @@ body {
   line-height: 1.5; }
 
 body.in-frame #wrapper header .menu a {
-  margin-left: 2%; }
+  margin-left: 4%; }
 
 body.in-frame #blank_sheet form {
-  width: 96%; }
+  width: 92%; }
 
 body.in-frame #notes_con .inner-wrapper {
-  width: 96%;
+  width: 92%;
   margin: 0 auto; }
 
 /*----------------------- Css By Xiaolin-------------------------------*/

@@ -113,12 +113,12 @@
                                     "<a class=\"share\" href=\"#\"><span class=\"icon-font ok-icon-share\"></span></a>" +
                                 "</div>" +
                                 "<div class=\"share-component\">" +  //添加了字体图标   7-13-icon-font
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"><span class=\"icon-font ok-icon-email-line2\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"><span class=\"icon-font ok-icon-email-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"><span class=\"icon-font ok-icon-sinaweibo-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"><span class=\"icon-font ok-icon-douban-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"><span class=\"icon-font  ok-icon-qqzone-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"gmail component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"wechat component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"><span class=\"icon-font ok-icon-share\"></span></a></div>" +
                                 "</div>" +
                             "</div>" +
@@ -260,9 +260,18 @@
             url = qzone_share(content,pic_url,title,share_url,site_title,extra);
         }else if($(this).hasClass("tqq")){
             url = qt_share(content,pic_url,share_url,extra);
+        }else if($(that).hasClass("gplus")){
+            url = gplus_share(content,share_url);
+        }else if($(that).hasClass("twitter")){
+            url = twitter_share(content,share_url,"okmemo");
+        }else if($(that).hasClass("facebook")){
+            url = fb_share(content,share_url);
         }
         window.open(url,'','height='+newwin_height+',width='+newwin_width+',top='+newwin_top+',left='+newwin_left+',toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,status=no');
     });
+
+
+
 
     //更多分享
     $(".wall-header").on("click "+downEvent,".more-comp a",function(event){
@@ -373,7 +382,6 @@
             //new_win.location.href = location.origin+"/image/share?"+last_post_id+"";
             var extra = "&__sharesource=okmemo&__sharepost="+last_post_id+"&__posttype=image";
             var share_url = window.parent.location.origin+"/image/share?"+last_post_id;
-            
 
             if($(share_comp).hasClass("weibo")){
                 //构造一个带有额外参数的微博分享链接
@@ -392,7 +400,7 @@
                 url = qqmail_share(content,pic_url,title,share_url,site_title,extra);
             }else if($(share_comp).hasClass("wechat")){
                 $("#post_qrcode").find("canvas").remove().end().qrcode({
-                    size: 80,
+                    size: 132,
                     color: '#3a3',
                     text: share_url+"&__backsrc=wechat"
                 }).toggle(); 
@@ -440,7 +448,7 @@
                         }else if($(share_comp).hasClass("wechat")){
                             //微信分享生成二维码
                             $("#post_qrcode").find("canvas").remove().end().qrcode({
-                                size: 80,
+                                size: 132,
                                 color: '#3a3',
                                 text: share_url+"&__backsrc=wechat"
                             }).toggle();
@@ -536,7 +544,7 @@ function load_wall_event(){
 
 
     $container.width(con_w-gutter);
-    $(".wall-header").width(con_w-gutter/2);
+    $(".multi-choice").width(con_w-gutter/2);
     $(".img-tags").width(con_w-gutter/2);
     if($container.data("masonry")) $container.removeData("masonry");
     $container.masonry({
@@ -555,7 +563,7 @@ function load_wall_event(){
         con_w = parseInt(tmp_ww/(cube_width+gutter)) * (cube_width+gutter);
         
         $container.width(con_w);
-        $(".wall-header").width(con_w-gutter/2);
+        $(".multi-choice").width(con_w-gutter/2);
         $(".img-tags").width(con_w-gutter/2);
     });
 } 
