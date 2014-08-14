@@ -32,7 +32,7 @@ output, progress, section, summary, time, video {
 
 body {
 	line-height: 1;
-	font-family: "Microsoft Yahei","微软雅黑",Tahoma, Helvetica, Arial, "华文细黑", sans-serif;
+	font-family:"SourceHanSansCN-ExtraLight","SourceHanSansCN-Light", "Source Han Sans CN", "HiraginoSansGB-W3", "noto sans CN","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 	background-color: white;
 }
 

@@ -28,10 +28,11 @@ output, progress, section, summary, time, video {
 
 body {
   line-height: 1;
-  font-family: "Source Han Sans CN","noto sans","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;}
+  font-family:"SourceHanSansCN-ExtraLight","SourceHanSansCN-Light", "Source Han Sans CN", "HiraginoSansGB-W3", "noto sans CN","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
 
-.icon-font{-webkit-font-smoothing: antialiased;
-            -webkit-text-stroke-width: .1px;}/*字体图标抗锯齿处理*/
+/*.icon-font{-webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: .1px;}*//*字体图标抗锯齿处理*/
 
 article, aside, dialog, figure, footer, header,
 hgroup, nav, section, blockquote {
@@ -572,6 +573,10 @@ body.configuring #wrapper, body.single-mode #wrapper {
   right: 5px;
   bottom: 5px;}
 
+#search_results a.img-wall-btn:hover span{
+  color: #00cccc;
+}
+
 #search_results.results-of-images a.img-wall-btn {
   display: block; }
 
@@ -1052,12 +1057,18 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   font-size: 32px;
   background: #00cccc; }
 
+#note #backtotop span{
+  color: #fff;
+}
+
 #note #backtotop.show {
   display: inline; }
 
 #note .note-con {
   box-shadow: 0 1px 1px rgba(0,0,0,.15);
-  margin: 15px auto; }
+  margin: 15px auto; 
+
+   }
 
 #note .note-con.outline {
   outline: 1px solid orange; }
@@ -1117,15 +1128,24 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note .note-con h2 input.btn.submit {
   float: right; }
 
-/*note也有多余的padding*/
-#note .note-con form .field-con {
+
+/*note也有多余的padding*/    
+#note .note-con form .field-con {   /*单条展开出现放大按钮*/
   background: white;
   padding: 5px 5px 22px 22px;
   padding-top: 5px;
-  transition: padding .35s;
-  -webkit-transition: padding .35s;
-  -o-transition: padding .35s;
-  -moz-transition: padding .35s; }
+  transition: padding .35s ;
+  -webkit-transition: padding .35s ;
+  -o-transition: padding .35s ;
+  -moz-transition: padding .35s ; }
+
+  #note .note-con.editing form .field-con {
+  padding-top: 25px;
+  transition: padding .15s;
+  -webkit-transition: padding .15s;
+  -o-transition: padding .15s;
+  -moz-transition: padding .15s;
+  filter: none; }
 
 #note .note-con form .field-con .linear-gradient{
     background: -webkit-linear-gradient(top,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.85) 50%,#FFF);
@@ -1202,14 +1222,6 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   -moz-filter: grayscale(0);
   filter: none; }
 
-#note .note-con.editing form .field-con {
-  padding-top: 25px;
-  transition: padding .35s;
-  -webkit-transition: padding .35s;
-  -o-transition: padding .35s;
-  -moz-transition: padding .35s;
-  filter: none; }
-
 /*任务才有多余的padding*/
 #note .note-con.task form .field-con {
   padding: 5px 5px 22px 22px; }
@@ -1239,7 +1251,7 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note .note-con form a.maximize-note {
   display: none; }
 
-#note .note-con.editing form a.clear-link{
+#note .note-con.choosed-link form a.clear-link{
   display: inline-block;
   margin-right: 5px;
 }
@@ -1258,19 +1270,17 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
   display: none;
   margin-left: 6px; }
 
-#note .note-con form .top-ops a:hover {
+#note .note-con form .top-ops a:hover span{
   color: #00cccc; }
 
 #note .note-con.maximized form a.minimize-note {
   display: inline-block; }
 
-#note .note-con.maximized {
-  position: absolute;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
-  right: 50px;
-  left: 360px;
-  background-color: #fff;
-  min-width: 300px; }
+
+
+
+
+
 
 #note .note-con.maximized .field-con,
 #note .note-con.maximized.task.sortable .field-con {
@@ -1408,11 +1418,56 @@ body.touch-device #pals_list .group .pals-list .pal-con .operations .pal-alias {
 #note div.note.editable a, #blank_sheet .note-con div.note.editable a {
   cursor: pointer; }
 
-/*在编辑时添加四边阴影*/
-#note .note-con.editing{/*
-  position: relative;
-  z-index: 10000000;*//*
-  border: 1px dashed #00cccc;*/
+
+
+/*在编辑时缩放变化*/
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.02, 1.02, 1);
+    transform: scale3d(1.02, 1.02, 1);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+#note .note-con.editing{
+  -webkit-animation: pulse .5s cubic-bezier(.2,.8,.73,.42);
+}
+
+#note .note-con.editing.maximized,
+#note .note-con.maximized {
+  position: absolute;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.4);
+  right: 50px;
+  left: 360px;
+  background-color: #fff;
+  min-width: 300px;
+  opacity: 1;
+  -webkit-animation: fadeInLeft .35s ease-in  ;
+  -webkit-transform-origin: 0% 50%;
+   }
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0,0 , 0);
+    -ms-transform: scale3d(0%, 0%, 0);
+    transform: scale3d(0%, 0%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scale3d(100%, 100%, 0);
+    -ms-transform: scale3d(100%, 100%, 0);
+    transform: scale3d(100%, 100%, 0);
+  }
 }
 
 #note .note-con.editing form.note {
@@ -1564,7 +1619,7 @@ body.touch-device #wrapper {
   border: none; }
 
 #note form div.bottom-menu .op a span {
-  color: #333; }
+  color: #404040; }
 
 #note form div.bottom-menu .op a.active span.icon-font {
   color: #fff; }
@@ -2404,6 +2459,11 @@ div#img_modal a.close {
   margin-right: 1%;
 }
 
+#settings header a span,
+#settings h2 a span{
+  color: #fff;
+}
+
 #settings header {
   padding: 20px 0;
   margin: 0 auto;
@@ -2421,7 +2481,9 @@ div#img_modal a.close {
   right: 0;
   font-size: 16px;
   padding: 2px;
-  color: #fff; }
+  color: #fff;
+  -webkit-transform-origin:50% 48%;
+  -webkit-transition: transform .2s ease-in; }
 
 #settings header a:hover {
   -webkit-transform:rotate(180deg);
@@ -4642,3 +4704,9 @@ body .ui-tooltip {
   z-index: 2;
   width: 31px;
   height: 31px; }
+
+
+
+.icon-font{
+  color: #404040;
+}

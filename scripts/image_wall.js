@@ -103,6 +103,19 @@
                                         "</a>" +
                                     "</div>" +
                                 "</div>" +
+                                "<div class=\"error\">"+
+                                    "<h3>"
+
+
+
+                                "</div>"+
+
+
+
+
+
+
+
                                 "<a href=\""+image.url+"\" class=\"lb\" data-lightbox=\"image-1\" data-title=\"My caption\"><img src=\""+window.parent.location.origin+"/layout/images/1px.gif\" width=\""+window.parent.idl.apps.image.initWidth+"\" height=\""+resizedHeight+"\" data-height=\""+image.height+"\" data-width=\""+image.width+"\" data-src=\""+image.url+"\"/></a>" +
                             "</div>" +
                             "<div class=\"single-op\">" +
@@ -113,11 +126,11 @@
                                     "<a class=\"share\" href=\"#\"><span class=\"icon-font ok-icon-share\"></span></a>" +
                                 "</div>" +
                                 "<div class=\"share-component\">" +  //添加了字体图标   7-13-icon-font
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"><span class=\"icon-font ok-icon-email-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qmail component\"><span class=\"icon-font ok-icon-email-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"><span class=\"icon-font ok-icon-sinaweibo-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"><span class=\"icon-font ok-icon-douban-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"><span class=\"icon-font  ok-icon-qqzone-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqwb component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"wechat component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"><span class=\"icon-font ok-icon-share\"></span></a></div>" +
                                 "</div>" +
@@ -224,7 +237,7 @@
         }
      });
 
-    //单张分享
+    //单张分享=图片墙
     $("#container").on("click "+downEvent,".item .share-icon a",function(event){
         event = EventUtil.getEvent(event);
         EventUtil.preventDefault(event);
@@ -248,7 +261,7 @@
         newwin_top = (window.screen.height - newwin_height) / 2,
         newwin_left = (window.screen.width - newwin_width) / 2;
 
-        if($(this).hasClass("qqmail")){
+        if($(this).hasClass("qmail")){
             url = qqmail_share(content,pic_url,title,share_url,site_title,extra);
         }else if($(this).hasClass("weibo")){
             url = weibo_share(content,pic_url,share_url,extra);
@@ -258,7 +271,7 @@
             url = douban_share(content,pic_url,"分享自:Ok记(stick.eff.do)",extra);
         }else if($(this).hasClass("qzone")){
             url = qzone_share(content,pic_url,title,share_url,site_title,extra);
-        }else if($(this).hasClass("tqq")){
+        }else if($(this).hasClass("qqwb")){
             url = qt_share(content,pic_url,share_url,extra);
         }else if($(that).hasClass("gplus")){
             url = gplus_share(content,share_url);
@@ -266,9 +279,81 @@
             url = twitter_share(content,share_url,"okmemo");
         }else if($(that).hasClass("facebook")){
             url = fb_share(content,share_url);
+        }else if($(that).hasClass("tumblr")){
+            url = tb_share(content,share_url);
+        }else if($(that).hasClass("wechat")){
+            if(feedback.status == "ok"){
+                //生成一个二维码====目前文档结构中没有给出canvas
+                $("#post_qrcode").find("canvas").remove().end().qrcode({
+                    size: 132,
+                    color: '#3a3',
+                    text: share_url+"&__backsrc=wechat"
+                }).toggle();
+            }else{
+                //提示用户分享失败
+                showMessage({type:"error",msg:"抱歉微信分享失败"});
+            }
         }
         window.open(url,'','height='+newwin_height+',width='+newwin_width+',top='+newwin_top+',left='+newwin_left+',toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,status=no');
     });
+
+
+ //单张分享，展开后单图浏览时
+    $("#lightbox").on("click "+downEvent,".lb-outerContainer .share-con span",function(event){
+        event = EventUtil.getEvent(event);
+        EventUtil.preventDefault(event);
+        alert("hih");
+
+        var share_url = window.parent.location.origin ? window.parent.location.origin : "http://stick.eff.do";
+        var site_title = document.title;
+        var extra = "&__sharesource=okmemo";
+        var title = "";
+        var pic_url = $(this).closest(".lb-outerContainer").find("lb-container img").data("src");
+        var content = "分享一张图片";
+
+        var url = "";
+        var newwin_height = 500,
+        newwin_width = 800,
+        newwin_top = (window.screen.height - newwin_height) / 2,
+        newwin_left = (window.screen.width - newwin_width) / 2;
+        if($(this).hasClass("qmail")){
+            url = qqmail_share(content,pic_url,title,share_url,site_title,extra);
+        }else if($(this).hasClass("weibo")){
+            url = weibo_share(content,pic_url,share_url,extra);
+        }else if($(this).hasClass("gmail")){
+            url = gmail_share(content);
+        }else if($(this).hasClass("douban")){
+            url = douban_share(content,pic_url,"分享自:Ok记(stick.eff.do)",extra);
+        }else if($(this).hasClass("qzone")){
+            url = qzone_share(content,pic_url,title,share_url,site_title,extra);
+        }else if($(this).hasClass("qqwb")){
+            url = qt_share(content,pic_url,share_url,extra);
+        }else if($(that).hasClass("gplus")){
+            url = gplus_share(content,share_url);
+        }else if($(that).hasClass("twitter")){
+            url = twitter_share(content,share_url,"okmemo");
+        }else if($(that).hasClass("facebook")){
+            url = fb_share(content,share_url);
+        }else if($(that).hasClass("tumblr")){
+            url = tb_share(content,share_url);
+        }else if($(that).hasClass("wechat")){
+            if(feedback.status == "ok"){
+                //生成一个二维码====目前文档结构中没有给出canvas
+                $("#post_qrcode").find("canvas").remove().end().qrcode({
+                    size: 132,
+                    color: '#3a3',
+                    text: share_url+"&__backsrc=wechat"
+                }).toggle();
+            }else{
+                //提示用户分享失败
+                showMessage({type:"error",msg:"抱歉微信分享失败"});
+            }
+        }
+        window.open(url,'','height='+newwin_height+',width='+newwin_width+',top='+newwin_top+',left='+newwin_left+',toolbar=no,menubar=no,scrollbars=yes,resizable=no,location=no,status=no');
+    });
+
+
+
 
 
 
@@ -386,18 +471,30 @@
             if($(share_comp).hasClass("weibo")){
                 //构造一个带有额外参数的微博分享链接
                 url = weibo_share(content,pic_url,share_url,extra);
-            }else if($(share_comp).hasClass("tt")){
+            }else if($(share_comp).hasClass("qqwb")){
                 //构造一个带有额外参数的腾讯微博分享链接
                 url = qt_share(content,pic_url,share_url,extra);
             }else if($(share_comp).hasClass("douban")){
                 //构造一个带有额外参数的豆瓣分享链接
                 url = douban_share(content,pic_url,title,extra);
-            }else if($(share_comp).hasClass("qq")){
+            }else if($(share_comp).hasClass("qzone")){
                 //构造一个带有额外参数的qzone分享链接
                 url = qzone_share(content,pic_url,title,share_url,site_title,extra);
-            }else if($(share_comp).hasClass("qqmail")){
+            }else if($(share_comp).hasClass("qmail")){
                 //构造一个带有额外参数的qq邮箱分享链接
                 url = qqmail_share(content,pic_url,title,share_url,site_title,extra);
+            }else if($(that).hasClass("qqim")){
+                url = qqim_share(content,img_url,share_url,title,document.title,extra);
+            }else if($(this).hasClass("gmail")){
+                url = gmail_share(content);
+            }else if($(that).hasClass("gplus")){
+                url = gplus_share(content,share_url);
+            }else if($(that).hasClass("twitter")){
+                url = twitter_share(content,share_url,"okmemo");
+            }else if($(that).hasClass("facebook")){
+                url = fb_share(content,share_url);
+            }else if($(that).hasClass("tumblr")){
+                url = tb_share(content,share_url);
             }else if($(share_comp).hasClass("wechat")){
                 $("#post_qrcode").find("canvas").remove().end().qrcode({
                     size: 132,
@@ -439,12 +536,24 @@
                         }else if($(share_comp).hasClass("douban")){
                             //构造一个带有额外参数的豆瓣分享链接
                             url = douban_share(content,pic_url,title,extra);
-                        }else if($(share_comp).hasClass("qq")){
+                        }else if($(share_comp).hasClass("qzone")){
                             //构造一个带有额外参数的qzone分享链接
                             url = qzone_share(content,pic_url,title,share_url,site_title,extra);
                         }else if($(share_comp).hasClass("qqmail")){
                             //构造一个带有额外参数的qq邮箱分享链接
                             url = qqmail_share(content,pic_url,title,share_url,site_title,extra);
+                        }else if($(that).hasClass("qqim")){
+                            url = qqim_share(content,img_url,share_url,title,document.title,extra);
+                        }else if($(this).hasClass("gmail")){
+                            url = gmail_share(content);
+                        }else if($(that).hasClass("gplus")){
+                            url = gplus_share(content,share_url);
+                        }else if($(that).hasClass("twitter")){
+                            url = twitter_share(content,share_url,"okmemo");
+                        }else if($(that).hasClass("facebook")){
+                            url = fb_share(content,share_url);
+                        }else if($(that).hasClass("tumblr")){
+                            url = tb_share(content,share_url);
                         }else if($(share_comp).hasClass("wechat")){
                             //微信分享生成二维码
                             $("#post_qrcode").find("canvas").remove().end().qrcode({

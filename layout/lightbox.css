@@ -2,6 +2,8 @@
 body:after {
   content: url(images/close.png) url(images/loading-lb.gif) url(images/prev.png) url(images/next.png);
   display: none;
+  font-family:"SourceHanSansCN-ExtraLight","SourceHanSansCN-Light", "Source Han Sans CN", "HiraginoSansGB-W3", "noto sans CN","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+
 }
 
 .lightboxOverlay {
@@ -48,6 +50,7 @@ body:after {
   background: #fff;
   text-align: right;
   height: 40px;
+  border-radius: 0 0 4px 4px;
 }
 
 .lb-description .img-des .button span{
@@ -72,6 +75,7 @@ body:after {
   resize: none;
   border:none;
   margin: 0;
+  border-radius: 4px 4px 0 0;
 }
 
 .lb-description .img-des .triangle.outside{
@@ -94,7 +98,7 @@ body:after {
   left: -9px;
 }
 
-.lb-description.show-triangle .img-des .triangle.outside{
+.lb-description .img-des textarea:focus+div.triangle.outside{
   display: block;
 }
 
@@ -289,19 +293,30 @@ body:after {
 
 
 #lightbox .lb-op-con{
-  font-size: 14px;
-  color: #575757;
+  color: #404040;
   margin-top: 6px;
 }
 
 #lightbox .lb-op-con span.icon-item{
-  /*background: #f3f3f3;*/
   padding: 2px;
   margin-right: 2px;
   border-radius: 2px;
   cursor: pointer;
-  /*border: 1px solid #ccc;*/
 }
+
+
+#lightbox .lb-op-con span.cut-off-rule{
+  height: 12px;
+  display: inline-block;
+  width: 1px;
+  margin: 0 8px;
+  background: #404040;
+}
+
+#lightbox .lb-op-con span.icon-item:hover{
+  color: #00cccc;
+}
+
 
 #lightbox .lb-op-con .share-con{
   float: right;

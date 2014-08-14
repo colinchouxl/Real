@@ -976,7 +976,23 @@ function fb_share(content,share_url,extra){
     }
     content = content.replace(" ","+");
     var url = "https://wwww.facebook/sharer/sharer.php?u="+share_url+"&t="+content+extra;
-    return url
+    return url;
+}
+
+function tb_share(content,share_url,extra){
+    //https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Falistapart.com%2Farticle%2Fdesigning-web-registration-forms-for-kids&t=Designing+Web+Registration+Processes+for+Kids
+    if(content.length > 140){
+        content = content.substr(0,130)+"......";
+    }
+
+    if(share_url.indexOf("?") == -1){
+        share_url += "?__backsrc=tumblr";
+    }else{
+        share_url += "&__backsrc=tumblr";
+    }
+    content = content.replace(" ","+");
+    var url = "";
+    return url;
 }
 
 function twitter_share(content,share_url,twitter_name,extra){

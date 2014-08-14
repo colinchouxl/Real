@@ -3361,29 +3361,30 @@ jQuery(function($){
                     }else if($(that).hasClass("douban")){
                         url = douban_share(content,img_url,"分享自:Ok记("+share_url+")",append_share_source);
                         console.log(url);
-                    }else if($(that).hasClass("qqmail")){
+                    }else if($(that).hasClass("qmail")){
                         //分享到QQ邮箱
                         url = qqmail_share(content,img_url,"",share_url,document.title,append_share_source);
                     }else if($(that).hasClass("qzone")){
                         url = qzone_share(content,img_url,"",share_url,document.title,append_share_source);
-                    }else if($(that).hasClass("tqq")){
+                    }else if($(that).hasClass("qqwb")){
                         url = qt_share(content,img_url,share_url,append_share_source);
                     }else if($(that).hasClass("gmail")){
                         url = gmail_share(content);
                     }else if($(that).hasClass("qqim")){
                         url = qqim_share(content,img_url,share_url,title,document.title,extra);
-                    }
-
-                    else if($(that).hasClass("gplus")){
+                    }else if($(that).hasClass("gplus")){
                         url = gplus_share(content,share_url);
-                        console.log(url);
-                    }
-
-                    else if($(that).hasClass("wechat")){
+                    }else if($(that).hasClass("twitter")){
+                        url = twitter_share(content,share_url,"okmemo");
+                    }else if($(that).hasClass("facebook")){
+                        url = fb_share(content,share_url);
+                    }else if($(that).hasClass("tumblr")){
+                        url = tb_share(content,share_url);
+                    }else if($(that).hasClass("wechat")){
                         if(feedback.status == "ok"){
-                            //生成一个二维码
+                            //生成一个二维码====目前文档结构中没有给出canvas
                             $("#post_qrcode").find("canvas").remove().end().qrcode({
-                                size: 80,
+                                size: 132,
                                 color: '#3a3',
                                 text: share_url+"&__backsrc=wechat"
                             }).toggle();
@@ -3391,11 +3392,6 @@ jQuery(function($){
                             //提示用户分享失败
                             showMessage({type:"error",msg:"抱歉微信分享失败"});
                         }
-                    }else if($(that).hasClass("twitter")){
-                        url = twitter_share(content,share_url,"okmemo");
-
-                    }else if($(that).hasClass("facebook")){
-                        url = fb_share(content,share_url);
                     }
 
                     $note_con.find(".op a.share").trigger("click");
@@ -5228,7 +5224,7 @@ jQuery(function($){
         ImageItem.prototype.get_image_tags(function(data){
             var tags_con = "<link rel=\"stylesheet\" href=\""+location.origin+"/fonts/ok-icon-fonts/icon-fonts.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/image_wall.css\"><link rel=\"stylesheet\" href=\""+location.origin+"/layout/lightbox.css\">"+ 
                             "<div class=\"wall-header\">"+
-                                "<div class=\"wall-op\"> <a href=\"#\" class=\"close\"><span class=\"ok-icon-undefinded02 icon-font\"></span></a></div>"+
+                                "<div class=\"wall-op\"> <a href=\"#\" class=\"close\"><span class=\"ok-icon-close icon-font\"></span></a></div>"+
 
                                 "<div class=\"wall-title\"><h1><span class=\"title\">image-wall</span><span class=\"num\"></span></h1></div>"+
                             "<div class=\"wall-tag-con-bg\">"+
@@ -5258,20 +5254,20 @@ jQuery(function($){
                                 "<div class=\"overall\">"+
                                     "<div class=\"share-con\">"+
                                         "<a href=\"#\" class=\"comp weibo\"><span class=\"icon-item ok-icon-sinaweibo-line\"></span></a>"+
-                                        "<a href=\"#\" class=\"comp tt\"><span class=\"icon-item ok-icon-tencentweibo-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp qqwb\"><span class=\"icon-item ok-icon-tencentweibo-line\"></span></a>"+
                                         "<a href=\"#\" class=\"comp wechat\"><span class=\"icon-item ok-icon-wechat-line\"></span></a>"+
                                         "<a href=\"#\" class=\"comp douban\"><span class=\"icon-item ok-icon-douban-line\"></span></a>"+
-                                        "<a href=\"#\" class=\"comp qq\"><span class=\"icon-item ok-icon-QQfriend-line\"></span></a>"+
-                                        "<a href=\"#\" class=\"comp qqmail\"><span class=\"icon-item ok-icon-email-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp qzone\"><span class=\"icon-item ok-icon-qqzone-line\"></span></a>"+
+                                        "<a href=\"#\" class=\"comp qmail\"><span class=\"icon-item ok-icon-email-line\"></span></a>"+
                                         "<a href=\"#\" class=\"unavailable\"><span class=\"icon-item  ok-icon-more\"></span></a>"+
                                         "<div class=\"more-comp\">"+
                                             "<div class=\"other-icons\">"+
-                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-facebook-line\"></span></a>"+
-                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-google\"></span></a>"+
-                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-tumblr-line\"></span></a>"+
-                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-evernote-line\"></span></a>"+
-                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-qqzone-line\"></span></a>"+
-                                                "<a class=\"icon-other\" href=\"#\"><span class=\"ok-icon-twitter-line\"></span></a>"+
+                                                "<a class=\"icon-other facebook\" href=\"#\"><span class=\"ok-icon-facebook-line\"></span></a>"+
+                                                "<a class=\"icon-other gplus\" href=\"#\"><span class=\"ok-icon-google\"></span></a>"+
+                                                "<a class=\"icon-other tumblr\" href=\"#\"><span class=\"ok-icon-tumblr-line\"></span></a>"+
+                                                "<a class=\"icon-other evernote\" href=\"#\"><span class=\"ok-icon-evernote-line\"></span></a>"+
+                                                "<a class=\"icon-other qqim\" href=\"#\"><span class=\"ok-icon-QQfriend-line\"></span></a>"+
+                                                "<a class=\"icon-other twitter\" href=\"#\"><span class=\"ok-icon-twitter-line\"></span></a>"+
                                             "</div>"+
                                         "</div>"+
                                         "<div id=\"post_qrcode\"><p class=\"description\">请使用微信扫描<br/>分享给微信好友或朋友圈</p></div>"+
@@ -5345,11 +5341,11 @@ jQuery(function($){
                                 "<a class=\"share\" href=\"#\"><span class=\"icon-font ok-icon-share\"></span></a>" +
                             "</div>" +
                             "<div class=\"share-component\">" +  //添加了字体图标   7-13-icon-font
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqmail component\"><span class=\"icon-font ok-icon-email-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qmail component\"><span class=\"icon-font ok-icon-email-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"weibo component\"><span class=\"icon-font ok-icon-sinaweibo-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"douban component\"><span class=\"icon-font ok-icon-douban-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"qzone component\"><span class=\"icon-font  ok-icon-qqzone-line\"></span></a></div>" +
-                                    "<div class=\"share-icon\"><a href=\"#\" class=\"tqq component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
+                                    "<div class=\"share-icon\"><a href=\"#\" class=\"qqwb component\"><span class=\"icon-font ok-icon-tencentweibo-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"wechat component\"><span class=\"icon-font ok-icon-wechat-line\"></span></a></div>" +
                                     "<div class=\"share-icon\"><a href=\"#\" class=\"cancel-share\"><span class=\"icon-font ok-icon-share\"></span></a></div>" +
                                 "</div>" +

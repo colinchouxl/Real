@@ -27,7 +27,8 @@ body.img-wall body{
 
 
 body{
-    font-family: "Source Han Sans CN","noto sans","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-family:"SourceHanSansCN-ExtraLight","SourceHanSansCN-Light", "Source Han Sans CN", "HiraginoSansGB-W3", "noto sans CN","Hiragino Sans GB","Classic Grotesque W01",STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+
     padding: 0;
     margin: 0;
     min-width: 706px;
@@ -410,6 +411,7 @@ body .multi-choice .footer-op a.download.active{
 
 body #container .single-op{
     margin-top: 5px;  /*7-13*/  
+    height: 24px;
 }
 
 body #container .single-op .checkbox{
@@ -417,6 +419,7 @@ body #container .single-op .checkbox{
     display: inline-block;
     cursor: pointer;
     font-size: 12px;
+    margin-top: 6px; 
 }
 body #container .single-op .checkbox span{
     visibility: hidden;
@@ -426,7 +429,7 @@ body #container .single-op .operations{
     display: inline-block;
     position: absolute;
     right: 5px;
-    bottom: 1px;
+    bottom: 6px;
 }
 
 body #container .single-op .operations a{
